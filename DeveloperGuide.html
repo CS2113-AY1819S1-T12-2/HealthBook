@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 4 - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 4 - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">Health Book</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S1-T12-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 4 - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
@@ -70,7 +70,29 @@
 </li>
 <li><a href="#product-scope">Appendix B: Product Scope</a></li>
 <li><a href="#user-stories">Appendix C: User Stories</a></li>
-<li><a href="#use-cases">Appendix D: Use Cases</a></li>
+<li><a href="#use-cases">Appendix D: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-viewing-of-available-commands-code-help-code">D.1. Use case: Viewing of available commands: <code>help</code></a></li>
+<li><a href="#use-case-adding-a-patient-code-add-code">D.2. Use case: Adding a patient: <code>add</code></a></li>
+<li><a href="#use-case-listing-all-patients-code-list-code">D.3. Use case: Listing all patients: <code>list</code></a></li>
+<li><a href="#use-case-editing-basic-information-of-patient-code-edit-code">D.4. Use case: Editing basic information of patient: <code>edit</code></a></li>
+<li><a href="#use-case-finding-patients-by-categories-code-find-code">D.5. Use case: Finding patients by categories: <code>find</code></a></li>
+<li><a href="#use-case-deleting-a-patient-code-delete-code">D.6. Use case: Deleting a patient: <code>delete</code></a></li>
+<li><a href="#use-case-adding-an-appointment-into-patient-s-timetable-code-addappt-code">D.7. Use case: Adding an appointment into patient’s timetable: <code>addappt</code></a></li>
+<li><a href="#use-case-viewing-a-patient-s-appointments-code-viewappts-code">D.8. Use case: Viewing a patient’s appointments: <code>viewappts</code></a></li>
+<li><a href="#use-case-editing-an-appointment-in-a-patient-s-timetable-code-editappt-code">D.9. Use case: Editing an appointment in a patient’s timetable: <code>editappt</code></a></li>
+<li><a href="#use-case-deleting-an-appointment-in-a-patient-s-timetable-code-deleteappt-code">D.10. Use case: Deleting an appointment in a patient’s timetable: <code>deleteappt</code></a></li>
+<li><a href="#use-case-adding-optional-information-of-patient-code-addinfo-code">D.11. Use case: Adding optional information of patient: <code>addinfo</code></a></li>
+<li><a href="#use-case-editing-optional-information-of-patient-code-editinfo-code">D.12. Use case: Editing optional information of patient: <code>editinfo</code></a></li>
+<li><a href="#use-case-adding-of-medical-report-code-addreport-code">D.13. Use case: Adding of Medical Report: <code>addreport</code></a></li>
+<li><a href="#use-case-editing-of-medical-report-code-editreport-code">D.14. Use case: Editing of Medical Report: <code>editreport</code></a></li>
+<li><a href="#use-case-list-of-medical-report-code-listreport-code">D.15. Use case: List of Medical Report: <code>listreport</code></a></li>
+<li><a href="#use-case-sort-patients-list-code-sortlist-code">D.16. Use case: Sort patients list: <code>sortlist</code></a></li>
+<li><a href="#use-case-viewing-information-of-patients-code-view-code">D.17. Use case: Viewing information of patients: <code>view</code></a></li>
+<li><a href="#use-case-import-files-to-other-computers-code-import-code">D.18. Use case: Import files to other computers: <code>import</code></a></li>
+<li><a href="#use-case-export-files-to-other-computers-code-export-code">D.19. Use case: Export files to other computers: <code>export</code></a></li>
+</ul>
+</li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix F: Glossary</a></li>
 <li><a href="#product-survey">Appendix G: Product Survey</a></li>
@@ -1950,12 +1972,15 @@ for <code>RemarkCommandParser</code>.</p>
 <h2 id="product-scope"><a class="link" href="#product-scope">Appendix B: Product Scope</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Target user profile</strong>:</p>
+<p>Health Book is an address book application that is catered for healthcare professionals who seek to retrieve their patients’ personal information and health-related information all in one place. Command Line Interface is utilized mainly for the input, while GUI is used mainly to display the output. By combining these 2 interfaces, Health Book aims to provide healthcare professionals with the speed and efficiency obtained from a CLI while retaining the systematic view of information through the GUI.</p>
+</div>
+<div class="paragraph">
+<p><strong>Target user profile</strong>: Health Book is catered for healthcare professionals who seek to retrieve their patients’ personal information and health-related information all in one place.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to manage a significant number of contacts</p>
+<p>has a need to manage a significant number of patients</p>
 </li>
 <li>
 <p>prefer desktop apps over other types</p>
@@ -1972,7 +1997,7 @@ for <code>RemarkCommandParser</code>.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
+<p><strong>Value proposition</strong>: With many patients to attend to, healthcare professionals need to focus much of their attention and care on their patients and less on administrative matters. Health Book is a one-stop application for healthcare professionals to create, read, update or delete (CRUD) patient’s information, reducing the need for long and troublesome paperwork and simplifying administrative work.</p>
 </div>
 </div>
 </div>
@@ -2000,70 +2025,141 @@ for <code>RemarkCommandParser</code>.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new person</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add, edit, and delete patients and their medical informaton</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of my patients and not prescribe them the wrong medication</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find a patient by name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of patients without having to go through the entire list</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a platform to view my patients' past medical history</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">compare with their current symptoms to predict future health risks</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know my patient’s drug allergy if he/she has any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prescribe the drugs without causing other medical conditions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know if there is any follow-up actions for a particular patient, or if the medical case for the patient has closed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know if the patient has been discharged</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a sorted list of all my patients in terms of their personal particulars/medical information (allergies, blood type, address, last visited country) and past medical history</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">assess them more quickly and easily, and understand the past medical issues that my patients faced</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">import/export files to other computers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">send patients’ data to other hospitals if the patient transfers there</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see all my patient’s appointments if there is any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remind my patients to come for appointments days in advance</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have an inventory list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track and replenish stocks</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have image functionality in the feature (medical history)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view X-rays and scans where applicable to provide better diagnosis</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rank patients’ past illnesses in terms of severity (medical history)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">efficiently perform certain checkups to ensure their condition is kept in check</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to see all appointments for the day and how many people have appointments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can schedule appointments easily when people call in and request for an appointment, I can schedule them an empty timeslot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to see where patients live on a map</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can do house visits easily and deliver medication to them</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see the patients' prescriptions given to them by previous doctors they have visited for each entry in their medical history (medical history)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">understand how their medical condition is based on medication taken</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">encrypt all my patients’ info</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">my patients’ data will be protected from hackers</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix D: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>Health Book</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<div class="sect2">
+<h3 id="use-case-viewing-of-available-commands-code-help-code"><a class="link" href="#use-case-viewing-of-available-commands-code-help-code">D.1. Use case: Viewing of available commands: <code>help</code></a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User requests to see a list of available commands.</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>System displays the list of commands that the user can enter.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-adding-a-patient-code-add-code"><a class="link" href="#use-case-adding-a-patient-code-add-code">D.2. Use case: Adding a patient: <code>add</code></a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a patient into the System.</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
-</li>
-<li>
-<p>AddressBook deletes the person</p>
+<p>System adds the patient into the System and displays a message that the addition is successful.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2076,19 +2172,52 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The list is empty.</p>
+<p>1a. User uses the wrong format to add patient.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of adding a patient.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-listing-all-patients-code-list-code"><a class="link" href="#use-case-listing-all-patients-code-list-code">D.3. Use case: Listing all patients: <code>list</code></a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>3a. The given index is invalid.</p>
+<p>User requests to see a list of all patients in the System.</p>
+</li>
+<li>
+<p>System shows user a list of all patients.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>2a. List is empty.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. System shows user a message that there are no patients entered yet and prompts user to add patient.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case ends.</p>
 </div>
 </li>
 </ul>
@@ -2096,29 +2225,1089 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="use-case-editing-basic-information-of-patient-code-edit-code"><a class="link" href="#use-case-editing-basic-information-of-patient-code-edit-code">D.4. Use case: Editing basic information of patient: <code>edit</code></a></h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p>Assume that user has already requested the System to display a list of patients.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit a specific patient in the list with updated details.</p>
+</li>
+<li>
+<p>System updates the patient’s information with the new details and displays a message that the edit is successful.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to edit patient.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of editing a patient.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-finding-patients-by-categories-code-find-code"><a class="link" href="#use-case-finding-patients-by-categories-code-find-code">D.5. Use case: Finding patients by categories: <code>find</code></a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find a patient in the list by categories. (eg. name, age, blood type, marital status)</p>
+</li>
+<li>
+<p>System shows user a list of patients who are in requested category.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to find patient.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of finding a patient.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid category or keyword.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that category or keyword is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-deleting-a-patient-code-delete-code"><a class="link" href="#use-case-deleting-a-patient-code-delete-code">D.6. Use case: Deleting a patient: <code>delete</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to display a list of patients.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to delete a person in the list using the patient’s index.</p>
+</li>
+<li>
+<p>System deletes the user who has that index and displays a message that deletion is successful.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to delete patient.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of editing a patient.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-adding-an-appointment-into-patient-s-timetable-code-addappt-code"><a class="link" href="#use-case-adding-an-appointment-into-patient-s-timetable-code-addappt-code">D.7. Use case: Adding an appointment into patient’s timetable: <code>addappt</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to display a list of patients.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add an appointment into patient’s timetable.</p>
+</li>
+<li>
+<p>System adds the appointment into patient’s timetable and displays a message that the addition is successful.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to add appointment.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of adding appointment.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. Patient’s timetable already has an appointment which overlaps with the new appointment in terms of timing.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System shows an error message that there is an overlapped appointment, and shows both the appointments which overlap each other.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-viewing-a-patient-s-appointments-code-viewappts-code"><a class="link" href="#use-case-viewing-a-patient-s-appointments-code-viewappts-code">D.8. Use case: Viewing a patient’s appointments: <code>viewappts</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to display a list of patients.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view all appointments in the patient’s timetable.</p>
+</li>
+<li>
+<p>System displays all appointments in the patient’s timetable.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to view appointments.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of viewing appointments.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. User requests to view all appointments of a patient who does not have any appointment.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System shows message that the patient does not have any appointments.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-editing-an-appointment-in-a-patient-s-timetable-code-editappt-code"><a class="link" href="#use-case-editing-an-appointment-in-a-patient-s-timetable-code-editappt-code">D.9. Use case: Editing an appointment in a patient’s timetable: <code>editappt</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to view appointments for a patient.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit an appointment in the patient’s timetable with new details.</p>
+</li>
+<li>
+<p>System updates the appointment in the patient’s timetable with the new details and displays a message that edit is successful.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to edit appointment.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of editing appointment.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. Patient’s timetable already has an appointment which overlaps with the new appointment in terms of timing.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System shows an error message that there is an overlapped appointment, and shows both the appointments which overlap each other.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-deleting-an-appointment-in-a-patient-s-timetable-code-deleteappt-code"><a class="link" href="#use-case-deleting-an-appointment-in-a-patient-s-timetable-code-deleteappt-code">D.10. Use case: Deleting an appointment in a patient’s timetable: <code>deleteappt</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to view appointments for a patient.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to delete an appointment in the patient’s timetable.</p>
+</li>
+<li>
+<p>System deletes the appointment in the patient’s timetable and displays a message that deletion is successful.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to delete appointment.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of deleting appointment.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-adding-optional-information-of-patient-code-addinfo-code"><a class="link" href="#use-case-adding-optional-information-of-patient-code-addinfo-code">D.11. Use case: Adding optional information of patient: <code>addinfo</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to display a list of patients.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add optional information for patient.</p>
+</li>
+<li>
+<p>System adds optional information for the patient and displays a message that entry for optional information is successful.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to add optional information i.e. wrong command or invalid data for the fields.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of adding optional information. System will ignore invalid commands or data and process only the valid commands and data.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-editing-optional-information-of-patient-code-editinfo-code"><a class="link" href="#use-case-editing-optional-information-of-patient-code-editinfo-code">D.12. Use case: Editing optional information of patient: <code>editinfo</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to display a list of patients.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit optional information for patient.</p>
+</li>
+<li>
+<p>System edits optional information for the patient and displays a message that edit for optional information is successful.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to edit optional information i.e. wrong command or invalid data for the fields.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of adding optional information. System will ignore invalid commands or data and process only the valid commands and data.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. User requests to edit information that does not exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System shows an error message that the information does not exist. System will ignore the edit request for that field and process the valid edit requests for other fields</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-adding-of-medical-report-code-addreport-code"><a class="link" href="#use-case-adding-of-medical-report-code-addreport-code">D.13. Use case: Adding of Medical Report: <code>addreport</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to display a list of patients.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add medical report for patient.</p>
+</li>
+<li>
+<p>System adds medical report for the patient and displays a message that addition of medical report is successful.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to add medical report.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of adding medical report.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-editing-of-medical-report-code-editreport-code"><a class="link" href="#use-case-editing-of-medical-report-code-editreport-code">D.14. Use case: Editing of Medical Report: <code>editreport</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to display a list of medical reports for a patient.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit medical report for patient.</p>
+</li>
+<li>
+<p>System edits medical report for the patient and displays a message that edit of medical report is successful.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to edit medical report.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of editing medical report.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-list-of-medical-report-code-listreport-code"><a class="link" href="#use-case-list-of-medical-report-code-listreport-code">D.15. Use case: List of Medical Report: <code>listreport</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to display a list of patients.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view all medical reports for a patient.</p>
+</li>
+<li>
+<p>System displays all medical reports for the patient.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to list medical reports.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of listing medical reports.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. User requests to view all medical reports for a patient who does not have any medical report.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System shows message that the patient does not have any medical report.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-sort-patients-list-code-sortlist-code"><a class="link" href="#use-case-sort-patients-list-code-sortlist-code">D.16. Use case: Sort patients list: <code>sortlist</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to display a list of patients.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to sort the patients by a category and order.</p>
+</li>
+<li>
+<p>System displays a sorted list of the patients and displays a message that the list is successfully sorted.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User chooses to sort by a category that does not exist (for example: the letter does not exist or refer to any category ie “z”, “3” or “-”).</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows an error message that the category does not exist.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User inputs an invalid order_index.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the order index does not exist.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-viewing-information-of-patients-code-view-code"><a class="link" href="#use-case-viewing-information-of-patients-code-view-code">D.17. Use case: Viewing information of patients: <code>view</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to display a list of patients.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User chooses to view information of patient.</p>
+</li>
+<li>
+<p>System requests for the details of information.</p>
+</li>
+<li>
+<p>User enters the requested details.</p>
+</li>
+<li>
+<p>System shows the requested information of patient.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. System detects an error in the entered data.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. System requests for the correct data.</p>
+</li>
+<li>
+<p>3a2. User enters new data.</p>
+</li>
+<li>
+<p>Steps 3a1 and 3a2 are repeated until data entered is correct.</p>
+<div class="paragraph">
+<p>Use case resumes at step 4.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-import-files-to-other-computers-code-import-code"><a class="link" href="#use-case-import-files-to-other-computers-code-import-code">D.18. Use case: Import files to other computers: <code>import</code></a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User chooses to import patient info of a specific patient and specifies the directory and the text file where he wants to import it from.</p>
+</li>
+<li>
+<p>System imports patient info from a txt file.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. Directory information or text file name that user inputs is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System displays a message that the location given is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-export-files-to-other-computers-code-export-code"><a class="link" href="#use-case-export-files-to-other-computers-code-export-code">D.19. Use case: Export files to other computers: <code>export</code></a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User chooses to export patient info of a specific patient and specifies the directory and file name which he wants to export to.</p>
+</li>
+<li>
+<p>System exports patient into a txt file in the specified directory.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. Directory information or text file name that user inputs is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System displays a message that the location given is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></h2>
 <div class="sectionbody">
+<h3 id="environment-requirements" class="discrete">Environment Requirements</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>9</code> or higher installed.</p>
 </li>
 <li>
-<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
-</li>
-<li>
-<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+<p>Should work on both 32-bit and 64-bit environments.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
+<h3 id="business-domain-rules" class="discrete">Business/Domain Rules</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Should be able to store up to 1000 patients' information without a noticeable sluggishness in performance for typical usage.</p>
+</li>
+</ol>
+</div>
+<h3 id="constraints" class="discrete">Constraints</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>System data is only stored locally and not on the cloud.</p>
+</li>
+</ol>
+</div>
+<h3 id="quality-requirements" class="discrete">Quality requirements</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The layout of the system will be simple and understandable by even doctors who are not proficient with computer systems.</p>
+</li>
+<li>
+<p>Might-have: all information will be encrypted.</p>
+</li>
+</ol>
+</div>
+<h3 id="notes-about-project-scope" class="discrete">Notes about project scope</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The product is not required to handle the printing of reports/profile pages.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -2285,4 +3474,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-07-28 08:52:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-19 13:13:43 UTC</div></div></div></body></html>

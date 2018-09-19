@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">Health Book</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S1-T12-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>HealthBook - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team T12-2</code>      Since: <code>Aug 2018</code>      Licence: <code>NUS</code></p>
+<p>By: <code>Team T12-2</code>      Since: <code>Aug 2018</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -13,20 +13,25 @@
 <li><a href="#quick-start-to-be-edited-in-the-future">2. Quick Start (to be edited in the future)</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
+<li><a href="#viewing-of-available-commands-code-help-code">3.1. Viewing of available commands : <code>help</code></a></li>
 <li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.13. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#listing-all-patients-code-list-code">3.3. Listing all patients : <code>list</code></a></li>
+<li><a href="#editing-basic-information-of-patient-person-code-edit-code">3.4. Editing basic information of patient person : <code>edit</code></a></li>
+<li><a href="#finding-patients-by-categories-code-find-code">3.5. Finding patients by categories: <code>find</code></a></li>
+<li><a href="#deleting-a-patient-code-delete-code">3.6. Deleting a patient : <code>delete</code></a></li>
+<li><a href="#adding-an-appointment-into-patient-s-timetable-code-addappt-code">3.7. Adding an appointment into patient&#8217;s timetable: <code>addappt</code></a></li>
+<li><a href="#viewing-a-patient-s-appointments-timetable-code-viewappts-code">3.8. Viewing a patient&#8217;s appointments timetable: <code>viewappts</code></a></li>
+<li><a href="#editing-an-appointment-in-a-patient-s-timetable-code-editappt-code">3.9. Editing an appointment in a patient&#8217;s timetable: <code>editappt</code></a></li>
+<li><a href="#deleting-an-appointment-in-a-patient-s-timetable-code-deleteappt-code">3.10. Deleting an appointment in a patient’s timetable: <code>deleteappt</code></a></li>
+<li><a href="#adding-optional-information-of-patient-code-addinfo-code">3.11. Adding optional information of patient: <code>addinfo</code></a></li>
+<li><a href="#editing-optional-information-of-patient-code-editinfo-code">3.12. Editing optional information of patient: <code>editinfo</code></a></li>
+<li><a href="#adding-of-medical-report-code-addreport-code">3.13. Adding of Medical Report: <code>addreport</code></a></li>
+<li><a href="#editing-of-medical-report-code-editreport-code">3.14. Editing of Medical Report: <code>editreport</code></a></li>
+<li><a href="#list-of-medical-report-code-listreport-code">3.15. List of Medical Report: <code>listreport</code></a></li>
+<li><a href="#sort-patients-list-code-sortlist-code">3.16. Sort patients list: <code>sortlist</code></a></li>
+<li><a href="#view-patient-s-information-code-view-code">3.17. View patient’s information: <code>view</code></a></li>
+<li><a href="#import-files-to-other-computers-code-import-code">3.18. Import files to other computers: <code>import</code></a></li>
+<li><a href="#export-files-to-other-computers-code-export-code">3.19. Export files to other computers: <code>export</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -178,16 +183,17 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<h3 id="viewing-of-available-commands-code-help-code"><a class="link" href="#viewing-of-available-commands-code-help-code">3.1. Viewing of available commands : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Displays the list of commands available.<br>
+Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+<p>Create a new patient entry into the health book<br>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -210,23 +216,23 @@ A person can have any number of tags (including 0)
 <p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
+<h3 id="listing-all-patients-code-list-code"><a class="link" href="#listing-all-patients-code-list-code">3.3. Listing all patients : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
+<p>Shows a list of all persons in the health book.<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
+<h3 id="editing-basic-information-of-patient-person-code-edit-code"><a class="link" href="#editing-basic-information-of-patient-person-code-edit-code">3.4. Editing basic information of patient person : <code>edit</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p>Edits an existing patient in the health book.<br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -245,7 +251,7 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>You can remove all the patient&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
 </li>
 </ul>
 </div>
@@ -258,20 +264,20 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <ul>
 <li>
 <p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+Edits the phone number and email address of the 1st patient to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
 </li>
 <li>
 <p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+Edits the name of the 2nd patient to be <code>Betsy Crower</code> and clears all existing tags.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
+<h3 id="finding-patients-by-categories-code-find-code"><a class="link" href="#finding-patients-by-categories-code-find-code">3.5. Finding patients by categories: <code>find</code></a></h3>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Finds patients by categories such as their name, age and marital status.<br>
+Format: <code>find category/KEYWORD UNDER CATEGORY</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -302,20 +308,28 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find John</code><br>
+<p><code>find n/John</code><br>
 Returns <code>john</code> and <code>John Doe</code></p>
 </li>
 <li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p><code>find n/Betsy Tim John</code><br>
+Returns any patient having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+</li>
+<li>
+<p><code>find ms/married</code>
+Returns any patient who is married.</p>
+</li>
+<li>
+<p><code>find age/18</code>
+Returns any patient who is 18 years old.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
+<h3 id="deleting-a-patient-code-delete-code"><a class="link" href="#deleting-a-patient-code-delete-code">3.6. Deleting a patient : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
+<p>Deletes the specified patient from the health book.<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -346,7 +360,7 @@ Format: <code>delete INDEX</code></p>
 Deletes the 2nd person in the address book.</p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
+<p><code>find n/Betsy</code><br>
 <code>delete 1</code><br>
 Deletes the 1st person in the results of the <code>find</code> command.</p>
 </li>
@@ -354,23 +368,52 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></h3>
+<h3 id="adding-an-appointment-into-patient-s-timetable-code-addappt-code"><a class="link" href="#adding-an-appointment-into-patient-s-timetable-code-addappt-code">3.7. Adding an appointment into patient&#8217;s timetable: <code>addappt</code></a></h3>
 <div class="paragraph">
-<p>Selects the person identified by the index number used in the displayed person list.<br>
-Format: <code>select INDEX</code></p>
+<p>Adds an appointment into the specified patient&#8217;s timetable.<br>
+Format: <code>addappt INDEX d/DATE s/START_TIME e/END_TIME v/VENUE i/APPOINTMENT_INFORMATION dn/DOCTOR_NAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>.</p>
+<p>Adds an appointment for the patient at the specified INDEX.</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the displayed person list.</p>
 </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+<p><code>addappt 2 d/12092018 s/1300 e/1400 v/Consultation Room 12 i/Diabetes Checkup dn/Dr Tan</code><br>
+Adds an appointment for the 2nd person in the list on 12/09/2018 from 1300-1400 at Consultation Room 12 for a diabetes checkup by Dr Tan</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-a-patient-s-appointments-timetable-code-viewappts-code"><a class="link" href="#viewing-a-patient-s-appointments-timetable-code-viewappts-code">3.8. Viewing a patient&#8217;s appointments timetable: <code>viewappts</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all appointments in the specified patient&#8217;s timetable.<br>
+Format: <code>viewappts INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Views all appointments of the patient at the specified index.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed person list.</p>
 </li>
 </ul>
 </div>
@@ -382,58 +425,38 @@ Format: <code>select INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>select 2</code><br>
-Selects the 2nd person in the address book.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>select 1</code><br>
-Selects the 1st person in the results of the <code>find</code> command.</p>
+<p><code>viewappts 2</code><br>
+Views all appointments of the 2nd person in the list.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></h3>
+<h3 id="editing-an-appointment-in-a-patient-s-timetable-code-editappt-code"><a class="link" href="#editing-an-appointment-in-a-patient-s-timetable-code-editappt-code">3.9. Editing an appointment in a patient&#8217;s timetable: <code>editappt</code></a></h3>
 <div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
-Format: <code>history</code></p>
+<p>Edits a specified appointment in the patient&#8217;s timetable.<br>
+Format: <code>editappt INDEX [d/DATE] [s/START_TIME] [e/END_TIME]
+[v/VENUE] [i/APPOINTMENT_INFORMATION] [dn/DOCTOR_NAME]</code></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits a patient’s appointment at the specified index.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed appointment list.</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
 </div>
-</td>
-</tr>
-</table>
 </div>
-</div>
-<div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></h3>
-<div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -441,30 +464,32 @@ Format: <code>undo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+<p><code>editappt 2 s/1400 e/1500 v/Consultation Room 13</code><br>
+Edits the 2nd appointment in the list to have start time of 1400, end time of 1500,
+and venue of Consultation Room 13.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="deleting-an-appointment-in-a-patient-s-timetable-code-deleteappt-code"><a class="link" href="#deleting-an-appointment-in-a-patient-s-timetable-code-deleteappt-code">3.10. Deleting an appointment in a patient’s timetable: <code>deleteappt</code></a></h3>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+<p>Deletes a specified appointment in the patient’s timetable.<br>
+Format: <code>deleteappt INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes a patient’s appointment at the specified index.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed appointment list.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -472,51 +497,196 @@ Format: <code>redo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+<p><code>deleteappt 2</code><br>
+Deletes the 2nd appointment in the displayed appointment list.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="adding-optional-information-of-patient-code-addinfo-code"><a class="link" href="#adding-optional-information-of-patient-code-addinfo-code">3.11. Adding optional information of patient: <code>addinfo</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
+<p>Add the following optional information: NRIC, DOB (in DDMMYYYY format), height (cm), weight (kg),
+gender, occupation, marital status, family member.<br>
+Note: age field will be auto-calculated once DOB is populated<br>
+Format: <code>addinfo INDEX [n/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [o/OCCUPATION] [m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addinfo 2 n/S9123456A d/01011990 h/154 g/M f/3</code><br>
+For patient in index 2, populate NRIC field with S91234567A, date of birth field
+with 01-01-1990, height field with 154, gender field with Male and associate
+patient in index 3 as family member.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></h3>
+<h3 id="editing-optional-information-of-patient-code-editinfo-code"><a class="link" href="#editing-optional-information-of-patient-code-editinfo-code">3.12. Editing optional information of patient: <code>editinfo</code></a></h3>
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
+<p>Edit the following optional information: NRIC, DOB (in DDMMYYYY format), height (cm), weight (kg),
+gender, occupation, marital status, family member.<br>
+Format: <code>editinfo INDEX [n/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [o/OCCUPATION] [m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editinfo 2 n/S9123456A d/01011990 h/154 g/M f/3</code><br>
+For patient in index 2, edit NRIC field with S91234567A, date of birth field with
+01-01-1990, height field with 154, gender field with Male and remove patient in
+index 3 as family member.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
+<h3 id="adding-of-medical-report-code-addreport-code"><a class="link" href="#adding-of-medical-report-code-addreport-code">3.13. Adding of Medical Report: <code>addreport</code></a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
+<p>Add medical diagnosis/report to the patient.<br>
+Format: <code>addreport INDEX [t/TITLE] [d/DATE] [mr/MEDICAL_REPORT]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addreport 3 t/ASTHMA d/01012018 mr/Patient diagnosed with asthma and prescribed XXX medicine. Next appointment on 02-02-2018.</code><br>
+Adds a new medical report for patient at index 3 titled ASTHMA, dated 01-01-2018 with the report stating that the patient has been diagnosed with asthma and is prescribed XXX medicine. Next appointment on 02-02-2018.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="editing-of-medical-report-code-editreport-code"><a class="link" href="#editing-of-medical-report-code-editreport-code">3.14. Editing of Medical Report: <code>editreport</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>Edit existing medical diagnosis/report of the patient.<br>
+Format: <code>editreport INDEX_PATIENT INDEX_REPORT [t/TITLE] [d/DATE] [mr/MEDICAL_REPORT]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>INDEX_PATIENT</code> refers to the index shown in the displayed person list</p>
+</li>
+<li>
+<p><code>INDEX_REPORT</code> refers to the index shown in the displayed report list</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editreport 3 1 t/DEPRESSION d/02012018 mr/Patient diagnosed with depression and prescribed XXX medicine. Next appointment is on 03-02-2018</code><br>
+Edits title, date and information of existing medical report at index 1 for patient at index 3 titled DEPRESSION, dated 02-01-2018 with the report stating that the patient has been diagnosed with depression and is prescribed XXX medicine. Next appointment on 03-02-2018.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-of-medical-report-code-listreport-code"><a class="link" href="#list-of-medical-report-code-listreport-code">3.15. List of Medical Report: <code>listreport</code></a></h3>
+<div class="paragraph">
+<p>List all medical diagnosis/reports of a patient<br>
+Format: <code>listreport INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listreport 1</code><br>
+List all medical reports/diagnosis that are attached to patient at index 1.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sort-patients-list-code-sortlist-code"><a class="link" href="#sort-patients-list-code-sortlist-code">3.16. Sort patients list: <code>sortlist</code></a></h3>
+<div class="paragraph">
+<p>Sort the list of patients according to a specific category.<br>
+Format: <code>sortlist CATEGORY ORDER_INDEX</code></p>
+</div>
+<div class="paragraph">
+<p><code>CATEGORY</code> refers to certain types of important patient information such as name, blood type,
+allergy etc. and each of these information will be defined by their first letter. (ie n for name)
+<code>ORDER_INDEX</code> can be 1 or 2 where 1 means in alphabetical and 2 means in reverse order.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sortlist n 2</code><br>
+Sort the patient list by their names in reverse order (Z → A).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-patient-s-information-code-view-code"><a class="link" href="#view-patient-s-information-code-view-code">3.17. View patient’s information: <code>view</code></a></h3>
+<div class="paragraph">
+<p>View patient’s general and additional information.<br>
+Format: <code>view INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view 1</code><br>
+Display information of patient at index 1</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="import-files-to-other-computers-code-import-code"><a class="link" href="#import-files-to-other-computers-code-import-code">3.18. Import files to other computers: <code>import</code></a></h3>
+<div class="paragraph">
+<p>Import patient’s info as a txt file from a specified directory and file name.<br>
+Format: <code>import DIRECTORY_NAME/FILE_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>import Desktop/patient1info.txt</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="export-files-to-other-computers-code-export-code"><a class="link" href="#export-files-to-other-computers-code-export-code">3.19. Export files to other computers: <code>export</code></a></h3>
+<div class="paragraph">
+<p>Export patient’s info as a txt file to a specified directory and file name.<br>
+Format: <code>export INDEX DIRECTORY_NAME/FILE_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>export 1 Desktop/patient1info.txt</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -525,8 +695,7 @@ There is no need to save manually.</p>
 <h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<p>Empty.</p>
 </div>
 </div>
 </div>
@@ -536,44 +705,79 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
+<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS</code><br>
+e.g. <code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
 </li>
 <li>
-<p><strong>Help</strong> : <code>help</code></p>
+<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]</code><br>
+e.g. <code>edit 1 p/91234567 e/johndoe@example.com</code></p>
 </li>
 <li>
-<p><strong>Select</strong> : <code>select INDEX</code><br>
-e.g.<code>select 2</code></p>
+<p><strong>Find</strong> : <code>find category/KEYWORD UNDER CATEGORY</code><br>
+e.g. <code>find ms/married</code><br>
+e.g. <code>find age/18</code><br>
+e.g. <code>find n/Betsy Tim John</code></p>
 </li>
 <li>
-<p><strong>History</strong> : <code>history</code></p>
+<p><strong>Delete</strong> : <code>delete INDEX</code><br>
+e.g. <code>delete 2</code></p>
 </li>
 <li>
-<p><strong>Undo</strong> : <code>undo</code></p>
+<p><strong>Add Timetable</strong> : <code>add timetable INDEX d/DATE s/START_TIME e/END_TIME v/VENUE i/APPOINTMENT_INFORMATION dn/DOCTOR_NAME</code><br>
+e.g. <code>add timetable 2 d/12092018 s/1300 e/1400 v/Consultation Room 12 i/Diabetes Checkup dn/Dr Tan</code></p>
 </li>
 <li>
-<p><strong>Redo</strong> : <code>redo</code></p>
+<p><strong>View Timetable</strong> : <code>view timetable INDEX</code><br>
+e.g. <code>view timetable 2</code></p>
+</li>
+<li>
+<p><strong>Edit Timetable</strong> : <code>edit timetable INDEX [d/DATE] [s/START_TIME] [e/END_TIME] [v/VENUE] [i/APPOINTMENT_INFORMATION] [dn/DOCTOR_NAME]</code><br>
+e.g.<code>edit timetable 2 s/1400 e/1500 v/Consultation Room 13</code></p>
+</li>
+<li>
+<p><strong>Delete Timetable</strong> : <code>delete timetable INDEX</code><br>
+e.g. <code>delete timetable 2</code></p>
+</li>
+<li>
+<p><strong>Add Information</strong> : <code>addinfo INDEX [n/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [o/OCCUPATION] [m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code><br>
+e.g. <code>addinfo 2 n/S9123456A d/01011990 h/154 g/M f/3</code></p>
+</li>
+<li>
+<p><strong>Edit Information</strong> : <code>editinfo INDEX [n/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [o/OCCUPATION] [m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code><br>
+e.g. <code>editinfo 2 n/S9123456A d/01011990 h/154 g/M f/3</code></p>
+</li>
+<li>
+<p><strong>Add Medical Report</strong> : <code>addreport INDEX [t/TITLE] [d/DATE] [mr/MEDICAL_REPORT]</code><br>
+e.g. <code>addreport 3 t/ASTHMA d/01012018 mr/Patient diagnosed with asthma and prescribed XXX medicine. Next appointment on 02-02-2018.</code></p>
+</li>
+<li>
+<p><strong>Edit Medical Report</strong> : <code>editreport INDEX_PATIENT INDEX_REPORT [t/TITLE] [d/DATE] [mr/MEDICAL_REPORT]</code><br>
+e.g. <code>editreport 3 1 t/DEPRESSION d/02012018 mr/Patient diagnosed with depression and prescribed XXX medicine. Next appointment is on 03-02-2018.</code></p>
+</li>
+<li>
+<p><strong>List Medical Report</strong> : <code>listreport INDEX</code><br>
+e.g. <code>listreport 1</code></p>
+</li>
+<li>
+<p><strong>Sort</strong> : <code>sortlist CATEGORY ORDER_INDEX</code><br>
+e.g. <code>sortlist n 2</code></p>
+</li>
+<li>
+<p><strong>View</strong> : <code>view INDEX</code><br>
+e.g. view 1</p>
+</li>
+<li>
+<p><strong>Import Document</strong> : <code>import DIRECTORY_NAME/FILE_NAME</code><br>
+e.g. <code>import Desktop/patient1info.txt</code></p>
+</li>
+<li>
+<p><strong>Export Document</strong> : <code>export INDEX DIRECTORY_NAME/FILE_NAME</code><br>
+e.g. <code>export 1 Desktop/patient1info.txt</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-19 13:24:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-19 13:49:38 UTC</div></div></div></body></html>

@@ -14,6 +14,10 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.timetable.ApptDateTime;
+import seedu.address.model.timetable.ApptDrName;
+import seedu.address.model.timetable.ApptInfo;
+import seedu.address.model.timetable.ApptVenue;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -120,5 +124,45 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses a {@code String apptDateTime} into an {@code ApptDateTime}.
+     * Leading and trailing whitespaces will be trimmed.
+     */
+    public static ApptDateTime parseApptTime(String apptDateTime) {
+        requireNonNull(apptDateTime);
+        String trimmedApptDateTime = apptDateTime.trim();
+        return new ApptDateTime(trimmedApptDateTime);
+    }
+
+    /**
+     * Parses a {@code String apptVenue} into an {@code ApptVenue}.
+     * Leading and trailing whitespaces will be trimmed.
+     */
+    public static ApptVenue parseApptVenue(String apptVenue) {
+        requireNonNull(apptVenue);
+        String trimmedApptVenue = apptVenue.trim();
+        return new ApptVenue(trimmedApptVenue);
+    }
+
+    /**
+     * Parses a {@code String apptInfo} into an {@code ApptInfo}.
+     * Leading and trailing whitespaces will be trimmed.
+     */
+    public static ApptInfo parseApptInfo(String apptInfo) {
+        requireNonNull(apptInfo);
+        String trimmedApptInfo = apptInfo.trim();
+        return new ApptInfo(trimmedApptInfo);
+    }
+
+    /**
+     * Parses a {@code String apptDrName} into an {@code ApptDrName}.
+     * Leading and trailing whitespaces will be trimmed.
+     */
+    public static ApptDrName parseApptDrName(String apptDrName) {
+        requireNonNull(apptDrName);
+        String trimmedApptDrName = apptDrName.trim();
+        return new ApptDrName(trimmedApptDrName);
     }
 }

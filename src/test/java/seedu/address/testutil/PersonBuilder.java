@@ -1,5 +1,7 @@
 package seedu.address.testutil;
 
+import static seedu.address.testutil.TypicalAppts.APPT_EXAMPLE1;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +23,7 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
-    public static final String DEFAULT_APPT = "";
+    public static final Appt DEFAULT_APPT = APPT_EXAMPLE1;
 
     private Name name;
     private Phone phone;
@@ -35,7 +37,7 @@ public class PersonBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
-        appt = new Appt(DEFAULT_APPT);
+        appt = DEFAULT_APPT;
         tags = new HashSet<>();
     }
 
@@ -94,8 +96,8 @@ public class PersonBuilder {
     /**
      * Sets the {@code Appt} of the {@code Person} that we are building.
      */
-    public PersonBuilder withAppt(String appt) {
-        this.appt = new Appt(appt);
+    public PersonBuilder withAppt(Appt appt) {
+        this.appt = appt;
         return this;
     }
 

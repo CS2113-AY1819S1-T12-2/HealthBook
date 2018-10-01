@@ -1,7 +1,11 @@
 package seedu.address.logic.commands;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_APPT_DRNAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_APPT_END;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_APPT_INFO;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_APPT_START;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_APPT_VENUE;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.List;
@@ -24,17 +28,17 @@ public class AddApptCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds an appointment to a patient's timetable, the"
             + " patient will be identified by the index number used in the last person listing.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            //+ PREFIX_APPT_START + "[START] "
-            //+ PREFIX_APPT_END + "[END] "
-            //+ PREFIX_APPT_VENUE + "[VENUE] "
+            + PREFIX_APPT_START + "[START] "
+            + PREFIX_APPT_END + "[END] "
+            + PREFIX_APPT_VENUE + "[VENUE] "
             + PREFIX_APPT_INFO + "[INFO] "
-            //+ PREFIX_APPT_DRNAME + "[DOCTOR'S NAME]\n"
+            + PREFIX_APPT_DRNAME + "[DOCTOR'S NAME]\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            //+ PREFIX_APPT_START + "16/09/2018 1500 "
-            //+ PREFIX_APPT_END + "16/09/2018 1530 "
-            //+ PREFIX_APPT_VENUE + "Consultation Room 12 "
-            + PREFIX_APPT_INFO + "Diabetes Checkup ";
-    //+ PREFIX_APPT_DRNAME + "Dr Tan";
+            + PREFIX_APPT_START + "16/09/2018 1500 "
+            + PREFIX_APPT_END + "16/09/2018 1530 "
+            + PREFIX_APPT_VENUE + "Consultation Room 12 "
+            + PREFIX_APPT_INFO + "Diabetes Checkup "
+            + PREFIX_APPT_DRNAME + "Dr Tan";
 
     public static final String MESSAGE_ADD_APPT_SUCCESS = "Added appt to Person: %1$s";
     public static final String MESSAGE_DELETE_APPT_SUCCESS = "Removed appt from Person: %1$s";
@@ -76,7 +80,7 @@ public class AddApptCommand extends Command {
      * {@code personToEdit}.
      */
     private String generateSuccessMessage(Person personToEdit) {
-        String message = !appt.value.isEmpty() ? MESSAGE_ADD_APPT_SUCCESS : MESSAGE_DELETE_APPT_SUCCESS;
+        String message = !appt.toString().isEmpty() ? MESSAGE_ADD_APPT_SUCCESS : MESSAGE_DELETE_APPT_SUCCESS;
         return String.format(message, personToEdit);
     }
 

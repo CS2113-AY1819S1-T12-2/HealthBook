@@ -26,6 +26,7 @@ import seedu.address.testutil.EditPersonDescriptorBuilder;
  */
 public class CommandTestUtil {
 
+    // Person
     public static final String VALID_NAME_AMY = "Amy Bee";
     public static final String VALID_NAME_BOB = "Bob Choo";
     public static final String VALID_PHONE_AMY = "11111111";
@@ -47,14 +48,24 @@ public class CommandTestUtil {
     public static final String ADDRESS_DESC_BOB = " " + PREFIX_ADDRESS + VALID_ADDRESS_BOB;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
-    public static final String APPT_DUMMY1 = "Asthma Appt";
-    public static final String APPT_DUMMY2 = "Diabetes Appt";
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
+
+    // Appt
+    public static final String VALID_START_APPT1 = "01/01/2018 14:00";
+    public static final String VALID_START_APPT2 = "02/02/2018 15:00";
+    public static final String VALID_END_APPT1 = "01/01/2018 15:00";
+    public static final String VALID_END_APPT2 = "02/02/2018 16:00";
+    public static final String VALID_VENUE_APPT1 = "Consultation Room 1";
+    public static final String VALID_VENUE_APPT2 = "Consultation Room 2";
+    public static final String VALID_INFO_APPT1 = "Diabetes Checkup";
+    public static final String VALID_INFO_APPT2 = "Asthma Checkup";
+    public static final String VALID_DRNAME_APPT1 = "Dr Tan";
+    public static final String VALID_DRNAME_APPT2 = "Dr Lim";
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";

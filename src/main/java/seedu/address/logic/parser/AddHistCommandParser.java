@@ -8,7 +8,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.AddHistCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.MedHistory;
+import seedu.address.model.medhistory.MedHistory;
 
 /**
  * Parses input arguments and create a {@code AddHistCommand} object

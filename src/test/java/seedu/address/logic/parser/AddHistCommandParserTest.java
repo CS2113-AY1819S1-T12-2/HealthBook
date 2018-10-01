@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.AddHistCommand;
-import seedu.address.model.person.MedHistory;
+import seedu.address.model.medhistory.MedHistory;
 
 public class AddHistCommandParserTest {
     private AddHistCommandParser parser = new AddHistCommandParser();

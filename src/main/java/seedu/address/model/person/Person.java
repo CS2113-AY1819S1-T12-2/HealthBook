@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import seedu.address.model.medhistory.MedHistory;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -29,7 +30,7 @@ public class Person {
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, MedHistory medhistory, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+        requireAllNonNull(name, phone, email, address, medhistory, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -39,22 +40,27 @@ public class Person {
     }
 
     public Name getName() {
+
         return name;
     }
 
     public Phone getPhone() {
+
         return phone;
     }
 
     public Email getEmail() {
+
         return email;
     }
 
     public Address getAddress() {
+
         return address;
     }
 
     public MedHistory getMedHistory() {
+
         return medhistory;
     }
 
@@ -63,6 +69,7 @@ public class Person {
      * if modification is attempted.
      */
     public Set<Tag> getTags() {
+
         return Collections.unmodifiableSet(tags);
     }
 

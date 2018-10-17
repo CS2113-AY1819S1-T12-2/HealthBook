@@ -38,6 +38,7 @@ import seedu.address.model.medicalreport.MedicalReport;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Nric;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.PhoneContainsKeywordsPredicate;
 import seedu.address.model.timetable.Appt;
 import seedu.address.testutil.ApptBuilder;
 import seedu.address.testutil.ApptUtil;

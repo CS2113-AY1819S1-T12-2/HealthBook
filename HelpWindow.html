@@ -24,15 +24,14 @@
 <li><a href="#viewing-a-patient-s-appointments-timetable-code-viewappts-code">3.9. Viewing a patient&#8217;s appointments timetable: <code>viewappts</code></a></li>
 <li><a href="#editing-an-appointment-in-a-patient-s-timetable-code-editappt-code">3.10. Editing an appointment in a patient&#8217;s timetable: <code>editappt</code></a></li>
 <li><a href="#deleting-an-appointment-in-a-patient-s-timetable-code-deleteappt-code">3.11. Deleting an appointment in a patient’s timetable: <code>deleteappt</code></a></li>
-<li><a href="#adding-optional-information-of-patient-code-addinfo-code">3.12. Adding optional information of patient: <code>addinfo</code></a></li>
-<li><a href="#editing-optional-information-of-patient-code-editinfo-code">3.13. Editing optional information of patient: <code>editinfo</code></a></li>
-<li><a href="#adding-of-medical-report-code-addreport-code">3.14. Adding of Medical Report: <code>addreport</code></a></li>
-<li><a href="#editing-of-medical-report-code-editreport-code">3.15. Editing of Medical Report: <code>editreport</code></a></li>
-<li><a href="#list-of-medical-report-code-listreport-code">3.16. List of Medical Report: <code>listreport</code></a></li>
-<li><a href="#sort-patients-list-code-sortlist-code">3.17. Sort patients list: <code>sortlist</code></a></li>
-<li><a href="#view-patient-s-information-code-view-code">3.18. View patient’s information: <code>view</code></a></li>
-<li><a href="#import-files-to-other-computers-code-import-code">3.19. Import files to other computers: <code>import</code></a></li>
-<li><a href="#export-files-to-other-computers-code-export-code">3.20. Export files to other computers: <code>export</code></a></li>
+<li><a href="#adding-additional-information-of-patient-code-addinfo-code">3.12. Adding additional information of patient: <code>addinfo</code></a></li>
+<li><a href="#adding-of-medical-report-code-addreport-code">3.13. Adding of Medical Report: <code>addreport</code></a></li>
+<li><a href="#editing-of-medical-report-code-editreport-code">3.14. Editing of Medical Report: <code>editreport</code></a></li>
+<li><a href="#list-of-medical-report-code-listreport-code">3.15. List of Medical Report: <code>listreport</code></a></li>
+<li><a href="#sort-patients-list-code-sortlist-code">3.16. Sort patients list: <code>sortlist</code></a></li>
+<li><a href="#view-patient-s-information-code-view-code">3.17. View patient’s information: <code>view</code></a></li>
+<li><a href="#import-files-to-other-computers-code-import-code">3.18. Import files to other computers: <code>import</code></a></li>
+<li><a href="#export-files-to-other-computers-code-export-code">3.19. Export files to other computers: <code>export</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -537,12 +536,31 @@ Deletes the 2nd appointment in the displayed appointment list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-optional-information-of-patient-code-addinfo-code"><a class="link" href="#adding-optional-information-of-patient-code-addinfo-code">3.12. Adding optional information of patient: <code>addinfo</code></a></h3>
+<h3 id="adding-additional-information-of-patient-code-addinfo-code"><a class="link" href="#adding-additional-information-of-patient-code-addinfo-code">3.12. Adding additional information of patient: <code>addinfo</code></a></h3>
 <div class="paragraph">
-<p>Add the following optional information: NRIC, DOB (in DDMMYYYY format), height (cm), weight (kg),
+<p>Add the following additional information: NRIC, DOB (in DDMMYYYY format), height (cm), weight (kg),
 gender, occupation, marital status, family member.<br>
 Note: age field will be auto-calculated once DOB is populated<br>
-Format: <code>addinfo INDEX [n/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [o/OCCUPATION] [m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code></p>
+Format: <code>addinfo INDEX [i/NRIC] [d/DOB]</code></p>
+</div>
+<div class="ulist">
+<div class="title">Constraints for <code>[i/NRIC]</code>:</div>
+<ul>
+<li>
+<p>Must start with 'S' or 'T' followed by 7 digits before ending with an alphabet</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Constraints for <code>[d/DOB]</code>:</div>
+<ul>
+<li>
+<p>Must be in the format <code>dd-MM-YYYY</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Work In Progress: <code>[h/HEIGHT] [w/WEIGHT] [g/GENDER] [o/OCCUPATION] [m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -550,7 +568,7 @@ Format: <code>addinfo INDEX [n/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [o
 <div class="ulist">
 <ul>
 <li>
-<p><code>addinfo 2 n/S9123456A d/01011990 h/154 g/M f/3</code><br>
+<p><code>addinfo 2 n/S9123456A d/01-01-1990</code><br>
 For patient in index 2, populate NRIC field with S91234567A, date of birth field
 with 01-01-1990, height field with 154, gender field with Male and associate
 patient in index 3 as family member.</p>
@@ -559,28 +577,7 @@ patient in index 3 as family member.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-optional-information-of-patient-code-editinfo-code"><a class="link" href="#editing-optional-information-of-patient-code-editinfo-code">3.13. Editing optional information of patient: <code>editinfo</code></a></h3>
-<div class="paragraph">
-<p>Edit the following optional information: NRIC, DOB (in DDMMYYYY format), height (cm), weight (kg),
-gender, occupation, marital status, family member.<br>
-Format: <code>editinfo INDEX [n/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [o/OCCUPATION] [m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>editinfo 2 n/S9123456A d/01011990 h/154 g/M f/3</code><br>
-For patient in index 2, edit NRIC field with S91234567A, date of birth field with
-01-01-1990, height field with 154, gender field with Male and remove patient in
-index 3 as family member.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-of-medical-report-code-addreport-code"><a class="link" href="#adding-of-medical-report-code-addreport-code">3.14. Adding of Medical Report: <code>addreport</code></a></h3>
+<h3 id="adding-of-medical-report-code-addreport-code"><a class="link" href="#adding-of-medical-report-code-addreport-code">3.13. Adding of Medical Report: <code>addreport</code></a></h3>
 <div class="paragraph">
 <p>Add medical diagnosis/report to the patient.<br>
 Format: <code>addreport INDEX [t/TITLE] [d/DATE] [i/INFORMATION]</code></p>
@@ -598,7 +595,7 @@ Adds a new medical report for patient at index 3 titled Asthma, dated 01/01/2018
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-of-medical-report-code-editreport-code"><a class="link" href="#editing-of-medical-report-code-editreport-code">3.15. Editing of Medical Report: <code>editreport</code></a></h3>
+<h3 id="editing-of-medical-report-code-editreport-code"><a class="link" href="#editing-of-medical-report-code-editreport-code">3.14. Editing of Medical Report: <code>editreport</code></a></h3>
 <div class="paragraph">
 <p>Edit existing medical diagnosis/report of the patient.<br>
 Format: <code>editreport INDEX_PATIENT INDEX_REPORT [t/TITLE] [d/DATE] [i/INFORMATION]</code></p>
@@ -630,7 +627,7 @@ Edits title, date and information of existing medical report at index 1 for pati
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-of-medical-report-code-listreport-code"><a class="link" href="#list-of-medical-report-code-listreport-code">3.16. List of Medical Report: <code>listreport</code></a></h3>
+<h3 id="list-of-medical-report-code-listreport-code"><a class="link" href="#list-of-medical-report-code-listreport-code">3.15. List of Medical Report: <code>listreport</code></a></h3>
 <div class="paragraph">
 <p>List all medical diagnosis/reports of a patient<br>
 Format: <code>listreport INDEX</code></p>
@@ -648,7 +645,7 @@ List all medical reports/diagnosis that are attached to patient at index 1.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-patients-list-code-sortlist-code"><a class="link" href="#sort-patients-list-code-sortlist-code">3.17. Sort patients list: <code>sortlist</code></a></h3>
+<h3 id="sort-patients-list-code-sortlist-code"><a class="link" href="#sort-patients-list-code-sortlist-code">3.16. Sort patients list: <code>sortlist</code></a></h3>
 <div class="paragraph">
 <p>Sort the list of patients according to a specific category.<br>
 Format: <code>sortlist CATEGORY ORDER_INDEX</code></p>
@@ -671,7 +668,7 @@ Sort the patient list by their names in reverse order (Z → A).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-patient-s-information-code-view-code"><a class="link" href="#view-patient-s-information-code-view-code">3.18. View patient’s information: <code>view</code></a></h3>
+<h3 id="view-patient-s-information-code-view-code"><a class="link" href="#view-patient-s-information-code-view-code">3.17. View patient’s information: <code>view</code></a></h3>
 <div class="paragraph">
 <p>View patient’s general and additional information.<br>
 Format: <code>view INDEX</code></p>
@@ -689,7 +686,7 @@ Display information of patient at index 1</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-files-to-other-computers-code-import-code"><a class="link" href="#import-files-to-other-computers-code-import-code">3.19. Import files to other computers: <code>import</code></a></h3>
+<h3 id="import-files-to-other-computers-code-import-code"><a class="link" href="#import-files-to-other-computers-code-import-code">3.18. Import files to other computers: <code>import</code></a></h3>
 <div class="paragraph">
 <p>Import patient’s info as a txt file from a specified directory and file name.<br>
 Format: <code>import DIRECTORY_NAME/FILE_NAME</code></p>
@@ -706,7 +703,7 @@ Format: <code>import DIRECTORY_NAME/FILE_NAME</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-files-to-other-computers-code-export-code"><a class="link" href="#export-files-to-other-computers-code-export-code">3.20. Export files to other computers: <code>export</code></a></h3>
+<h3 id="export-files-to-other-computers-code-export-code"><a class="link" href="#export-files-to-other-computers-code-export-code">3.19. Export files to other computers: <code>export</code></a></h3>
 <div class="paragraph">
 <p>Export patient’s info as a txt file to a specified directory and file name.<br>
 Format: <code>export INDEX DIRECTORY_NAME/FILE_NAME</code></p>
@@ -813,4 +810,4 @@ e.g. <code>export 1 Desktop/patient1info.txt</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 13:24:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 13:29:47 UTC</div></div></div></body></html>

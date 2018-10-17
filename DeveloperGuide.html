@@ -36,39 +36,44 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a></li>
-<li><a href="#medical-history-features">4.2. Medical History features</a></li>
-<li><a href="#addappointment-feature">4.3. AddAppointment feature</a></li>
-<li><a href="#addmedicalreport-feature">4.4. AddMedicalReport feature</a></li>
-<li><a href="#proposed-data-encryption">4.5. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">4.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.7. Configuration</a></li>
+<li><a href="#additional-information">4.2. Additional Information</a></li>
 </ul>
 </li>
-<li><a href="#documentation">5. Documentation</a>
+<li><a href="#current-implementation-2">5. Current Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#editing-documentation">5.1. Editing Documentation</a></li>
-<li><a href="#publishing-documentation">5.2. Publishing Documentation</a></li>
-<li><a href="#converting-documentation-to-pdf-format">5.3. Converting Documentation to PDF format</a></li>
-<li><a href="#Docs-SiteWideDocSettings">5.4. Site-wide Documentation Settings</a></li>
-<li><a href="#Docs-PerFileDocSettings">5.5. Per-file Documentation Settings</a></li>
-<li><a href="#site-template">5.6. Site Template</a></li>
+<li><a href="#medical-history-features">5.1. Medical History features</a></li>
+<li><a href="#addappointment-feature">5.2. AddAppointment feature</a></li>
+<li><a href="#addmedicalreport-feature">5.3. AddMedicalReport feature</a></li>
+<li><a href="#proposed-data-encryption">5.4. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">5.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">5.6. Configuration</a></li>
 </ul>
 </li>
-<li><a href="#Testing">6. Testing</a>
+<li><a href="#documentation">6. Documentation</a>
 <ul class="sectlevel2">
-<li><a href="#running-tests">6.1. Running Tests</a></li>
-<li><a href="#types-of-tests">6.2. Types of tests</a></li>
-<li><a href="#troubleshooting-testing">6.3. Troubleshooting Testing</a></li>
+<li><a href="#editing-documentation">6.1. Editing Documentation</a></li>
+<li><a href="#publishing-documentation">6.2. Publishing Documentation</a></li>
+<li><a href="#converting-documentation-to-pdf-format">6.3. Converting Documentation to PDF format</a></li>
+<li><a href="#Docs-SiteWideDocSettings">6.4. Site-wide Documentation Settings</a></li>
+<li><a href="#Docs-PerFileDocSettings">6.5. Per-file Documentation Settings</a></li>
+<li><a href="#site-template">6.6. Site Template</a></li>
 </ul>
 </li>
-<li><a href="#dev-ops">7. Dev Ops</a>
+<li><a href="#Testing">7. Testing</a>
 <ul class="sectlevel2">
-<li><a href="#build-automation">7.1. Build Automation</a></li>
-<li><a href="#continuous-integration">7.2. Continuous Integration</a></li>
-<li><a href="#coverage-reporting">7.3. Coverage Reporting</a></li>
-<li><a href="#documentation-previews">7.4. Documentation Previews</a></li>
-<li><a href="#making-a-release">7.5. Making a Release</a></li>
-<li><a href="#managing-dependencies">7.6. Managing Dependencies</a></li>
+<li><a href="#running-tests">7.1. Running Tests</a></li>
+<li><a href="#types-of-tests">7.2. Types of tests</a></li>
+<li><a href="#troubleshooting-testing">7.3. Troubleshooting Testing</a></li>
+</ul>
+</li>
+<li><a href="#dev-ops">8. Dev Ops</a>
+<ul class="sectlevel2">
+<li><a href="#build-automation">8.1. Build Automation</a></li>
+<li><a href="#continuous-integration">8.2. Continuous Integration</a></li>
+<li><a href="#coverage-reporting">8.3. Coverage Reporting</a></li>
+<li><a href="#documentation-previews">8.4. Documentation Previews</a></li>
+<li><a href="#making-a-release">8.5. Making a Release</a></li>
+<li><a href="#managing-dependencies">8.6. Managing Dependencies</a></li>
 </ul>
 </li>
 <li><a href="#GetStartedProgramming">Appendix A: Suggested Programming Tasks to Get Started</a>
@@ -842,9 +847,35 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="medical-history-features"><a class="link" href="#medical-history-features">4.2. Medical History features</a></h3>
+<h3 id="additional-information"><a class="link" href="#additional-information">4.2. Additional Information</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="current-implementation-2"><a class="link" href="#current-implementation-2">5. Current Implementation</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>addinfo</code> command is facilitated by the <code>AddInfoPersonDescriptor</code> class. Essentially, it is in-charged of changing the <code>Nric</code>, <code>DateOfBirth</code> attributes in a <code>Person</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The command requires user to input an <code>index</code> based on the result of the <code>list</code> command. Upon getting the <code>index</code> input, the <code>AddInfoCommand</code> selects the <code>Person</code> based on the index from the <code>model</code>.</p>
+</div>
+<div class="paragraph">
+<p>This is followed by copying the existing attributes of the <code>Person</code> selected into an <code>editPerson</code> so that existing attributes like <code>Names</code> and <code>Phone</code> will not be edited.</p>
+</div>
+<div class="paragraph">
+<p>The command then checks for the arguments after the <code>index</code>. If an appropriate argument (eg. <code>\n</code>) has been found, it will tokenize the string following the argument. The tokenized string will then be parsed into the function in the <code>ParserUtil</code> class which checks for the validity of the string.
+If the string is valid, the object that is to be edited will be returned. Otherwise, an exception will be raised.</p>
+</div>
+<div class="paragraph">
+<p>Once the objects that are to be edited (eg. <code>NRIC</code>, <code>DateOfBirth</code>) have been returned, they will be processed by the <code>AddPersonInfoDescriptor</code> class which changes the respective values of the objects that are to be edited.
+The <code>Person</code> object that is returned will be used to replace the <code>Person</code> that was to be edited.</p>
+</div>
+<div class="sect2">
+<h3 id="medical-history-features"><a class="link" href="#medical-history-features">5.1. Medical History features</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">5.1.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>addhist</code> command first takes in the index of the patient followed by the prefixes of information to be stored in the medical history.
 The user input will go through <code>AddHistCommandParser.java</code> and <code>AddressBookParser.java</code> to ensure user input conforms to the expected format.
@@ -858,9 +889,9 @@ Execution ends when <code>CommandResult(generateSuccessMessage(editedPerson))</c
 </div>
 </div>
 <div class="sect2">
-<h3 id="addappointment-feature"><a class="link" href="#addappointment-feature">4.3. AddAppointment feature</a></h3>
+<h3 id="addappointment-feature"><a class="link" href="#addappointment-feature">5.2. AddAppointment feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">5.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The addappt mechanism is facilitated by <code>VersionedAddressBook</code>.</p>
 </div>
@@ -909,9 +940,9 @@ Execution ends when <code>CommandResult(generateSuccessMessage(editedPerson))</c
 </div>
 </div>
 <div class="sect2">
-<h3 id="addmedicalreport-feature"><a class="link" href="#addmedicalreport-feature">4.4. AddMedicalReport feature</a></h3>
+<h3 id="addmedicalreport-feature"><a class="link" href="#addmedicalreport-feature">5.3. AddMedicalReport feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">5.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The addreport mechanism is facilitated by <code>VersionedAddressBook</code>.</p>
 </div>
@@ -959,20 +990,20 @@ image::AddMedicalReportSequenceDiagram.png[width="800"]</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.5. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">5.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.6. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">5.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.7, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 5.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1003,7 +1034,7 @@ image::AddMedicalReportSequenceDiagram.png[width="800"]</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">5.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1011,7 +1042,7 @@ image::AddMedicalReportSequenceDiagram.png[width="800"]</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
+<h2 id="documentation"><a class="link" href="#documentation">6. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>We use asciidoc for writing documentation.</p>
@@ -1029,20 +1060,20 @@ We chose asciidoc over Markdown because asciidoc, although a bit more complex th
 </table>
 </div>
 <div class="sect2">
-<h3 id="editing-documentation"><a class="link" href="#editing-documentation">5.1. Editing Documentation</a></h3>
+<h3 id="editing-documentation"><a class="link" href="#editing-documentation">6.1. Editing Documentation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingGradle.html#rendering-asciidoc-files">UsingGradle.adoc</a> to learn how to render <code>.adoc</code> files locally to preview the end result of your edits.
 Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows you to preview the changes you have made to your <code>.adoc</code> files in real-time.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="publishing-documentation"><a class="link" href="#publishing-documentation">5.2. Publishing Documentation</a></h3>
+<h3 id="publishing-documentation"><a class="link" href="#publishing-documentation">6.2. Publishing Documentation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingTravis.html#deploying-github-pages">UsingTravis.adoc</a> to learn how to deploy GitHub Pages using Travis.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">5.3. Converting Documentation to PDF format</a></h3>
+<h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">6.3. Converting Documentation to PDF format</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a> for converting documentation to PDF format, as Chrome&#8217;s PDF engine preserves hyperlinks used in webpages.</p>
 </div>
@@ -1073,7 +1104,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 </div>
 </div>
 <div class="sect2">
-<h3 id="Docs-SiteWideDocSettings"><a class="link" href="#Docs-SiteWideDocSettings">5.4. Site-wide Documentation Settings</a></h3>
+<h3 id="Docs-SiteWideDocSettings"><a class="link" href="#Docs-SiteWideDocSettings">6.4. Site-wide Documentation Settings</a></h3>
 <div class="paragraph">
 <p>The <a href="https://github.com/CS2113-AY1819S1-T12-2/main/build.gradle"><code>build.gradle</code></a> file specifies some project-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how all documentation files within this project are rendered.</p>
 </div>
@@ -1132,7 +1163,7 @@ This will render the SE-EDU navigation bar at the top of the page, and add some 
 </table>
 </div>
 <div class="sect2">
-<h3 id="Docs-PerFileDocSettings"><a class="link" href="#Docs-PerFileDocSettings">5.5. Per-file Documentation Settings</a></h3>
+<h3 id="Docs-PerFileDocSettings"><a class="link" href="#Docs-PerFileDocSettings">6.5. Per-file Documentation Settings</a></h3>
 <div class="paragraph">
 <p>Each <code>.adoc</code> file may also specify some file-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how the file is rendered.</p>
 </div>
@@ -1189,7 +1220,7 @@ One of: <code>UserGuide</code>, <code>DeveloperGuide</code>, <code>LearningOutco
 </table>
 </div>
 <div class="sect2">
-<h3 id="site-template"><a class="link" href="#site-template">5.6. Site Template</a></h3>
+<h3 id="site-template"><a class="link" href="#site-template">6.6. Site Template</a></h3>
 <div class="paragraph">
 <p>The files in <a href="https://github.com/CS2113-AY1819S1-T12-2/main/docs/stylesheets"><code>docs/stylesheets</code></a> are the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS stylesheets</a> of the site.
 You can modify them to change some properties of the site&#8217;s design.</p>
@@ -1218,10 +1249,10 @@ The SE-EDU team does not provide support for modified template files.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Testing"><a class="link" href="#Testing">6. Testing</a></h2>
+<h2 id="Testing"><a class="link" href="#Testing">7. Testing</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="running-tests"><a class="link" href="#running-tests">6.1. Running Tests</a></h3>
+<h3 id="running-tests"><a class="link" href="#running-tests">7.1. Running Tests</a></h3>
 <div class="paragraph">
 <p>There are three ways to run tests.</p>
 </div>
@@ -1283,7 +1314,7 @@ See <a href="UsingGradle.html">UsingGradle.adoc</a> for more info on how to run 
 </div>
 </div>
 <div class="sect2">
-<h3 id="types-of-tests"><a class="link" href="#types-of-tests">6.2. Types of tests</a></h3>
+<h3 id="types-of-tests"><a class="link" href="#types-of-tests">7.2. Types of tests</a></h3>
 <div class="paragraph">
 <p>We have two types of tests:</p>
 </div>
@@ -1325,7 +1356,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="troubleshooting-testing"><a class="link" href="#troubleshooting-testing">6.3. Troubleshooting Testing</a></h3>
+<h3 id="troubleshooting-testing"><a class="link" href="#troubleshooting-testing">7.3. Troubleshooting Testing</a></h3>
 <div class="paragraph">
 <p><strong>Problem: <code>HelpWindowTest</code> fails with a <code>NullPointerException</code>.</strong></p>
 </div>
@@ -1343,34 +1374,34 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
+<h2 id="dev-ops"><a class="link" href="#dev-ops">8. Dev Ops</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="build-automation"><a class="link" href="#build-automation">7.1. Build Automation</a></h3>
+<h3 id="build-automation"><a class="link" href="#build-automation">8.1. Build Automation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingGradle.html">UsingGradle.adoc</a> to learn how to use Gradle for build automation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="continuous-integration"><a class="link" href="#continuous-integration">7.2. Continuous Integration</a></h3>
+<h3 id="continuous-integration"><a class="link" href="#continuous-integration">8.2. Continuous Integration</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://travis-ci.org/">Travis CI</a> and <a href="https://www.appveyor.com/">AppVeyor</a> to perform <em>Continuous Integration</em> on our projects. See <a href="UsingTravis.html">UsingTravis.adoc</a> and <a href="UsingAppVeyor.html">UsingAppVeyor.adoc</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="coverage-reporting"><a class="link" href="#coverage-reporting">7.3. Coverage Reporting</a></h3>
+<h3 id="coverage-reporting"><a class="link" href="#coverage-reporting">8.3. Coverage Reporting</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://coveralls.io/">Coveralls</a> to track the code coverage of our projects. See <a href="UsingCoveralls.html">UsingCoveralls.adoc</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="documentation-previews"><a class="link" href="#documentation-previews">7.4. Documentation Previews</a></h3>
+<h3 id="documentation-previews"><a class="link" href="#documentation-previews">8.4. Documentation Previews</a></h3>
 <div class="paragraph">
 <p>When a pull request has changes to asciidoc files, you can use <a href="https://www.netlify.com/">Netlify</a> to see a preview of how the HTML version of those asciidoc files will look like when the pull request is merged. See <a href="UsingNetlify.html">UsingNetlify.adoc</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="making-a-release"><a class="link" href="#making-a-release">7.5. Making a Release</a></h3>
+<h3 id="making-a-release"><a class="link" href="#making-a-release">8.5. Making a Release</a></h3>
 <div class="paragraph">
 <p>Here are the steps to create a new release.</p>
 </div>
@@ -1392,7 +1423,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">7.6. Managing Dependencies</a></h3>
+<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">8.6. Managing Dependencies</a></h3>
 <div class="paragraph">
 <p>A project often depends on third-party libraries. For example, Address Book depends on the <a href="http://wiki.fasterxml.com/JacksonHome">Jackson library</a> for XML parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives.<br>
 a. Include those libraries in the repo (this bloats the repo size)<br>
@@ -3623,4 +3654,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 13:24:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 13:29:47 UTC</div></div></div></body></html>

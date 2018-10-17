@@ -550,7 +550,7 @@ index 3 as family member.</p>
 <h3 id="adding-of-medical-report-code-addreport-code"><a class="link" href="#adding-of-medical-report-code-addreport-code">3.13. Adding of Medical Report: <code>addreport</code></a></h3>
 <div class="paragraph">
 <p>Add medical diagnosis/report to the patient.<br>
-Format: <code>addreport INDEX [t/TITLE] [d/DATE] [mr/MEDICAL_REPORT]</code></p>
+Format: <code>addreport INDEX [t/TITLE] [d/DATE] [i/INFORMATION]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -558,8 +558,8 @@ Format: <code>addreport INDEX [t/TITLE] [d/DATE] [mr/MEDICAL_REPORT]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addreport 3 t/ASTHMA d/01012018 mr/Patient diagnosed with asthma and prescribed XXX medicine. Next appointment on 02-02-2018.</code><br>
-Adds a new medical report for patient at index 3 titled ASTHMA, dated 01-01-2018 with the report stating that the patient has been diagnosed with asthma and is prescribed XXX medicine. Next appointment on 02-02-2018.</p>
+<p><code>addreport 3 t/Asthma d/01/01/2018 i/Prescribed XXX medicine, next appointment on 02/02/2018.</code><br>
+Adds a new medical report for patient at index 3 titled Asthma, dated 01/01/2018 with the report&#8217;s information.</p>
 </li>
 </ul>
 </div>
@@ -568,7 +568,7 @@ Adds a new medical report for patient at index 3 titled ASTHMA, dated 01-01-2018
 <h3 id="editing-of-medical-report-code-editreport-code"><a class="link" href="#editing-of-medical-report-code-editreport-code">3.14. Editing of Medical Report: <code>editreport</code></a></h3>
 <div class="paragraph">
 <p>Edit existing medical diagnosis/report of the patient.<br>
-Format: <code>editreport INDEX_PATIENT INDEX_REPORT [t/TITLE] [d/DATE] [mr/MEDICAL_REPORT]</code></p>
+Format: <code>editreport INDEX_PATIENT INDEX_REPORT [t/TITLE] [d/DATE] [i/INFORMATION]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -590,8 +590,8 @@ Format: <code>editreport INDEX_PATIENT INDEX_REPORT [t/TITLE] [d/DATE] [mr/MEDIC
 <div class="ulist">
 <ul>
 <li>
-<p><code>editreport 3 1 t/DEPRESSION d/02012018 mr/Patient diagnosed with depression and prescribed XXX medicine. Next appointment is on 03-02-2018</code><br>
-Edits title, date and information of existing medical report at index 1 for patient at index 3 titled DEPRESSION, dated 02-01-2018 with the report stating that the patient has been diagnosed with depression and is prescribed XXX medicine. Next appointment on 03-02-2018.</p>
+<p><code>editreport 3 1 t/Depression d/02/02/2018 i/Prescribed XXX medicine, next appointment on 03/03/2018.</code><br>
+Edits title, date and information of existing medical report at index 1 for patient at index 3.</p>
 </li>
 </ul>
 </div>
@@ -780,4 +780,4 @@ e.g. <code>export 1 Desktop/patient1info.txt</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 09:05:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 12:25:25 UTC</div></div></div></body></html>

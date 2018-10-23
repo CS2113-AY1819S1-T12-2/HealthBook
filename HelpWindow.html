@@ -28,7 +28,7 @@
 <li><a href="#adding-of-medical-report-code-addreport-code">3.13. Adding of Medical Report: <code>addreport</code></a></li>
 <li><a href="#editing-of-medical-report-code-editreport-code">3.14. Editing of Medical Report: <code>editreport</code></a></li>
 <li><a href="#list-of-medical-report-code-listreport-code">3.15. List of Medical Report: <code>listreport</code></a></li>
-<li><a href="#sort-patients-list-code-sortlist-code">3.16. Sort patients list: <code>sortlist</code></a></li>
+<li><a href="#sort-patients-list-code-sort-code">3.16. Sort patients list: <code>sort</code></a></li>
 <li><a href="#view-patient-s-information-code-view-code">3.17. View patient’s information: <code>view</code></a></li>
 <li><a href="#import-files-to-other-computers-code-import-code">3.18. Import files to other computers: <code>import</code></a></li>
 <li><a href="#export-files-to-other-computers-code-export-code">3.19. Export files to other computers: <code>export</code></a></li>
@@ -277,7 +277,7 @@ Edits the name of the 2nd patient to be <code>Betsy Crower</code> and clears all
 <h3 id="finding-patients-by-categories-code-find-code"><a class="link" href="#finding-patients-by-categories-code-find-code">3.5. Finding patients by categories: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds patients by categories such as their name, age and marital status.<br>
-Format: <code>find category/KEYWORD UNDER CATEGORY</code></p>
+Format: <code>find PREFIX/ KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -308,19 +308,19 @@ Format: <code>find category/KEYWORD UNDER CATEGORY</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find n/John</code><br>
+<p><code>find n/ John</code><br>
 Returns <code>john</code> and <code>John Doe</code></p>
 </li>
 <li>
-<p><code>find n/Betsy Tim John</code><br>
+<p><code>find n/ BeTsY Tim John</code><br>
 Returns any patient having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
 </li>
 <li>
-<p><code>find ms/married</code>
+<p><code>find ms/ married</code>
 Returns any patient who is married.</p>
 </li>
 <li>
-<p><code>find age/18</code>
+<p><code>find age/ 18</code>
 Returns any patient who is 18 years old.</p>
 </li>
 </ul>
@@ -360,7 +360,7 @@ Format: <code>delete INDEX</code></p>
 Deletes the 2nd person in the address book.</p>
 </li>
 <li>
-<p><code>find n/Betsy</code><br>
+<p><code>find n/ Betsy</code><br>
 <code>delete 1</code><br>
 Deletes the 1st person in the results of the <code>find</code> command.</p>
 </li>
@@ -645,14 +645,14 @@ List all medical reports/diagnosis that are attached to patient at index 1.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-patients-list-code-sortlist-code"><a class="link" href="#sort-patients-list-code-sortlist-code">3.16. Sort patients list: <code>sortlist</code></a></h3>
+<h3 id="sort-patients-list-code-sort-code"><a class="link" href="#sort-patients-list-code-sort-code">3.16. Sort patients list: <code>sort</code></a></h3>
 <div class="paragraph">
-<p>Sort the list of patients according to a specific category.<br>
-Format: <code>sortlist CATEGORY ORDER_INDEX</code></p>
+<p>Sort the list of patients according to a specific prefix category.<br>
+Format: <code>sort PREFIX/ ORDER_INDEX</code></p>
 </div>
 <div class="paragraph">
-<p><code>CATEGORY</code> refers to certain types of important patient information such as name, blood type,
-allergy etc. and each of these information will be defined by their first letter. (ie n for name)
+<p><code>PREFIX/</code> refers to certain categories of patient information such as name, blood type,
+allergy etc. and each of these categories will be defined by a corresponding prefix. (ie n/ for name)
 <code>ORDER_INDEX</code> can be 1 or 2 where 1 means in alphabetical and 2 means in reverse order.</p>
 </div>
 <div class="paragraph">
@@ -661,7 +661,7 @@ allergy etc. and each of these information will be defined by their first letter
 <div class="ulist">
 <ul>
 <li>
-<p><code>sortlist n 2</code><br>
+<p><code>sort n/ 2</code><br>
 Sort the patient list by their names in reverse order (Z → A).</p>
 </li>
 </ul>
@@ -746,10 +746,10 @@ e.g. <code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 12
 e.g. <code>edit 1 p/91234567 e/johndoe@example.com</code></p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find category/KEYWORD UNDER CATEGORY</code><br>
-e.g. <code>find ms/married</code><br>
-e.g. <code>find age/18</code><br>
-e.g. <code>find n/Betsy Tim John</code></p>
+<p><strong>Find</strong> : <code>find PREFIX/ KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>find ms/ married</code><br>
+e.g. <code>find age/ 18 19</code><br>
+e.g. <code>find n/ Betsy Tim</code></p>
 </li>
 <li>
 <p><strong>Delete</strong> : <code>delete INDEX</code><br>
@@ -792,8 +792,8 @@ e.g. <code>editreport 3 1 t/DEPRESSION d/02012018 mr/Patient diagnosed with depr
 e.g. <code>listreport 1</code></p>
 </li>
 <li>
-<p><strong>Sort</strong> : <code>sortlist CATEGORY ORDER_INDEX</code><br>
-e.g. <code>sortlist n 2</code></p>
+<p><strong>Sort</strong> : <code>sort PREFIX/ ORDER_INDEX</code><br>
+e.g. <code>sort n/ 2</code></p>
 </li>
 <li>
 <p><strong>View</strong> : <code>view INDEX</code><br>
@@ -810,4 +810,4 @@ e.g. <code>export 1 Desktop/patient1info.txt</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-19 15:25:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-23 10:33:02 UTC</div></div></div></body></html>

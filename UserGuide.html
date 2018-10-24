@@ -541,13 +541,16 @@ Deletes the 2nd appointment in the displayed appointment list.</p>
 <p>Add the following additional information: NRIC, DOB (in DDMMYYYY format), height (cm), weight (kg),
 gender, occupation, marital status, family member.<br>
 Note: age field will be auto-calculated once DOB is populated<br>
-Format: <code>addinfo INDEX [i/NRIC] [d/DOB]</code></p>
+Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT]</code></p>
 </div>
 <div class="ulist">
 <div class="title">Constraints for <code>[i/NRIC]</code>:</div>
 <ul>
 <li>
 <p>Must start with 'S' or 'T' followed by 7 digits before ending with an alphabet</p>
+</li>
+<li>
+<p>NRIC input must be valid with accordance to ICA&#8217;s NRIC checksum</p>
 </li>
 </ul>
 </div>
@@ -560,7 +563,7 @@ Format: <code>addinfo INDEX [i/NRIC] [d/DOB]</code></p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Work In Progress: <code>[h/HEIGHT] [w/WEIGHT] [g/GENDER] [o/OCCUPATION] [m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code></p>
+<p>Work In Progress: <code>[g/GENDER] [o/OCCUPATION] [m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -810,4 +813,4 @@ e.g. <code>export 1 Desktop/patient1info.txt</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 10:42:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 13:39:51 UTC</div></div></div></body></html>

@@ -21,7 +21,7 @@
 <li><a href="#deleting-a-patient-code-delete-code">3.6. Deleting a patient : <code>delete</code></a></li>
 <li><a href="#adding-patient-s-medical-history-code-addhist-code">3.7. Adding patient&#8217;s medical history: <code>addhist</code></a></li>
 <li><a href="#adding-an-appointment-into-patient-s-timetable-code-addappt-code">3.8. Adding an appointment into patient&#8217;s timetable: <code>addappt</code></a></li>
-<li><a href="#viewing-a-patient-s-appointments-timetable-code-viewappts-code">3.9. Viewing a patient&#8217;s appointments timetable: <code>viewappts</code></a></li>
+<li><a href="#viewing-a-patient-s-appointments-timetable-code-viewappt-code">3.9. Viewing a patient&#8217;s appointments timetable: <code>viewappt</code></a></li>
 <li><a href="#editing-an-appointment-in-a-patient-s-timetable-code-editappt-code">3.10. Editing an appointment in a patient&#8217;s timetable: <code>editappt</code></a></li>
 <li><a href="#deleting-an-appointment-in-a-patient-s-timetable-code-deleteappt-code">3.11. Deleting an appointment in a patient’s timetable: <code>deleteappt</code></a></li>
 <li><a href="#adding-additional-information-of-patient-code-addinfo-code">3.12. Adding additional information of patient: <code>addinfo</code></a></li>
@@ -176,7 +176,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </li>
 <li>
-<p>Medical report/diagnosis can only be added or after patient entries have been created. Additional information need not be completed to attach medical report/diagnosis to a patient. All fields in medical report are mandatory and cannot be omitted during the creation process.</p>
+<p>Medical report/diagnosis can only be added after patient entries have been created. Additional information need not be completed to attach medical report/diagnosis to a patient. All fields in medical report are mandatory and cannot be omitted during the creation process.</p>
+</li>
+<li>
+<p>Appointments can only be added after patient entries have been created. Additional information need not be completed to add an appointment for a patient. All fields for an appointment are mandatory and cannot be omitted during the creation process.</p>
 </li>
 </ol>
 </div>
@@ -403,7 +406,7 @@ Adds a medical history entry for the 1st person in the list on 10/10/2010 with a
 <h3 id="adding-an-appointment-into-patient-s-timetable-code-addappt-code"><a class="link" href="#adding-an-appointment-into-patient-s-timetable-code-addappt-code">3.8. Adding an appointment into patient&#8217;s timetable: <code>addappt</code></a></h3>
 <div class="paragraph">
 <p>Adds an appointment into the specified patient&#8217;s timetable.<br>
-Format: <code>addappt INDEX d/DATE s/START_TIME e/END_TIME v/VENUE i/APPOINTMENT_INFORMATION d/DOCTOR_NAME</code></p>
+Format: <code>addappt INDEX s/START e/END v/VENUE i/INFO d/DOCTOR_NAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -425,24 +428,25 @@ Format: <code>addappt INDEX d/DATE s/START_TIME e/END_TIME v/VENUE i/APPOINTMENT
 <div class="ulist">
 <ul>
 <li>
-<p><code>addappt 2 d/12092018 s/1300 e/1400 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br>
-Adds an appointment for the 2nd person in the list on 12/09/2018 from 1300-1400 at Consultation Room 12 for a diabetes checkup by Dr Tan</p>
+<p><code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br>
+Adds an appointment for the 2nd person in the list on 16-09-2018 from 15:00-15:30 at Consultation Room 12
+for a diabetes checkup by Dr Tan.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-a-patient-s-appointments-timetable-code-viewappts-code"><a class="link" href="#viewing-a-patient-s-appointments-timetable-code-viewappts-code">3.9. Viewing a patient&#8217;s appointments timetable: <code>viewappts</code></a></h3>
+<h3 id="viewing-a-patient-s-appointments-timetable-code-viewappt-code"><a class="link" href="#viewing-a-patient-s-appointments-timetable-code-viewappt-code">3.9. Viewing a patient&#8217;s appointments timetable: <code>viewappt</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all appointments in the specified patient&#8217;s timetable.<br>
-Format: <code>viewappts INDEX</code></p>
+<p>Shows details of a specified appointment for the specified patient.<br>
+Format: <code>viewappt INDEX s/START</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Views all appointments of the patient at the specified index.</p>
+<p>Views an appointment with the specified start time for the patient at the specified index.</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the displayed person list.</p>
@@ -457,8 +461,8 @@ Format: <code>viewappts INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>viewappts 2</code><br>
-Views all appointments of the 2nd person in the list.</p>
+<p><code>viewappts 2 s/16-09-2018 15:00</code><br>
+Views the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in the list.</p>
 </li>
 </ul>
 </div>
@@ -466,8 +470,8 @@ Views all appointments of the 2nd person in the list.</p>
 <div class="sect2">
 <h3 id="editing-an-appointment-in-a-patient-s-timetable-code-editappt-code"><a class="link" href="#editing-an-appointment-in-a-patient-s-timetable-code-editappt-code">3.10. Editing an appointment in a patient&#8217;s timetable: <code>editappt</code></a></h3>
 <div class="paragraph">
-<p>Edits a specified appointment in the patient&#8217;s timetable.<br>
-Format: <code>editappt INDEX [d/DATE] [s/START_TIME] [e/END_TIME]
+<p>Edits a specified appointment in the specified patient&#8217;s timetable.<br>
+Format: <code>editappt INDEX os/ORIGINAL_START [d/DATE] [s/START_TIME] [e/END_TIME]
 [v/VENUE] [i/APPOINTMENT_INFORMATION] [d/DOCTOR_NAME]</code></p>
 </div>
 <div class="sidebarblock">
@@ -475,10 +479,10 @@ Format: <code>editappt INDEX [d/DATE] [s/START_TIME] [e/END_TIME]
 <div class="ulist">
 <ul>
 <li>
-<p>Edits a patient’s appointment at the specified index.</p>
+<p>Edits an appointment with the specified start time for the patient at the specified index.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed appointment list.</p>
+<p>The index refers to the index number shown in the displayed person list.</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -496,9 +500,9 @@ Format: <code>editappt INDEX [d/DATE] [s/START_TIME] [e/END_TIME]
 <div class="ulist">
 <ul>
 <li>
-<p><code>editappt 2 s/1400 e/1500 v/Consultation Room 13</code><br>
-Edits the 2nd appointment in the list to have start time of 1400, end time of 1500,
-and venue of Consultation Room 13.</p>
+<p><code>editappt 2 os/16-09-2018 15:00 s/16-09-2018 14:00 e/16-09-2018 14:30 v/Consultation Room 13</code><br>
+Edits the appointment that starts on 16-09-2018 at 15:00, to now run from 16-09-2018 14:00-14:30 instead
+and be at Consultation Room 13 for the 2nd person in the list.</p>
 </li>
 </ul>
 </div>
@@ -506,18 +510,18 @@ and venue of Consultation Room 13.</p>
 <div class="sect2">
 <h3 id="deleting-an-appointment-in-a-patient-s-timetable-code-deleteappt-code"><a class="link" href="#deleting-an-appointment-in-a-patient-s-timetable-code-deleteappt-code">3.11. Deleting an appointment in a patient’s timetable: <code>deleteappt</code></a></h3>
 <div class="paragraph">
-<p>Deletes a specified appointment in the patient’s timetable.<br>
-Format: <code>deleteappt INDEX</code></p>
+<p>Deletes a specified appointment in the specified patient’s timetable.<br>
+Format: <code>deleteappt INDEX s/START</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes a patient’s appointment at the specified index.</p>
+<p>Deletes an appointment with the specified start time for the patient at the specified index.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed appointment list.</p>
+<p>The index refers to the index number shown in the displayed person list.</p>
 </li>
 </ul>
 </div>
@@ -529,8 +533,8 @@ Format: <code>deleteappt INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deleteappt 2</code><br>
-Deletes the 2nd appointment in the displayed appointment list.</p>
+<p><code>deleteappt 2 s/16-09-2018 15:00</code><br>
+Deletes the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in the list.</p>
 </li>
 </ul>
 </div>
@@ -813,4 +817,4 @@ e.g. <code>export 1 Desktop/patient1info.txt</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 13:39:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 14:01:00 UTC</div></div></div></body></html>

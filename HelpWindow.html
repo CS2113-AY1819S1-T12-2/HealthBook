@@ -27,7 +27,7 @@
 <li><a href="#adding-additional-information-of-patient-code-addinfo-code">3.12. Adding additional information of patient: <code>addinfo</code></a></li>
 <li><a href="#adding-of-medical-report-code-addreport-code">3.13. Adding of Medical Report: <code>addreport</code></a></li>
 <li><a href="#editing-of-medical-report-code-editreport-code">3.14. Editing of Medical Report: <code>editreport</code></a></li>
-<li><a href="#list-of-medical-report-code-listreport-code">3.15. List of Medical Report: <code>listreport</code></a></li>
+<li><a href="#viewing-of-medical-report-code-viewreport-code">3.15. Viewing of Medical Report: <code>viewreport</code></a></li>
 <li><a href="#sort-patients-list-code-sort-code">3.16. Sort patients list: <code>sort</code></a></li>
 <li><a href="#view-patient-s-information-code-view-code">3.17. View patient’s information: <code>view</code></a></li>
 <li><a href="#import-files-to-other-computers-code-import-code">3.18. Import files to other computers: <code>import</code></a></li>
@@ -586,7 +586,7 @@ patient in index 3 as family member.</p>
 <div class="sect2">
 <h3 id="adding-of-medical-report-code-addreport-code"><a class="link" href="#adding-of-medical-report-code-addreport-code">3.13. Adding of Medical Report: <code>addreport</code></a></h3>
 <div class="paragraph">
-<p>Add medical diagnosis/report to the patient.<br>
+<p>Adds medical report to the patient.<br>
 Format: <code>addreport INDEX [t/TITLE] [d/DATE] [i/INFORMATION]</code></p>
 </div>
 <div class="paragraph">
@@ -604,22 +604,8 @@ Adds a new medical report for patient at index 3 titled Asthma, dated 01-01-2018
 <div class="sect2">
 <h3 id="editing-of-medical-report-code-editreport-code"><a class="link" href="#editing-of-medical-report-code-editreport-code">3.14. Editing of Medical Report: <code>editreport</code></a></h3>
 <div class="paragraph">
-<p>Edit existing medical diagnosis/report of the patient.<br>
-Format: <code>editreport INDEX_PATIENT INDEX_REPORT [t/TITLE] [d/DATE] [i/INFORMATION]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>INDEX_PATIENT</code> refers to the index shown in the displayed person list</p>
-</li>
-<li>
-<p><code>INDEX_REPORT</code> refers to the index shown in the displayed report list</p>
-</li>
-</ul>
-</div>
-</div>
+<p>Edits existing medical report of the patient.<br>
+Format: <code>editreport INDEX d/DATE [t/TITLE] [d/DATE] [i/INFORMATION]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -627,17 +613,17 @@ Format: <code>editreport INDEX_PATIENT INDEX_REPORT [t/TITLE] [d/DATE] [i/INFORM
 <div class="ulist">
 <ul>
 <li>
-<p><code>editreport 3 1 t/Depression d/02-02-2018 i/Prescribed XXX medicine, next appointment on 03-03-2018.</code><br>
-Edits title, date and information of existing medical report at index 1 for patient at index 3.</p>
+<p><code>editreport 3 d/01-01-2018 t/Depression d/02-02-2018 i/Prescribed XXX medicine, next appointment on 03-03-2018.</code><br>
+Edits title, date and information of existing medical report dated 01-01-2018 for patient at index 3.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-of-medical-report-code-listreport-code"><a class="link" href="#list-of-medical-report-code-listreport-code">3.15. List of Medical Report: <code>listreport</code></a></h3>
+<h3 id="viewing-of-medical-report-code-viewreport-code"><a class="link" href="#viewing-of-medical-report-code-viewreport-code">3.15. Viewing of Medical Report: <code>viewreport</code></a></h3>
 <div class="paragraph">
-<p>List all medical diagnosis/reports of a patient<br>
-Format: <code>listreport INDEX</code></p>
+<p>Views the medical report of the patient on a certain date.<br>
+Format: <code>viewreport INDEX d/DATE</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -645,8 +631,8 @@ Format: <code>listreport INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>listreport 1</code><br>
-List all medical reports that are attached to patient at index 1.</p>
+<p><code>viewreport 1 d/01-01-2018</code><br>
+View medical report dated 01-01-2018 for patient at index 1.</p>
 </li>
 </ul>
 </div>
@@ -817,4 +803,4 @@ e.g. <code>export 1 Desktop/patient1info.txt</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 14:28:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-27 11:22:05 UTC</div></div></div></body></html>

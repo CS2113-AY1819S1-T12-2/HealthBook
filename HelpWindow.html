@@ -461,7 +461,7 @@ Format: <code>viewappt INDEX s/START</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>viewappts 2 s/16-09-2018 15:00</code><br>
+<p><code>viewappt 2 s/16-09-2018 15:00</code><br>
 Views the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in the list.</p>
 </li>
 </ul>
@@ -749,20 +749,20 @@ e.g. <code>find n/ Betsy Tim</code></p>
 e.g. <code>delete 2</code></p>
 </li>
 <li>
-<p><strong>Add Timetable</strong> : <code>add timetable INDEX d/DATE s/START_TIME e/END_TIME v/VENUE i/APPOINTMENT_INFORMATION dn/DOCTOR_NAME</code><br>
-e.g. <code>add timetable 2 d/12092018 s/1300 e/1400 v/Consultation Room 12 i/Diabetes Checkup dn/Dr Tan</code></p>
+<p><strong>Add Appt</strong> : <code>addappt INDEX s/START e/END v/VENUE i/INFO d/DOCTOR_NAME</code><br>
+e.g. <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code></p>
 </li>
 <li>
-<p><strong>View Timetable</strong> : <code>view timetable INDEX</code><br>
-e.g. <code>view timetable 2</code></p>
+<p><strong>View Appt</strong> : <code>viewappt INDEX s/START</code><br>
+e.g. <code>viewappt 2 s/16-09-2018 15:00</code></p>
 </li>
 <li>
-<p><strong>Edit Timetable</strong> : <code>edit timetable INDEX [d/DATE] [s/START_TIME] [e/END_TIME] [v/VENUE] [i/APPOINTMENT_INFORMATION] [dn/DOCTOR_NAME]</code><br>
-e.g.<code>edit timetable 2 s/1400 e/1500 v/Consultation Room 13</code></p>
+<p><strong>Edit Appt</strong> : <code>editappt INDEX os/ORIGINAL_START [d/DATE] [s/START_TIME] [e/END_TIME] [v/VENUE] [i/APPOINTMENT_INFORMATION] [d/DOCTOR_NAME]</code><br>
+e.g.<code>editappt 2 os/16-09-2018 15:00 s/16-09-2018 14:00 e/16-09-2018 14:30 v/Consultation Room 13</code></p>
 </li>
 <li>
-<p><strong>Delete Timetable</strong> : <code>delete timetable INDEX</code><br>
-e.g. <code>delete timetable 2</code></p>
+<p><strong>Delete Appt</strong> : <code>deleteappt INDEX s/START</code><br>
+e.g. <code>deleteappt 2 s/16-09-2018 15:00</code></p>
 </li>
 <li>
 <p><strong>Add Information</strong> : <code>addinfo INDEX [n/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [o/OCCUPATION] [m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code><br>
@@ -803,4 +803,4 @@ e.g. <code>export 1 Desktop/patient1info.txt</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-27 17:52:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-27 18:30:22 UTC</div></div></div></body></html>

@@ -233,14 +233,140 @@ If any of the arguments contain invalid data, the program will only process the 
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
+<div class="sect2">
+<h3 id="use-case-adding-additional-information-of-patient-code-addinfo-code"><a class="link" href="#use-case-adding-additional-information-of-patient-code-addinfo-code">Use case: Adding additional information of patient: <code>addinfo</code></a></h3>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>Assume that user has already requested the System to display a list of patients.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add optional information for patient.</p>
+</li>
+<li>
+<p>System adds optional information for the patient and displays a message that entry for optional information is successful.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to add optional information i.e. wrong command or invalid data for the fields.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of adding optional information. System will ignore invalid commands or data and process only the valid commands and data.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-29 15:07:54 UTC</div></div></div></body></html>
+<div class="sect2">
+<h3 id="use-case-editing-additional-information-of-patient-code-editinfo-code"><a class="link" href="#use-case-editing-additional-information-of-patient-code-editinfo-code">Use case: Editing additional information of patient: <code>editinfo</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to display a list of patients.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit optional information for patient.</p>
+</li>
+<li>
+<p>System edits optional information for the patient and displays a message that edit for optional information is successful.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to edit optional information i.e. wrong command or invalid data for the fields.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of adding optional information. System will ignore invalid commands or data and process only the valid commands and data.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. User requests to edit information that does not exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System shows an error message that the information does not exist. System will ignore the edit request for that field and process the valid edit requests for other fields</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-29 15:20:20 UTC</div></div></div></body></html>

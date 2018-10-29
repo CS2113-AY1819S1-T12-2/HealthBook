@@ -846,21 +846,59 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>addinfo</code> command is facilitated by the <code>AddInfoPersonDescriptor</code> class. Essentially, it is in-charged of changing the <code>Nric</code>, <code>DateOfBirth</code> attributes in a <code>Person</code> class.</p>
+<p>The <code>addinfo</code> command is facilitated by the <code>LogicManager</code> which calls upon <code>AddressBookParser</code> for the execution of commands. It extends the <code>AddressBookParser</code> with the <code>addinfo</code> command.</p>
 </div>
 <div class="paragraph">
-<p>The command requires user to input an <code>index</code> based on the result of the <code>list</code> command. Upon getting the <code>index</code> input, the <code>AddInfoCommand</code> selects the <code>Person</code> based on the index from the <code>model</code>.</p>
+<p>The command takes in an <code>index</code> which represents the <code>Person</code> in the list displayed in the <code>PersonCardList</code> view. This is followed by a pre-defined list of arguments that user can input to tell the program which attribute of the person will be added/edited using the <code>AddInfoCommandParser</code> (For eg. the argument <code>g/</code> tells the command that the <code>Gender</code> attribute of the <code>Person</code> at <code>index</code> will be edited).</p>
 </div>
 <div class="paragraph">
-<p>This is followed by copying the existing attributes of the <code>Person</code> selected into an <code>editPerson</code> so that existing attributes like <code>Names</code> and <code>Phone</code> will not be edited.</p>
+<p>The command then looks for the <code>String</code> after the arguments which represents the data to be added. This data will be checked for validity using the <code>ParserUtil</code> class. If the data is valid, the respective class will be initialized (For eg. the commmand <code>g/M</code> is valid as it stands for changing the <code>Gender</code> of <code>Person</code> to <code>Male</code>. Since the data <code>M</code> is valid, the <code>Gender</code> class will be initialized). If the data is not valid however, an <code>ParseException</code> will be thrown warning users that the input data is not valid.</p>
 </div>
 <div class="paragraph">
-<p>The command then checks for the arguments after the <code>index</code>. If an appropriate argument (eg. <code>\n</code>) has been found, it will tokenize the string following the argument. The tokenized string will then be parsed into the function in the <code>ParserUtil</code> class which checks for the validity of the string.
-If the string is valid, the object that is to be edited will be returned. Otherwise, an exception will be raised.</p>
+<p>Upon handling all the arguments, an <code>addInfoPersonDescriptor</code> object will be created. This is essentially a facade object that contains all the attributes of the <code>Person</code> to be edited, with its updated attributes. There will then be a mapping of the <code>addInfoPersonDescriptor</code> to a new <code>Person</code> object facilitated by the method <code>AddInfoCommand#createEditedPerson()</code>.</p>
 </div>
 <div class="paragraph">
-<p>Once the objects that are to be edited (eg. <code>NRIC</code>, <code>DateOfBirth</code>) have been returned, they will be processed by the <code>AddPersonInfoDescriptor</code> class which changes the respective values of the objects that are to be edited.
-The <code>Person</code> object that is returned will be used to replace the <code>Person</code> that was to be edited.</p>
+<p>Finally, the <code>Model#updatePerson</code> copies attribute of the new <code>Person</code> object created above to the <code>Person</code> to be edited.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>addinfo</code> command works at each step.</p>
+</div>
+<div class="paragraph">
+<p>TODO: Add in class diagrams for each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. User executes <code>addinfo 5 ic/S1234567Z g/M d/01-01-1970</code> to modify the <code>Nric</code>, <code>Gender</code>, and <code>DateOfBirth</code> attributes of the 5th person in the <code>PersonCardList</code> view.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If any of the arguments contain invalid data, the program will only process the information up till the invalid data. For instance, <code>addinfo 1 ic/S1234567Z d/20-20-19872 g/M</code> will only change the <code>Nric</code> attribute of the <code>Person</code> at index 1 as the date of birth argument contains erroneous date.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 2. The <code>AddressBookParser</code> makes a call to <code>AddInfoCommandParser</code> together with the <code>String</code> input.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>AddInfoCommandParser</code> then looks out for the pre-determined set of arguments in the <code>String</code> input. If any of the arguments are found, a call will be made to the <code>ParserUtil</code> class which extracts the data meant for the particular argument.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>ParserUtil</code> class then checks for the validity of the data being parsed. If the data is valid, the class for that data will be initialized and added into an <code>AddInfoPersonDescriptor</code> object. If the data is not valid, a <code>ParseException</code> will be thrown, which will be handled by the <code>UIManager</code> requesting user the correct the data.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. A <code>Person</code> object will be retrieved from the <code>lastShownList</code> at the appropriate index. The retrieved <code>Person</code> object will then retrieve the updated information from the <code>AddInfoPersonDescriptor</code> object created previously.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. The <code>Person</code> will now have an updated additional information.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when an user executes a new command:
+&lt;diagram here&gt;</p>
 </div>
 </div>
 </div>
@@ -3724,4 +3762,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-29 14:27:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-29 15:07:54 UTC</div></div></div></body></html>

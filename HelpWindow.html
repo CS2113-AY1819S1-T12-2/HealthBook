@@ -375,7 +375,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 <h3 id="adding-patient-s-medical-history-code-addhist-code"><a class="link" href="#adding-patient-s-medical-history-code-addhist-code">3.7. Adding patient&#8217;s medical history: <code>addhist</code></a></h3>
 <div class="paragraph">
 <p>Adds the medical history of a patient.<br>
-Format: <code>addhist INDEX hsd/MEDICAL_HISTORY_DATE hsa/ALLERGY hsc/PREVIOUS_COUNTRY_VISITED</code></p>
+Format: <code>addhist INDEX hsd/MEDICAL_HISTORY_DATE hsa/ALLERGY hsc/PREVIOUS_COUNTRY_VISITED hsds/DISCHARGE_STATUS</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -397,8 +397,9 @@ Format: <code>addhist INDEX hsd/MEDICAL_HISTORY_DATE hsa/ALLERGY hsc/PREVIOUS_CO
 <div class="ulist">
 <ul>
 <li>
-<p><code>addhist 1 hsd/ 10/10/2010 hsa/ Alcohol hsc/ Kuwait</code>
-Adds a medical history entry for the 1st person in the list on 10/10/2010 with an alcohol allergy and Kuwait as previous country visited.</p>
+<p><code>addhist 1 hsd/ 10/10/2010 hsa/ Alcohol hsc/ Kuwait hsds/Discharged to home</code>
+Adds a medical history entry for the 1st person in the list on 10/10/2010 with an alcohol allergy and Kuwait as previous country visited.
+The patient is discharged and allowed to return home.</p>
 </li>
 </ul>
 </div>
@@ -747,4 +748,4 @@ e.g. <code>export 1 Desktop/patient1info.txt</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 05:19:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 11:07:15 UTC</div></div></div></body></html>

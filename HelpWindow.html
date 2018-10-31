@@ -302,6 +302,12 @@ Format: <code>find PREFIX/ KEYWORD [MORE_KEYWORDS]</code></p>
 <li>
 <p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
 </li>
+<li>
+<p>Personal prefixes: n/ (Name) p/ (Phone) e/ (Email) a/ (Address) t/ (tag) ic/ (NRIC)</p>
+</li>
+<li>
+<p>Medical prefixes: i/ (MedInfo) hsa/ (Allergy) hsb/ (BloodType) hsc/ (LastCountry)</p>
+</li>
 </ul>
 </div>
 </div>
@@ -320,12 +326,12 @@ Returns <code>john</code> and <code>John Doe</code></p>
 Returns any patient having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
 </li>
 <li>
-<p><code>find hsa/ alcohol</code>
-Returns any patient who is allergic to alcohol.</p>
+<p><code>find ic/ S9876543T</code>
+Returns any patient whose NRIC is S9876543T.</p>
 </li>
 <li>
-<p><code>find i/ high cholesterol</code>
-Returns any patient whose first medical report information contains high cholesterol.</p>
+<p><code>find t/ friend</code>
+Returns any patient who is tagged friend.</p>
 </li>
 </ul>
 </div>
@@ -649,13 +655,13 @@ Edits title, date and information of existing medical report dated 01-01-2018 fo
 <div class="sect2">
 <h3 id="sort-patients-list-code-sort-code"><a class="link" href="#sort-patients-list-code-sort-code">3.14. Sort patients list: <code>sort</code></a></h3>
 <div class="paragraph">
-<p>Sort the list of patients according to a specific prefix category.<br>
+<p>Sort the list of patients according to a specific prefix category in ascending or descending order.<br>
 Format: <code>sort PREFIX/ ORDER_INDEX</code></p>
 </div>
 <div class="paragraph">
-<p><code>PREFIX/</code> refers to certain categories of patient information such as name, blood type,
-allergy etc. and each of these categories will be defined by a corresponding prefix. (ie n/ for name)
-<code>ORDER_INDEX</code> can be 1 or 2 where 1 means in alphabetical and 2 means in reverse order.</p>
+<p><code>PREFIX/</code> refers to certain pertinent categories of patient information and each of these categories will be defined by a corresponding prefix.
+<code>ORDER_INDEX</code> can be 1 or 2 where 1 means in alphabetical and 2 means in reverse order.
+Available prefixes: <code>n/</code> (Name) <code>p/</code> (Phone) <code>e/</code> (Email) <code>ic/</code> (Nric)</p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -751,8 +757,8 @@ e.g. <code>edit 1 p/91234567 e/johndoe@example.com</code></p>
 <p><strong>Find</strong> : <code>find PREFIX/ KEYWORD [MORE_KEYWORDS]</code><br>
 e.g. <code>find n/ john</code><br>
 e.g. <code>find n/ BeTsY Tim John</code><br>
-e.g. <code>find hsa/ alcohol</code><br>
-e.g. <code>find i/ high cholesterol</code></p>
+e.g. <code>find ic/ S9876543T</code><br>
+e.g. <code>find t/ friend</code></p>
 </li>
 <li>
 <p><strong>Delete</strong> : <code>delete INDEX</code><br>
@@ -805,4 +811,4 @@ e.g. <code>export 1 Desktop/patient1info.txt</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 17:28:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 20:21:12 UTC</div></div></div></body></html>

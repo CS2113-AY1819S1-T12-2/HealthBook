@@ -855,7 +855,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>The command then looks for the <code>String</code> after the arguments which represents the data to be added. This data will be checked for validity using the <code>ParserUtil</code> class. If the data is valid, the respective class will be initialized (For eg. the commmand <code>g/M</code> is valid as it stands for changing the <code>Gender</code> of <code>Person</code> to <code>Male</code>. Since the data <code>M</code> is valid, the <code>Gender</code> class will be initialized). If the data is not valid however, an <code>ParseException</code> will be thrown warning users that the input data is not valid.</p>
 </div>
 <div class="paragraph">
-<p>Upon handling all the arguments, an <code>addInfoPersonDescriptor</code> object will be created. This is essentially a facade object that contains all the attributes of the <code>Person</code> to be edited, with its updated attributes. There will then be a mapping of the <code>addInfoPersonDescriptor</code> to a new <code>Person</code> object facilitated by the method <code>AddInfoCommand#createEditedPerson()</code>.</p>
+<p>Upon handling all the arguments, an <code>addInfoPersonDescriptor</code> object will be created. This is essentially a facade object that contains all the attributes of the <code>Person</code> to be edited, with its updated attributes. There will then be a mapping of the <code>addInfoPersonDescriptor</code> to a new <code>Person</code> object facilitated by the method <code>AddInfoCommand#createEditedPerson</code>.</p>
 </div>
 <div class="paragraph">
 <p>Finally, the <code>Model#updatePerson</code> copies attribute of the new <code>Person</code> object created above to the <code>Person</code> to be edited.</p>
@@ -876,7 +876,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If any of the arguments contain invalid data, the program will only process the information up till the invalid data. For instance, <code>addinfo 1 ic/S1234567Z d/20-20-19872 g/M</code> will only change the <code>Nric</code> attribute of the <code>Person</code> at index 1 as the date of birth argument contains erroneous date.
+If any of the arguments contain invalid data, the program will not process any data. For instance, <code>addinfo 1 i/S1234567Z d/20-20-19872 g/M</code> will not change the <code>Nric</code> attribute of the <code>Person</code> at index 1 as the date of birth argument contains erroneous date.
 </td>
 </tr>
 </table>
@@ -3726,4 +3726,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 12:26:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 14:46:33 UTC</div></div></div></body></html>

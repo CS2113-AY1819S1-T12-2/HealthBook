@@ -515,7 +515,7 @@ Deletes the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in
 <p>Add the following additional information: NRIC, DOB (in DDMMYYYY format), height (cm), weight (kg),
 gender, occupation, marital status, family member.<br>
 Note: age field will be auto-calculated once DOB is populated<br>
-Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT]</code></p>
+Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [b/BLOOD TYPE] [o/OCCUPATION]</code></p>
 </div>
 <div class="ulist">
 <div class="title">Constraints for <code>[i/NRIC]</code>:</div>
@@ -536,8 +536,66 @@ Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT]</code></p>
 </li>
 </ul>
 </div>
+<div class="ulist">
+<div class="title">Constraints for `[h/HEIGHT]</div>
+<ul>
+<li>
+<p>Must be a numerical input.</p>
+</li>
+<li>
+<p>Input all <code>height</code> data in centimeters.</p>
+</li>
+<li>
+<p>Decimals is not supported as of this release.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Constraints for `[w/WEIGHT]</div>
+<ul>
+<li>
+<p>Must be a numerical input.</p>
+</li>
+<li>
+<p>Input all <code>weight</code> data in kilograms.</p>
+</li>
+<li>
+<p>Decimals is not supported as of this release.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Constraints for <code>[g/BLOOD TYPE]</code></div>
+<ul>
+<li>
+<p>Input must either be <code>A+</code>, <code>A-</code>, <code>AB+</code>, <code>AB-</code>, <code>B+</code>, <code>B-</code>, <code>O+</code> or <code>O-</code>.</p>
+</li>
+<li>
+<p>Excluding the +/- from the input will not be accepted.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Constraints for <code>[g/GENDER]</code></div>
+<ul>
+<li>
+<p>Input must either be <code>M</code> (for Male) or <code>F</code> (for Female).</p>
+</li>
+<li>
+<p>Alternative input <code>Male</code> and <code>Female</code> are acceptable also.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Constraints for <code>[o/OCCUPATION]</code></div>
+<ul>
+<li>
+<p>Must not contain any numerics and special characters including whitespaces (Eg. Nurse and Doctor or Wood-Logger are not accepted input).</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>Work In Progress: <code>[g/GENDER] [o/OCCUPATION] [m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code></p>
+<p>Work In Progress: <code>[m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -748,4 +806,4 @@ e.g. <code>export 1 Desktop/patient1info.txt</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 12:26:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 14:46:33 UTC</div></div></div></body></html>

@@ -110,7 +110,7 @@ Adds a new medical report for patient at index 3 titled Asthma, dated 01-01-2018
 <h3 id="editing-of-medical-report-code-editreport-code"><a class="link" href="#editing-of-medical-report-code-editreport-code">Editing of Medical Report: <code>editreport</code></a></h3>
 <div class="paragraph">
 <p>Edits existing medical report of the patient.<br>
-Format: <code>editreport INDEX d/DATE [t/TITLE] [d/DATE] [i/INFORMATION]</code></p>
+Format: <code>editreport INDEX od/ORIGINAL DATE [t/TITLE] [d/DATE] [i/INFORMATION]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -118,26 +118,8 @@ Format: <code>editreport INDEX d/DATE [t/TITLE] [d/DATE] [i/INFORMATION]</code><
 <div class="ulist">
 <ul>
 <li>
-<p><code>editreport 3 d/01-01-2018 t/Depression d/02-02-2018 i/Prescribed XXX medicine, next appointment on 03-03-2018.</code><br>
+<p><code>editreport 3 od/01-01-2018 t/Depression d/02-02-2018 i/Prescribed XXX medicine, next appointment on 03-03-2018.</code><br>
 Edits title, date and information of existing medical report dated 01-01-2018 for patient at index 3.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="viewing-of-medical-report-code-viewreport-code"><a class="link" href="#viewing-of-medical-report-code-viewreport-code">Viewing of Medical Report: <code>viewreport</code></a></h3>
-<div class="paragraph">
-<p>Views the medical report of the patient on a certain date.<br>
-Format: <code>viewreport INDEX d/DATE</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>viewreport 1 d/01-01-2018</code><br>
-View medical report dated 01-01-2018 for patient at index 1.</p>
 </li>
 </ul>
 </div>
@@ -329,81 +311,5 @@ View medical report dated 01-01-2018 for patient at index 1.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="use-case-list-of-medical-report-code-viewreport-code"><a class="link" href="#use-case-list-of-medical-report-code-viewreport-code">Use case: List of Medical Report: <code>viewreport</code></a></h3>
-<div class="paragraph">
-<p>Assume that user has already requested the System to display a list of patients.</p>
 </div>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to view the medical report for a patient on a certain date.</p>
-</li>
-<li>
-<p>System displays the medical report for the patient.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. User uses the wrong format to view medical reports.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of viewing medical reports.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b. User provides an invalid index or date for the list.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b1. System shows an error message that the index or date is invalid.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1c. User requests to view the medical report for a patient who does not has any medical reports.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1c1. System shows message that the patient does not have any medical reports.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 07:08:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 05:19:36 UTC</div></div></div></body></html>

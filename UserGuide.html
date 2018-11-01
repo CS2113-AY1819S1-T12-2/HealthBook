@@ -529,7 +529,7 @@ Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [b
 <p>Must start with 'S' or 'T' followed by 7 digits before ending with an alphabet</p>
 </li>
 <li>
-<p>NRIC input must be valid with accordance to ICA&#8217;s NRIC checksum</p>
+<p>NRIC input must comply to ICA&#8217;s NRIC checksum algorithm</p>
 </li>
 </ul>
 </div>
@@ -548,10 +548,10 @@ Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [b
 <p>Must be a numerical input.</p>
 </li>
 <li>
-<p>Input all <code>height</code> data in centimeters.</p>
+<p>Floating point numbers are accepted.</p>
 </li>
 <li>
-<p>Decimals is not supported as of this release.</p>
+<p>Input all <code>height</code> data in centimeters.</p>
 </li>
 </ul>
 </div>
@@ -562,10 +562,10 @@ Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [b
 <p>Must be a numerical input.</p>
 </li>
 <li>
-<p>Input all <code>weight</code> data in kilograms.</p>
+<p>Floating point numbers are accepted.</p>
 </li>
 <li>
-<p>Decimals is not supported as of this release.</p>
+<p>Input all <code>weight</code> data in kilograms.</p>
 </li>
 </ul>
 </div>
@@ -576,7 +576,7 @@ Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [b
 <p>Input must either be <code>A+</code>, <code>A-</code>, <code>AB+</code>, <code>AB-</code>, <code>B+</code>, <code>B-</code>, <code>O+</code> or <code>O-</code>.</p>
 </li>
 <li>
-<p>Excluding the +/- from the input will not be accepted.</p>
+<p>Excluding the <code>+/-</code> from the input will not be accepted.</p>
 </li>
 </ul>
 </div>
@@ -586,16 +586,13 @@ Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [b
 <li>
 <p>Input must either be <code>M</code> (for Male) or <code>F</code> (for Female).</p>
 </li>
-<li>
-<p>Alternative input <code>Male</code> and <code>Female</code> are acceptable also.</p>
-</li>
 </ul>
 </div>
 <div class="ulist">
 <div class="title">Constraints for <code>[o/OCCUPATION]</code></div>
 <ul>
 <li>
-<p>Must not contain any numerics and special characters including whitespaces (Eg. Nurse and Doctor or Wood-Logger are not accepted input).</p>
+<p>Must not contain any numeric and special characters including whitespaces (Eg. Nurse and Doctor or Wood-Logger are not accepted input).</p>
 </li>
 </ul>
 </div>
@@ -608,10 +605,9 @@ Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [b
 <div class="ulist">
 <ul>
 <li>
-<p><code>addinfo 2 n/S9123456A d/01-01-1990</code><br>
+<p><code>addinfo 2 n/S9123456A d/01-01-1990 h/154 g/M</code><br>
 For patient in index 2, populate NRIC field with S91234567A, date of birth field
-with 01-01-1990, height field with 154, gender field with Male and associate
-patient in index 3 as family member.</p>
+with 01-01-1990, height field with 154, gender field with Male.</p>
 </li>
 </ul>
 </div>
@@ -811,4 +807,4 @@ e.g. <code>export 1 Desktop/patient1info.txt</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 11:48:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 12:19:52 UTC</div></div></div></body></html>

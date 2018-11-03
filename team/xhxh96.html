@@ -138,6 +138,9 @@ Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [b
 <li>
 <p>Must be in the format <code>dd-MM-YYYY</code></p>
 </li>
+<li>
+<p>Must not be before epoch time 0 (i.e. dates before 01-01-1970 will not be accepted).</p>
+</li>
 </ul>
 </div>
 <div class="ulist">
@@ -169,13 +172,13 @@ Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [b
 </ul>
 </div>
 <div class="ulist">
-<div class="title">Constraints for <code>[g/BLOOD TYPE]</code></div>
+<div class="title">Constraints for <code>[b/BLOOD TYPE]</code></div>
 <ul>
 <li>
 <p>Input must either be <code>A+</code>, <code>A-</code>, <code>AB+</code>, <code>AB-</code>, <code>B+</code>, <code>B-</code>, <code>O+</code> or <code>O-</code>.</p>
 </li>
 <li>
-<p>Excluding the <code>+/-</code> from the input will not be accepted.</p>
+<p>Excluding the <code>+</code>/<code>-</code> from the input will not be accepted.</p>
 </li>
 </ul>
 </div>
@@ -204,7 +207,7 @@ Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [b
 <div class="ulist">
 <ul>
 <li>
-<p><code>addinfo 2 n/S9123456A d/01-01-1990 h/154 g/M</code><br>
+<p><code>addinfo 2 i/S9696531A d/01-01-1990 h/154 g/M</code><br>
 For patient in index 2, populate NRIC field with S91234567A, date of birth field
 with 01-01-1990, height field with 154, gender field with Male.</p>
 </li>
@@ -423,4 +426,4 @@ If any of the arguments contain invalid data, the program will not process any d
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 17:43:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-03 17:27:54 UTC</div></div></div></body></html>

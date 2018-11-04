@@ -27,7 +27,7 @@
 <li><a href="#adding-of-medical-report-code-addreport-code">3.12. Adding of Medical Report: <code>addreport</code></a></li>
 <li><a href="#editing-of-medical-report-code-editreport-code">3.13. Editing of Medical Report: <code>editreport</code></a></li>
 <li><a href="#sort-patients-list-code-sort-code">3.14. Sort patients list: <code>sort</code></a></li>
-<li><a href="#view-patient-s-information-code-view-code">3.15. View patient’s information: <code>view</code></a></li>
+<li><a href="#selecting-a-patient-code-select-code">3.15. Selecting a patient: <code>select</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -673,10 +673,27 @@ Sort the patient list by their names in reverse order (Z → A).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-patient-s-information-code-view-code"><a class="link" href="#view-patient-s-information-code-view-code">3.15. View patient’s information: <code>view</code></a></h3>
+<h3 id="selecting-a-patient-code-select-code"><a class="link" href="#selecting-a-patient-code-select-code">3.15. Selecting a patient: <code>select</code></a></h3>
 <div class="paragraph">
-<p>View patient’s general and additional information.<br>
-Format: <code>view INDEX</code></p>
+<p>Selects the patient identified by the index number used in the displayed person list and displays the selected patient&#8217;s information.<br>
+Format: <code>select INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Selects the patient and displays the information for the patient at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed person list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -684,8 +701,9 @@ Format: <code>view INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>view 1</code><br>
-Display information of patient at index 1</p>
+<p><code>list</code><br>
+<code>select 2</code><br>
+Selects the 2nd person in the health book.</p>
 </li>
 </ul>
 </div>
@@ -760,10 +778,10 @@ e.g. <code>editreport 3 od/01-01-2018 t/Depression d/02-01-2018 i/Patient diagno
 e.g. <code>sort n/ 2</code></p>
 </li>
 <li>
-<p><strong>View</strong> : <code>view INDEX</code><br>
-e.g. view 1</p>
+<p><strong>Select</strong> : <code>select INDEX</code><br>
+e.g. select 1</p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-04 09:33:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-04 11:37:25 UTC</div></div></div></body></html>

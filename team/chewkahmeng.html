@@ -10,7 +10,7 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Health Book is an application for healthcare professionals to retrieve their patients’ personal information and health-related information efficiently and systematically. The user interacts with it using a Command Line Interface (CLI) to input commands, while a Graphical User Interface (GUI) is used to display the patients’ information. It is written in Java and has about 10kLoC.</p>
+<p>Health Book is a application written in Java. Its main purpose is to help healthcare professionals retrieve their patients’ personal and health-related information more efficiently. The user uses a Command Line Interface (CLI) to input commands and a Graphical User Interface (GUI) is used to display the patients’ information. My team consisted of a Project Manager, a Development Lead, a Design Lead, a Subject Matter Expert and myself, the Quality Assurance Lead. All of us contributed features to our application and my job was to ensure that our application runs smoothly.</p>
 </div>
 </div>
 </div>
@@ -49,7 +49,7 @@
 </div>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2113-AY1819S1-T12-2/main/blob/master/src/main/java/seedu/address/logic/commands/AddMedicalReportCommand.java">AddMedicalReportCommand</a>][<a href="https://github.com/CS2113-AY1819S1-T12-2/main/blob/master/src/main/java/seedu/address/logic/parser/AddMedicalReportCommandParser.java">AddMedicalReportCommandParser</a>][<a href="https://github.com/CS2113-AY1819S1-T12-2/main/tree/master/src/main/java/seedu/address/model/medicalreport">MedicalReport Classes</a>][<a href="https://github.com/CS2113-AY1819S1-T12-2/main/blob/master/src/main/java/seedu/address/storage/XmlAdaptedReport.java">XmlAdaptedReport</a>][<a href="https://github.com/CS2113-AY1819S1-T12-2/main/blob/master/src/test/java/seedu/address/logic/commands/AddReportCommandTest.java">AddReportCommandTest</a>][<a href="https://github.com/CS2113-AY1819S1-T12-2/main/blob/master/src/test/java/seedu/address/logic/parser/AddReportCommandParserTest.java">AddReportCommandParserTest</a>][<a href="https://github.com/CS2113-AY1819S1-T12-2/main/blob/master/src/test/java/seedu/address/model/person/AddMedicalReportTest.java">MedicalReportTest</a>]</p>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2113-AY1819S1-T12-2/main/blob/master/src/main/java/seedu/address/logic/commands/AddMedicalReportCommand.java">AddMedicalReportCommand</a>](Command for adding medical report)[<a href="https://github.com/CS2113-AY1819S1-T12-2/main/blob/master/src/main/java/seedu/address/logic/parser/AddMedicalReportCommandParser.java">AddMedicalReportCommandParser</a>](Class to parse addmedicalreport command)[<a href="https://github.com/CS2113-AY1819S1-T12-2/main/tree/master/src/main/java/seedu/address/model/medicalreport">MedicalReport Classes</a>][<a href="https://github.com/CS2113-AY1819S1-T12-2/main/blob/master/src/main/java/seedu/address/storage/XmlAdaptedReport.java">XmlAdaptedReport</a>][<a href="https://github.com/CS2113-AY1819S1-T12-2/main/blob/master/src/test/java/seedu/address/logic/commands/AddReportCommandTest.java">AddReportCommandTest</a>][<a href="https://github.com/CS2113-AY1819S1-T12-2/main/blob/master/src/test/java/seedu/address/logic/parser/AddReportCommandParserTest.java">AddReportCommandParserTest</a>][<a href="https://github.com/CS2113-AY1819S1-T12-2/main/blob/master/src/test/java/seedu/address/model/person/AddMedicalReportTest.java">MedicalReportTest</a>](Tests for respective commands)</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -94,14 +94,28 @@
 <p>Adds medical report to the patient.<br>
 Format: <code>addreport INDEX [t/TITLE] [d/DATE] [i/INFORMATION]</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a medical report for the patient at the specified index.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed person list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addreport 3 t/Asthma d/01-01-2018 i/Prescribed XXX medicine, next appointment on 02-02-2018.</code><br>
-Adds a new medical report for patient at index 3 titled Asthma, dated 01-01-2018 with the report&#8217;s information.</p>
+<p><code>addreport 1 t/Asthma d/01-01-2018 i/Prescribed XXX medicine, next appointment on 02-02-2018.</code><br>
+Adds a new medical report for patient at index 1 titled Asthma, dated 01-01-2018 with the report&#8217;s information.</p>
 </li>
 </ul>
 </div>
@@ -110,7 +124,27 @@ Adds a new medical report for patient at index 3 titled Asthma, dated 01-01-2018
 <h3 id="editing-of-medical-report-code-editreport-code"><a class="link" href="#editing-of-medical-report-code-editreport-code">Editing of Medical Report: <code>editreport</code></a></h3>
 <div class="paragraph">
 <p>Edits existing medical report of the patient.<br>
-Format: <code>editreport INDEX od/ORIGINAL DATE [t/TITLE] [d/DATE] [i/INFORMATION]</code></p>
+Format: <code>editreport INDEX ot/ORIGINAL TITLE od/ORIGINAL DATE [t/TITLE] [d/DATE] [i/INFORMATION]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits a medical report with the specified title and date for the patient at the specified index.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed person list.</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -118,8 +152,8 @@ Format: <code>editreport INDEX od/ORIGINAL DATE [t/TITLE] [d/DATE] [i/INFORMATIO
 <div class="ulist">
 <ul>
 <li>
-<p><code>editreport 3 od/01-01-2018 t/Depression d/02-02-2018 i/Prescribed XXX medicine, next appointment on 03-03-2018.</code><br>
-Edits title, date and information of existing medical report dated 01-01-2018 for patient at index 3.</p>
+<p><code>editreport 1 ot/Asthma od/01-01-2018 t/Depression d/02-02-2018 i/Prescribed XXX medicine, next appointment on 03-03-2018.</code><br>
+Edits title, date and information of existing medical report titled Asthma and dated 01-01-2018 for patient at index 1.</p>
 </li>
 </ul>
 </div>
@@ -172,7 +206,7 @@ Edits title, date and information of existing medical report dated 01-01-2018 fo
 <p>Step 1. The user launches the application. If it is the first time he/she is launching it, the <code>VersionedAddressBook</code> will be initialized with a sample address book data. If he/she has launched it and has made changes before, the <code>VersionedAddressBook</code> will be launched with the data he has previously saved in his previous launch.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>addreport 1 t/Asthma d/01/01/2018 i/Prescribed XXX medicine, next appointment on 02/02/2018</code> command to add a medical report to the 1st person in the list that the address book is currently showing. The <code>addreport</code> command obtains the data of the person that the user is trying to change based on the index that the user has input.</p>
+<p>Step 2. The user executes <code>addreport 1 t/Asthma d/01-01-2018 i/Prescribed XXX medicine, next appointment on 02-02-2018</code> command to add a medical report to the person at index 1 in the list that the address book is currently showing. The <code>addreport</code> command obtains the data of the person that the user is trying to change based on the index that the user has input.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. The <code>addreport</code> command will obtain the set of reports that the person previously had, copy it to a new set of reports, and add the report which the user wants to add into the new set.</p>
@@ -184,12 +218,15 @@ Edits title, date and information of existing medical report dated 01-01-2018 fo
 <p>Step 5. The <code>addreport</code> command will call <code>Model#commitAddressBook()</code> to update the addressBookStateList and currentStatePointer.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the addreport operation works:</p>
+<p>Figure 4.5 shows how the addreport operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/AddMedicalReportSequenceDiagram.png" alt="AddMedicalReportSequenceDiagram" width="800">
 </div>
+</div>
+<div class="paragraph">
+<p>Figure 4.5: Sequence Diagram of AddMedicalReport feature</p>
 </div>
 </div>
 </div>
@@ -312,4 +349,4 @@ Edits title, date and information of existing medical report dated 01-01-2018 fo
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-04 15:20:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 09:17:59 UTC</div></div></div></body></html>

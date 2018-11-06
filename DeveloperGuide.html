@@ -1046,7 +1046,7 @@ Execution ends when <code>CommandResult(generateSuccessMessage(editedPerson))</c
 <p>Step 1. The user launches the application. If it is the first time he/she is launching it, the <code>VersionedAddressBook</code> will be initialized with a sample address book data. If he/she has launched it and has made changes before, the <code>VersionedAddressBook</code> will be launched with the data he has previously saved in his previous launch.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>addreport 1 t/Asthma d/01/01/2018 i/Prescribed XXX medicine, next appointment on 02/02/2018</code> command to add a medical report to the 1st person in the list that the address book is currently showing. The <code>addreport</code> command obtains the data of the person that the user is trying to change based on the index that the user has input.</p>
+<p>Step 2. The user executes <code>addreport 1 t/Asthma d/01-01-2018 i/Prescribed XXX medicine, next appointment on 02-02-2018</code> command to add a medical report to the person at index 1 in the list that the address book is currently showing. The <code>addreport</code> command obtains the data of the person that the user is trying to change based on the index that the user has input.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. The <code>addreport</code> command will obtain the set of reports that the person previously had, copy it to a new set of reports, and add the report which the user wants to add into the new set.</p>
@@ -1058,12 +1058,15 @@ Execution ends when <code>CommandResult(generateSuccessMessage(editedPerson))</c
 <p>Step 5. The <code>addreport</code> command will call <code>Model#commitAddressBook()</code> to update the addressBookStateList and currentStatePointer.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the addreport operation works:</p>
+<p>Figure 4.5 shows how the addreport operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/AddMedicalReportSequenceDiagram.png" alt="AddMedicalReportSequenceDiagram" width="800">
 </div>
+</div>
+<div class="paragraph">
+<p>Figure 4.5: Sequence Diagram of AddMedicalReport feature</p>
 </div>
 </div>
 </div>
@@ -3583,4 +3586,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-04 15:20:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 09:17:59 UTC</div></div></div></body></html>

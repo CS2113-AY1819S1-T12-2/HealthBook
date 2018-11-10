@@ -91,9 +91,9 @@
 <li><a href="#use-case-editing-basic-information-of-patient-code-edit-code">D.4. Use case: Editing basic information of patient: <code>edit</code></a></li>
 <li><a href="#use-case-finding-patients-by-categories-code-find-code">D.5. Use case: Finding patients by categories: <code>find</code></a></li>
 <li><a href="#use-case-deleting-a-patient-code-delete-code">D.6. Use case: Deleting a patient: <code>delete</code></a></li>
-<li><a href="#use-case-adding-an-appointment-into-patient-s-timetable-code-addappt-code">D.7. Use case: Adding an appointment into patient’s timetable: <code>addappt</code></a></li>
-<li><a href="#use-case-editing-an-appointment-in-a-patient-s-timetable-code-editappt-code">D.8. Use case: Editing an appointment in a patient’s timetable: <code>editappt</code></a></li>
-<li><a href="#use-case-deleting-an-appointment-in-a-patient-s-timetable-code-deleteappt-code">D.9. Use case: Deleting an appointment in a patient’s timetable: <code>deleteappt</code></a></li>
+<li><a href="#use-case-adding-an-appointment-for-a-patient-code-addappt-code">D.7. Use case: Adding an appointment for a patient: <code>addappt</code></a></li>
+<li><a href="#use-case-editing-an-appointment-for-a-patient-code-editappt-code">D.8. Use case: Editing an appointment for a patient: <code>editappt</code></a></li>
+<li><a href="#use-case-deleting-an-appointment-for-a-patient-code-deleteappt-code">D.9. Use case: Deleting an appointment for a patient: <code>deleteappt</code></a></li>
 <li><a href="#use-case-adding-additional-information-of-patient-code-addinfo-code">D.10. Use case: Adding additional information of patient: <code>addinfo</code></a></li>
 <li><a href="#use-case-editing-additional-information-of-patient-code-editinfo-code">D.11. Use case: Editing additional information of patient: <code>editinfo</code></a></li>
 <li><a href="#use-case-adding-of-medical-report-code-addreport-code">D.12. Use case: Adding of Medical Report: <code>addreport</code></a></li>
@@ -1087,6 +1087,7 @@ The <code>edithist</code> command obtains the data of the person that the user i
 <div class="content">
 <img src="images/AddApptSequenceDiagram.png" alt="AddApptSequenceDiagram" width="800">
 </div>
+<div class="title">Figure 12. Sequence diagram for addappt operation</div>
 </div>
 </div>
 </div>
@@ -1141,7 +1142,7 @@ The <code>edithist</code> command obtains the data of the person that the user i
 <div class="content">
 <img src="images/AddMedicalReportSequenceDiagram.png" alt="AddMedicalReportSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 12. Sequence Diagram of AddMedicalReport feature</div>
+<div class="title">Figure 13. Sequence Diagram of AddMedicalReport feature</div>
 </div>
 </div>
 </div>
@@ -1345,7 +1346,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 13. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 14. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2862,7 +2863,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-adding-an-appointment-into-patient-s-timetable-code-addappt-code"><a class="link" href="#use-case-adding-an-appointment-into-patient-s-timetable-code-addappt-code">D.7. Use case: Adding an appointment into patient’s timetable: <code>addappt</code></a></h3>
+<h3 id="use-case-adding-an-appointment-for-a-patient-code-addappt-code"><a class="link" href="#use-case-adding-an-appointment-for-a-patient-code-addappt-code">D.7. Use case: Adding an appointment for a patient: <code>addappt</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of patients.</p>
 </div>
@@ -2872,10 +2873,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to add an appointment into patient’s timetable.</p>
+<p>User requests to add an appointment into patient’s schedule.</p>
 </li>
 <li>
-<p>System adds the appointment into patient’s timetable and displays a message that the addition is successful.</p>
+<p>System adds the appointment into patient’s schedule and displays a message that the addition is successful.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2922,11 +2923,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1c. Patient’s timetable already has an appointment which overlaps with the new appointment in terms of timing.</p>
+<p>1c. Patient’s schedule already has an appointment which overlaps with the new appointment in terms of timing.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1c1. System shows an error message that there is an overlapped appointment, and shows both the appointments which overlap each other.</p>
+<p>1c1. System shows an error message that there is a timing clash between the new appointment and another appointment already in the patient&#8217;s schedule.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2955,7 +2956,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-editing-an-appointment-in-a-patient-s-timetable-code-editappt-code"><a class="link" href="#use-case-editing-an-appointment-in-a-patient-s-timetable-code-editappt-code">D.8. Use case: Editing an appointment in a patient’s timetable: <code>editappt</code></a></h3>
+<h3 id="use-case-editing-an-appointment-for-a-patient-code-editappt-code"><a class="link" href="#use-case-editing-an-appointment-for-a-patient-code-editappt-code">D.8. Use case: Editing an appointment for a patient: <code>editappt</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of patients.</p>
 </div>
@@ -2965,10 +2966,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to edit an appointment in the patient’s timetable with new details.</p>
+<p>User requests to edit an appointment in the patient’s schedule with new details.</p>
 </li>
 <li>
-<p>System updates the appointment in the patient’s timetable with the new details and displays a message that edit is successful.</p>
+<p>System updates the appointment in the patient’s schedule with the new details and displays a message that edit is successful.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3015,11 +3016,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1c. Patient’s timetable already has an appointment which overlaps with the new appointment in terms of timing.</p>
+<p>1c. Patient’s schedule already has an appointment which overlaps with the new appointment in terms of timing.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1c1. System shows an error message that there is an overlapped appointment, and shows both the appointments which overlap each other.</p>
+<p>1c1. System shows an error message that there is a timing clash between the new appointment and another appointment already in the patient&#8217;s schedule.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3065,7 +3066,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-deleting-an-appointment-in-a-patient-s-timetable-code-deleteappt-code"><a class="link" href="#use-case-deleting-an-appointment-in-a-patient-s-timetable-code-deleteappt-code">D.9. Use case: Deleting an appointment in a patient’s timetable: <code>deleteappt</code></a></h3>
+<h3 id="use-case-deleting-an-appointment-for-a-patient-code-deleteappt-code"><a class="link" href="#use-case-deleting-an-appointment-for-a-patient-code-deleteappt-code">D.9. Use case: Deleting an appointment for a patient: <code>deleteappt</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of patients.</p>
 </div>
@@ -3075,10 +3076,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to delete an appointment in the patient’s timetable.</p>
+<p>User requests to delete an appointment in the patient’s schedule.</p>
 </li>
 <li>
-<p>System deletes the appointment in the patient’s timetable and displays a message that deletion is successful.</p>
+<p>System deletes the appointment in the patient’s schedule and displays a message that deletion is successful.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -4232,4 +4233,4 @@ edited with new date 05-05-2015, new allergy of grass and new previous country v
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 09:32:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 10:13:05 UTC</div></div></div></body></html>

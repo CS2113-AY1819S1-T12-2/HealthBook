@@ -1227,7 +1227,7 @@ accordingly.</p>
 <p>Step 4. The <code>find</code> command will call <code>Model#updateFilteredPersonList()</code> to generate a patients list containing patients with "alcohol" and "nut" predicates in their allergy detail.</p>
 </div>
 <div class="paragraph">
-<p>Step 5. The <code>find</code> command will then call `Model#getFilteredPersonList()    ` to show the filtered list in the interface.</p>
+<p>Step 5. The <code>find</code> command will then call <code>Model#getFilteredPersonList()</code> to show the filtered list in the interface.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram summarizes the activity when a user (doctor) executes a new <code>find</code> command:</p>
@@ -1257,11 +1257,11 @@ accordingly.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. A doctor launches the application for the first time. If it hs/her first time launching the Health Book, the <code>VersionedAddressBook</code> will be initialized with a sample address book data. If he/she has launched it and has made changes before, the <code>VersionedAddressBook</code> will be launched with the data he has previously saved in his previous launch.
-[NOTE] The list that the doctor will be implementing the sort command on will the be current patient list as shown in the interface.</p>
+[IMPORTANT] The list that the doctor will be implementing the sort command on will the be current patient list as shown in the interface.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The doctor executes <code>sort n/ 2</code> command to generate a sorted and reversed list of patients according to their names. The <code>sort</code> command obtains the doctor&#8217;s prefix and order input
-[NOTE] If the command format is invalid, an error message will be shown to prompt the user of the correct format.</p>
+[WARNING] If the command format is invalid, an error message will be shown to prompt the user of the correct format.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. The <code>sort</code> command will call <code>Model#updateSortedPersonList()</code> to update the person list with the doctor&#8217;s input of prefix and order.</p>
@@ -4344,4 +4344,4 @@ edited with new date 05-05-2015, new allergy of grass and new previous country v
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 14:31:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 14:46:07 UTC</div></div></div></body></html>

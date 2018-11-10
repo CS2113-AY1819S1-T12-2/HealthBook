@@ -405,6 +405,11 @@ Format: <code>addhist INDEX hsd/MEDICAL_HISTORY_DATE hsa/ALLERGY hsc/PREVIOUS_CO
 </div>
 </div>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/addhist.png" alt="addhist" width="790">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -438,6 +443,9 @@ Format: <code>edithist INDEX hsod/OLD_MEDICAL_HISTORY_DATE hsd/MEDICAL_HISTORY_D
 <p>Date entries must be after 01-01-1900.</p>
 </li>
 <li>
+<p>OLD_MEDICAL_HISTORY_DATE specified must already exist for the patient for command to work.</p>
+</li>
+<li>
 <p>Note: Discharge Status  code only accepts <strong>d</strong>, <strong>a</strong>, <strong>e</strong> as inputs to represent discharged, admitted or expired.</p>
 </li>
 <li>
@@ -447,6 +455,11 @@ Format: <code>edithist INDEX hsod/OLD_MEDICAL_HISTORY_DATE hsd/MEDICAL_HISTORY_D
 </div>
 </div>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/edithist.png" alt="edithist" width="790">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -454,7 +467,7 @@ Format: <code>edithist INDEX hsod/OLD_MEDICAL_HISTORY_DATE hsd/MEDICAL_HISTORY_D
 <ul>
 <li>
 <p><code>edithist 1 hsod/10-10-2010 hsd/10-10-2015 hsa/Chocolate hsc/Russia hsds/a</code>
-Edits a medical history entry for the 1st person in the list with wrong date of 10-10-2010 to the correct date of
+Edits a medical history entry for the 1st person in the list with existing date of 10-10-2010 to the correct date of
 10-10-2015 with a chocolate allergy and Russia as previous country visited.
 The patient has been admitted to a hospital.</p>
 </li>
@@ -833,6 +846,14 @@ e.g. <code>find t/ asthma</code></p>
 e.g. <code>delete 2</code></p>
 </li>
 <li>
+<p><strong>Add Medical History</strong> : <code>addhist INDEX hsd/MEDICAL_HISTORY_DATE hsa/ALLERGY hsc/PREVIOUS_COUNTRY_VISITED hsds/DISCHARGE_STATUS</code><br>
+<code>addhist 1 hsd/10-10-2010 hsa/Alcohol hsc/Kuwait hsds/d</code></p>
+</li>
+<li>
+<p><strong>Edit Medical History</strong> : <code>edithist INDEX hsod/OLD_MEDICAL_HISTORY_DATE hsd/MEDICAL_HISTORY_DATE hsa/ALLERGY hsc/PREVIOUS_COUNTRY_VISITED hsds/DISCHARGE_STATUS</code><br>
+edithist 1 hsod/10-10-2010 hsd/10-10-2015 hsa/Chocolate hsc/Russia hsds/a</p>
+</li>
+<li>
 <p><strong>Add Appt</strong> : <code>addappt INDEX s/START e/END v/VENUE i/INFO d/DOCTOR_NAME</code><br>
 e.g. <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code></p>
 </li>
@@ -871,4 +892,4 @@ e.g. select 1</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 07:42:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 07:35:54 UTC</div></div></div></body></html>

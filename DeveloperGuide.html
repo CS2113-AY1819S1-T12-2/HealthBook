@@ -98,8 +98,10 @@
 <li><a href="#use-case-editing-additional-information-of-patient-code-editinfo-code">D.11. Use case: Editing additional information of patient: <code>editinfo</code></a></li>
 <li><a href="#use-case-adding-of-medical-report-code-addreport-code">D.12. Use case: Adding of Medical Report: <code>addreport</code></a></li>
 <li><a href="#use-case-editing-of-medical-report-code-editreport-code">D.13. Use case: Editing of Medical Report: <code>editreport</code></a></li>
-<li><a href="#use-case-sort-patients-list-code-sort-code">D.14. Use case: Sort patients list: <code>sort</code></a></li>
-<li><a href="#use-case-selecting-a-patient-code-select-code">D.15. Use case: Selecting a patient: <code>select</code></a></li>
+<li><a href="#use-case-adding-of-medical-history-code-addhist-code">D.14. Use case: Adding of Medical History: <code>addhist</code></a></li>
+<li><a href="#use-case-editing-of-medical-history-code-edithist-code">D.15. Use case: Editing of Medical History: <code>edithist</code></a></li>
+<li><a href="#use-case-sort-patients-list-code-sort-code">D.16. Use case: Sort patients list: <code>sort</code></a></li>
+<li><a href="#use-case-selecting-a-patient-code-select-code">D.17. Use case: Selecting a patient: <code>select</code></a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
@@ -110,6 +112,7 @@
 <li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
 <li><a href="#saving-data">H.3. Saving data</a></li>
+<li><a href="#adding-medical-history-to-patient">H.4. Adding medical history to patient</a></li>
 </ul>
 </li>
 </ul>
@@ -961,9 +964,7 @@ Execution ends when <code>CommandResult(generateSuccessMessage(editedPerson))</c
 <div class="content">
 <img src="images/AddHistSequenceDiagram.png" alt="AddHistSequenceDiagram" width="800">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure 4.3.1: Sequence Diagram for <code>addhist</code> command</p>
+<div class="title">Figure 10. Sequence Diagram for <code>addhist</code> command</div>
 </div>
 </div>
 </div>
@@ -1032,9 +1033,7 @@ The <code>edithist</code> command obtains the data of the person that the user i
 <div class="content">
 <img src="images/EditHistSequenceDiagram.png" alt="EditHistSequenceDiagram" width="800">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure 4.4.1: Sequence Diagram for <code>edithist</code> command</p>
+<div class="title">Figure 11. Sequence Diagram for <code>edithist</code> command</div>
 </div>
 </div>
 </div>
@@ -1346,7 +1345,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 10. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 12. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -3395,7 +3394,227 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-sort-patients-list-code-sort-code"><a class="link" href="#use-case-sort-patients-list-code-sort-code">D.14. Use case: Sort patients list: <code>sort</code></a></h3>
+<h3 id="use-case-adding-of-medical-history-code-addhist-code"><a class="link" href="#use-case-adding-of-medical-history-code-addhist-code">D.14. Use case: Adding of Medical History: <code>addhist</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to display a list of medical reports for a patient.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add medical history for patient.</p>
+</li>
+<li>
+<p>System edits medical history for the patient and displays a message that shows success of medical history added.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to edit medical report.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of editing medical report.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. User provides an invalid date format in the command.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System shows an error message that the date format must comply with dd-MM-yyyy format.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d. User provides an invalid discharge status in the command.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d1. System shows an error message that the discharge status is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-editing-of-medical-history-code-edithist-code"><a class="link" href="#use-case-editing-of-medical-history-code-edithist-code">D.15. Use case: Editing of Medical History: <code>edithist</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to display a list of medical reports for a patient.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit existing medical history for patient.</p>
+</li>
+<li>
+<p>System edits medical history for the patient and displays a message that shows success of medical history edited.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to edit medical report.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of editing medical report.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an invalid index for the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. User provides an invalid date format in the command.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System shows an error message that the date format must comply with dd-MM-yyyy format.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d. User provides an invalid discharge status in the command.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d1. System shows an error message that the discharge status is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1e. User targets a non-existent medical history date in the command.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1e1. System shows an error message that the specified date does not belong to any existing medical history.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1f. User provides a new medical history date that is already present in the command.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1f1. System shows an error message that the specified new date already exists.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-sort-patients-list-code-sort-code"><a class="link" href="#use-case-sort-patients-list-code-sort-code">D.16. Use case: Sort patients list: <code>sort</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of patients.</p>
 </div>
@@ -3454,7 +3673,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-selecting-a-patient-code-select-code"><a class="link" href="#use-case-selecting-a-patient-code-select-code">D.15. Use case: Selecting a patient: <code>select</code></a></h3>
+<h3 id="use-case-selecting-a-patient-code-select-code"><a class="link" href="#use-case-selecting-a-patient-code-select-code">D.17. Use case: Selecting a patient: <code>select</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of patients.</p>
 </div>
@@ -3710,5 +3929,107 @@ Expected: Similar to previous.</p>
 <p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="adding-medical-history-to-patient"><a class="link" href="#adding-medical-history-to-patient">H.4. Adding medical history to patient</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding medical history to a non-existent patient</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all patients using the <code>list</code> command. Any number of patients allowed in the list.</p>
+</li>
+<li>
+<p>Test case: <code>addhist 9999999 hsd/10-10-2010</code><br>
+Expected: No medical entry added to non-existent patient in the list. Error details shown in status message.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 07:42:14 UTC</div></div></div></body></html>
+</li>
+<li>
+<p>Adding medical history to existing patient</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all patients using the list command. Any number of patients allowed in the list.</p>
+</li>
+<li>
+<p>Test case: <code>addhist</code><br>
+Expected: <strong>FAIL</strong><br>
+Invalid command format. Error details shown in status message which includes instructions to follow proper format.</p>
+</li>
+<li>
+<p>Test case: <code>addhist 1 hsd/24/08/1993 hsa/Alcohol hsc/Kuwait hsds/d</code><br>
+Expected: <strong>FAIL</strong><br>
+Medical History not added due to wrong date format. Error details shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>addhist 1 hsd/24-08-1111 hsa/Alcohol hsc/Kuwait hsds/w</code><br>
+Expected: <strong>FAIL</strong><br>
+Medical History only supports dates after year 1900. Error details shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>addhist 1 hsd/24-08-2222 hsa/Alcohol hsc/Kuwait hsds/d</code><br>
+Expected: <strong>FAIL</strong><br>
+Medical History only supports dates today and before today. This updates with real time. Error details shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>addhist 1 hsd/24-08-1993 hsa/Alcohol hsc/Kuwait hsds/w</code><br>
+Expected: <strong>FAIL</strong><br>
+Invalid Discharge Status. Error details specifies valid discharge status for users to use.</p>
+</li>
+<li>
+<p>Test case: <code>addhist 1 hsd/08-11-2018 hsa/Alcohol hsc/Kuwait hsds/d</code><br>
+Expected: <strong>PASS</strong><br>
+Medical History entered for first patient on the list with date of 08-11-2018, alcohol allergy, Kuwait as last country visited and is currently discharged.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing medical history to a non-existent patient</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all patients using the <code>list</code> command. Any number of patients allowed in the list.</p>
+</li>
+<li>
+<p>Test case: <code>edithist 9999999 hsod/11-11-2011 hsd/10-10-2010</code><br>
+Expected: <strong>FAIL</strong><br>
+No medical entry added to non-existent patient in the list. Error details shown in status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing medical history to existing patient</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all patients using the <code>list</code> command. Any number of patients allowed in the list.</p>
+</li>
+<li>
+<p>Test case: <code>edithist 1 hsod/10-10-2010 hsd/20-05-2011 hsa/grass hsc/Canada hsds/e</code><br>
+Expected: <strong>FAIL</strong><br>
+If Medical History entry with date 10-10-2010 does not exist, error details will be shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>edithist 1 hsod/20-05-2011 hsd/08-11-2018 hsa/grass hsc/Canada hsds/e</code><br>
+Expected: <strong>FAIL</strong><br>
+If new date specified of Medical History to be edited already exists, error details will be shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>edithist 1 hsod/12-12-2012 hsd/05-05-2015 hsa/grass hsc/Canada hsds/e</code><br>
+Expected: <strong>PASS</strong><br>
+If previous Medical History entry exists, and new date specified is not used, the entry chosen will be
+edited with new date 05-05-2015, new allergy of grass and new previous country visited as Canada and the patient has expired.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 07:35:54 UTC</div></div></div></body></html>

@@ -700,15 +700,28 @@ Format: <code>addreport INDEX [t/TITLE] [d/DATE] [i/INFORMATION]</code></p>
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p><code>addreport 1 t/Asthma d/01-01-2018 i/Prescribed XXX medicine, next appointment on 02-02-2018.</code><br>
 Adds a new medical report for patient at index 1 titled Asthma, dated 01-01-2018 with the report&#8217;s information.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Entering the command above will add a medical report for the patient at index 1 of the displayed person list and the user interface will look as follows:</p>
 </li>
 </ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddReport.png" alt="AddReport" width="790">
+</div>
+<div class="title">Figure 1. Adding a medical report for a patient.</div>
 </div>
 </div>
 <div class="sect2">
@@ -738,15 +751,28 @@ Format: <code>editreport INDEX ot/ORIGINAL TITLE od/ORIGINAL DATE [t/TITLE] [d/D
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p><code>editreport 1 ot/Asthma od/01-01-2018 t/Depression d/02-02-2018 i/Prescribed XXX medicine, next appointment on 03-03-2018.</code><br>
 Edits title, date and information of existing medical report titled Asthma and dated 01-01-2018 for patient at index 1.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Entering the command above will edit the existing medical report shown in the 'addreport' example above and the user interface will look as follows:</p>
 </li>
 </ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditReport.png" alt="EditReport" width="790">
+</div>
+<div class="title">Figure 2. Editing an existing medical report.</div>
 </div>
 </div>
 <div class="sect2">
@@ -875,11 +901,11 @@ e.g. <code>editinfo 2 n/S9123456A d/01011990 h/154 g/M f/3</code></p>
 </li>
 <li>
 <p><strong>Add Medical Report</strong> : <code>addreport INDEX [t/TITLE] [d/DATE] [i/INFORMATION]</code><br>
-e.g. <code>addreport 3 t/Asthma d/01-01-2018 i/Patient diagnosed with asthma and prescribed XXX medicine. Next appointment on 02-02-2018.</code></p>
+e.g. <code>addreport 1 t/Asthma d/01-01-2018 i/Prescribed XXX medicine, next appointment on 02-02-2018.</code></p>
 </li>
 <li>
 <p><strong>Edit Medical Report</strong> : <code>editreport INDEX ot/Title od/ORIGINAL DATE [t/TITLE] [d/DATE] [i/INFORMATION]</code><br>
-e.g. <code>editreport 3 ot/Asthma od/01-01-2018 t/Depression d/02-02-2018 i/Patient diagnosed with depression and prescribed AAA medicine. Next appointment is on 03-03-2018.</code></p>
+e.g. <code>editreport 1 ot/Asthma od/01-01-2018 t/Depression d/02-02-2018 i/Prescribed AAA medicine, next appointment is on 03-03-2018.</code></p>
 </li>
 <li>
 <p><strong>Sort</strong> : <code>sort PREFIX/ ORDER_INDEX</code><br>
@@ -892,4 +918,4 @@ e.g. select 1</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 07:36:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 09:32:59 UTC</div></div></div></body></html>

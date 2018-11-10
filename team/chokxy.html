@@ -36,8 +36,13 @@ The purpose of this portfolio is to document my contributions towards the Health
 <h2 id="overview"><a class="link" href="#overview">2. Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Health Book is an application written in Java catered to healthcare professionals in retrieving patients’ personal information and health-related information all in one place. Command Line Interface (CLI) is utilized mainly for user input, while Graphical User Interface (GUI) is used mainly to display the output. Combining these 2 interfaces, Health Book aims to provide healthcare professionals with the speed and efficiency obtained from a CLI while retaining the systematic view of information through the GUI.
-image::../images/Ui.png[width="800"]</p>
+<p>Health Book is an application written in Java catered to healthcare professionals in retrieving patients’ personal information and health-related information all in one place. Command Line Interface (CLI) is utilized mainly for user input, while Graphical User Interface (GUI) is used mainly to display the output. Combining these 2 interfaces, Health Book aims to provide healthcare professionals with the speed and efficiency obtained from a CLI while retaining the systematic view of information through the GUI.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="800">
+</div>
+<div class="title">Figure 1. Start up page of Health Book</div>
 </div>
 </div>
 </div>
@@ -365,9 +370,6 @@ accordingly.</p>
 <div class="paragraph">
 <p>Step 1. A doctor launches the application for the first time. If it hs/her first time launching the Health Book, the <code>VersionedAddressBook</code> will be initialized with a sample address book data. If he/she has launched it and has made changes before, the <code>VersionedAddressBook</code> will be launched with the data he has previously saved in his previous launch.</p>
 </div>
-<div class="paragraph">
-<p>+</p>
-</div>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -383,9 +385,6 @@ The list that the doctor will be implementing the <code>find</code> command on w
 <div class="paragraph">
 <p>Step 2. The doctor executes <code>find hsa/ alcohol nut</code> command to to filter patients who are allergic to alcohol and nut recorded in the whole Health Book. The <code>find</code> command obtains the detail of the patient and keywords of the user input.</p>
 </div>
-<div class="paragraph">
-<p>+</p>
-</div>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -400,9 +399,6 @@ If the command format is invalid, an error message will be shown to prompt the u
 </div>
 <div class="paragraph">
 <p>Step 3. The <code>find</code> command parser will translate the input <code>hsa/</code> into allergy and find patients with "alcohol" and "nut" predicates in their allergy.</p>
-</div>
-<div class="paragraph">
-<p>+</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -429,7 +425,7 @@ There must be more than one keyword and the prefix is case sensitive.
 <div class="content">
 <img src="../images/FindActivityDiagram.png" alt="FindActivityDiagram" width="800">
 </div>
-<div class="title">Figure 1. Sequence diagram for Find operation</div>
+<div class="title">Figure 2. Sequence diagram for Find operation</div>
 </div>
 </div>
 </div>
@@ -451,9 +447,6 @@ accordingly.</p>
 <div class="paragraph">
 <p>Step 1. A doctor launches the application for the first time. If it hs/her first time launching the Health Book, the <code>VersionedAddressBook</code> will be initialized with a sample address book data. If he/she has launched it and has made changes before, the <code>VersionedAddressBook</code> will be launched with the data he has previously saved in his previous launch.</p>
 </div>
-<div class="paragraph">
-<p>+</p>
-</div>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -468,9 +461,6 @@ The list that the doctor will be implementing the sort command on will the be cu
 </div>
 <div class="paragraph">
 <p>Step 2. The doctor executes <code>sort n/ 2</code> command to generate a sorted and reversed list of patients according to their names. The <code>sort</code> command obtains the doctor&#8217;s prefix and order input</p>
-</div>
-<div class="paragraph">
-<p>+</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -500,7 +490,7 @@ If the command format is invalid, an error message will be shown to prompt the u
 <div class="content">
 <img src="../images/SortActivityDiagram.png" alt="SortActivityDiagram" width="800">
 </div>
-<div class="title">Figure 2. Sequence diagram for Sort operation</div>
+<div class="title">Figure 3. Sequence diagram for Sort operation</div>
 </div>
 </div>
 </div>
@@ -683,4 +673,4 @@ This list refers to the latest list displayed on the interface before the comman
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 15:17:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 15:36:27 UTC</div></div></div></body></html>

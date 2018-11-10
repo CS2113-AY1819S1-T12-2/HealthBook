@@ -1,0 +1,581 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><meta name="author" content="= [.small]#Health Book#"><title>Chok Xin Yan - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Health Book</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S1-T12-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Chok Xin Yan - Project Portfolio</h1><div class="details"><span class="author" id="author">= [.small]#Health Book#</span><br></div><div id="toc" class="toc"><div id="toctitle"></div><ul class="sectlevel1">
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#overview">2. Overview</a></li>
+<li><a href="#summary-of-contributions">3. Summary of contributions</a></li>
+<li><a href="#contributions-to-the-user-guide">4. Contributions to the User Guide</a>
+<ul class="sectlevel2">
+<li><a href="#finding-patients-by-specific-category-code-find-code">4.1. Finding patients by specific category: <code>find</code></a></li>
+</ul>
+</li>
+<li><a href="#contributions-to-the-developer-guide">5. Contributions to the Developer Guide</a>
+<ul class="sectlevel2">
+<li><a href="#find-feature">5.1. Find feature</a></li>
+<li><a href="#sort-feature">5.2. Sort feature</a></li>
+<li><a href="#use-case-finding-patients-by-categories-code-find-code">5.3. Use case: Finding patients by categories: <code>find</code></a></li>
+<li><a href="#use-case-sort-patients-list-code-sort-code">5.4. Use case: Sort patients list: <code>sort</code></a></li>
+</ul>
+</li>
+</ul></div></div><div id="content"><div id="preamble">
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The purpose of this portfolio is to document my contributions towards the Health Book. It showcases the implementation of my features, the codes I have written and the changes I have made to the User and Developer Guides.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">2. Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Health Book is an application written in Java catered to healthcare professionals in retrieving patients’ personal information and health-related information all in one place. Command Line Interface (CLI) is utilized mainly for user input, while Graphical User Interface (GUI) is used mainly to display the output. Combining these 2 interfaces, Health Book aims to provide healthcare professionals with the speed and efficiency obtained from a CLI while retaining the systematic view of information through the GUI.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">3. Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>the ability to find patients by personal (name, phone, email, address, tags and NRIC) and medical details (medical Information, blood type, last country of visit and allergy).</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to filter patients by desired patient detail.</p>
+</li>
+<li>
+<p>Justification: This feature allows user to find specific types of patients (to administer drugs or quarantine patients) and expedite patient registration especially in an environment (hospital or clinics) where time is precious.</p>
+</li>
+<li>
+<p>Highlights: This enhancement affects the existing find command. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+</li>
+<li>
+<p>Credits: The predicates are lightly adapted from the NameContainsKeywordsPredicate</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added <strong>the ability to sort patients by certain details (name, phone, email, NRIC).</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to sort patients by alphabetical or reversed order according to specified detail.</p>
+</li>
+<li>
+<p>Justification: This feature generates an organised sorted list by relevant detail for users to work on the targeted patients systematically.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: <a href="https://nuscs2113-ay1819s1.github.io/dashboard/#=undefined&amp;search=chokxy&amp;sort=displayName&amp;since=2018-09-12&amp;until=2018-11-05&amp;timeframe=day&amp;reverse=false&amp;repoSort=true">Click Here</a></p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Role of UI Lead: Managed the presentation and layout of the Health Book application to ensure the user interface can be easily utilized by healthcare professionals regardless of their technical background.</p>
+</li>
+<li>
+<p>Wrote tests to increase coverage by 1.6%: <a href="https://github.com/CS2113-AY1819S1-T12-2/main/pull/142">#142</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Created a java class for Blood Type: <a href="https://github.com/CS2113-AY1819S1-T12-2/main/blob/master/src/main/java/seedu/address/model/person/addinfo/BloodType.java">Blood Type class</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated User Guide and Developer Guide: <a href="https://github.com/CS2113-AY1819S1-T12-2/main/pull/114">#114</a>, <a href="https://github.com/CS2113-AY1819S1-T12-2/main/pull/135">#135</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pull Requests reviewed: <a href="https://github.com/CS2113-AY1819S1-T12-2/main/pulls?q=is%3Apr+is%3Aclosed">Closed Pull Requests</a></p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (Issues <a href="https://github.com/CS2113-AY1819S1-T16-3/main/issues/121">#121</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/issues/122">#122</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">4. Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="finding-patients-by-specific-category-code-find-code"><a class="link" href="#finding-patients-by-specific-category-code-find-code">4.1. Finding patients by specific category: <code>find</code></a></h3>
+<div class="paragraph">
+<p>Finds patients by their personal (name, phone, email, address, tags and NRIC) or medical (medical Information, blood type, last country of visit and allergy) details.
+Format: <code>find PREFIX/ KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Patients can be found by any number of keywords (except 0)
+IMPORTANT: Don&#8217;t forget to include the space between <code>PREFIX/</code> and <code>KEYWORD</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g. <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>Only the specified detail is searched.</p>
+</li>
+<li>
+<p>Only one category per find is allowed.</p>
+</li>
+<li>
+<p>Only full words will be matched. e.g. <code>Han</code> will not match <code>Hans</code></p>
+</li>
+<li>
+<p>Only above-mentioned details can be utilised. e.g. Date of Birth is not applicable.</p>
+</li>
+<li>
+<p>Patients matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<div class="title">Available Prefixes</div>
+<ul>
+<li>
+<p>Personal detail prefixes: n/ (Name) p/ (Phone) e/ (Email) a/ (Address) t/ (tag) ic/ (NRIC)</p>
+</li>
+<li>
+<p>Medical detail prefixes: i/ (MedInfo) hsa/ (Allergy) hsb/ (BloodType) hsc/ (LastCountry)</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find n/ John</code><br>
+Returns <code>john</code> and <code>John Doe</code></p>
+</li>
+<li>
+<p><code>find n/ BeTsY Tim John</code><br>
+Returns any patient having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+</li>
+<li>
+<p><code>find ic/ S9876543T</code>
+Returns any patient whose NRIC is S9876543T.</p>
+</li>
+<li>
+<p><code>find t/ asthma</code>
+Returns any patient who is tagged with asthma.
+=== Sorting patients list: <code>sort</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Sorts the list of patients according to a specific prefix category in ascending or descending order.<br>
+Format: <code>sort PREFIX/ ORDER_INDEX</code></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Don&#8217;t forget to include the space between <code>PREFIX/</code> and <code>ORDER_INDEX</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Sorts the current patient list. e.g. Sorting a patient list after it is filtered (by find) will only return a sorted filtered list.</p>
+</li>
+<li>
+<p>Only one prefix is allowed per sort command.</p>
+</li>
+<li>
+<p><code>PREFIX/</code> refers to certain pertinent categories of patient information and each of these categories will be defined by a corresponding prefix.</p>
+</li>
+<li>
+<p><code>ORDER_INDEX</code> can be 1 or 2 where 1 means in alphabetical and 2 means in reverse order.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<div class="title">Available Prefixes</div>
+<ul>
+<li>
+<p><code>n/</code> (Name)</p>
+</li>
+<li>
+<p><code>p/</code> (Phone)</p>
+</li>
+<li>
+<p><code>e/</code> (Email)</p>
+</li>
+<li>
+<p><code>ic/</code> (Nric)</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort n/ 2</code><br>
+Sort the patient list by their names in reverse order (Z → A).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">5. Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="find-feature"><a class="link" href="#find-feature">5.1. Find feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">5.1.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The find mechanism is facilitated by <code>ModelManager</code>. It extends <code>AddressBook</code> and finds the <code>internalList</code> of patients. Additionally,
+it implements <code>ModelManager#updateFilteredPersonList()</code> and <code>ModelManager#getFilteredPersonList()</code> operations with the the 2 input parameters (prefix and keyword) before finding the patients
+accordingly.</p>
+</div>
+<div class="paragraph">
+<p>This operation is exposed in the <code>Model</code> interface as <code>Model#updateFilteredPersonList()</code> and <code>Model#getFilteredPersonList</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the find mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. A doctor launches the application for the first time. If it hs/her first time launching the Health Book, the <code>VersionedAddressBook</code> will be initialized with a sample address book data. If he/she has launched it and has made changes before, the <code>VersionedAddressBook</code> will be launched with the data he has previously saved in his previous launch.
+IMPORTANT: The list that the doctor will be implementing the <code>find</code> command on will the be full patient list and details stored in the database.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The doctor executes <code>find hsa/ alcohol nut</code> command to to filter patients who are allergic to alcohol and nut recorded in the whole Health Book. The <code>find</code> command obtains the detail of the patient and keywords of the user input.
+WARNING: If the command format is invalid, an error message will be shown to prompt the user of the correct format.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>find</code> command parser will translate the input <code>hsa/</code> into allergy and find patients with "alcohol" and "nut" predicates in their allergy.
+NOTE: There must be more than one keyword and the prefix is case sensitive.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>find</code> command will call <code>Model#updateFilteredPersonList()</code> to generate a patients list containing patients with "alcohol" and "nut" predicates in their allergy detail.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>find</code> command will then call <code>Model#getFilteredPersonList</code> to show the filtered list in the interface.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram summarizes the activity when a user (doctor) executes a new <code>find</code> command:
+image::SortActivityDiagram.png[width="800"]</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sort-feature"><a class="link" href="#sort-feature">5.2. Sort feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">5.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The sort mechanism is facilitated by <code>ModelManager</code>. It extends <code>AddressBook</code> and sorts the <code>internalList</code> of patients. Additionally,
+it implements <code>ModelManager#updateSortedPersonList</code> operation with the the 2 input parameters (prefix and order) before sorting the patients
+accordingly.</p>
+</div>
+<div class="paragraph">
+<p>This operation is exposed in the <code>Model</code> interface as <code>Model#updateSortedPersonList()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the sort mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. A doctor launches the application for the first time. If it hs/her first time launching the Health Book, the <code>VersionedAddressBook</code> will be initialized with a sample address book data. If he/she has launched it and has made changes before, the <code>VersionedAddressBook</code> will be launched with the data he has previously saved in his previous launch.
+IMPORTANT: The list that the doctor will be implementing the sort command on will the be current patient list as shown in the interface.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The doctor executes <code>sort n/ 2</code> command to generate a sorted and reversed list of patients according to their names. The <code>sort</code> command obtains the doctor&#8217;s prefix and order input
+WARNING: If the command format is invalid, an error message will be shown to prompt the user of the correct format.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>sort</code> command will call <code>Model#updateSortedPersonList</code> to update the person list with the doctor&#8217;s input of prefix and order.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The patients list will then be sorted by <code>sortPersons()</code> in <code>UniquePersonList</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The final patient list result generated will be sorted accordingly to the doctor&#8217;s input.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram summarizes the activity when a user (doctor) executes a new <code>sort</code> command:
+image::SortActivityDiagram.png[width="800"]</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-finding-patients-by-categories-code-find-code"><a class="link" href="#use-case-finding-patients-by-categories-code-find-code">5.3. Use case: Finding patients by categories: <code>find</code></a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find a patient in the list by a category. (eg. name, phone, blood type, medical information)</p>
+</li>
+<li>
+<p>System shows user a list of patients who are in requested category.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to find patient.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and shows correct format of finding patients.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User provides an category where the prefix to the category is not available i.e. "z/"</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that category is invalid and shows correct format with available prefixes.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. User provides keyword that does not correspond to any patient.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System shows an error message that such patient does not exist.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d. User did not provide a category or a keyword.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d1. System shows an error message that the format is wrong and shows correct format of finding a patient.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-sort-patients-list-code-sort-code"><a class="link" href="#use-case-sort-patients-list-code-sort-code">5.4. Use case: Sort patients list: <code>sort</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has already requested the System to display a list of patients.
+NOTE: This list refers to the latest list displayed on the interface before the command execution.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to sort the patients by a category and order.</p>
+</li>
+<li>
+<p>System displays a sorted list (by specified order) of the patients and displays a message that the list is successfully sorted.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to sort patient.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message that format is wrong and shows correct format of sorting patients.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User chooses to sort by a category which the prefix of the category does not exist (i.e. the prefix does not exist or correspond to any category ie “z/”).</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows error message that format is wrong and shows correct format of sorting patients with available prefixes.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. User inputs an invalid order index (i.e. values that are not 1 or 2).</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System shows an error message that the order index does not exist.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 13:56:00 UTC</div></div></div></body></html>

@@ -43,9 +43,10 @@
 <li><a href="#addmedicalreport-feature">4.6. AddMedicalReport feature</a></li>
 <li><a href="#editmedicalreport-feature">4.7. EditMedicalReport feature</a></li>
 <li><a href="#find-feature">4.8. Find feature</a></li>
-<li><a href="#proposed-data-encryption">[Proposed] Data Encryption</a></li>
-<li><a href="#logging">4.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
+<li><a href="#sort-feature">4.9. Sort feature</a></li>
+<li><a href="#proposed-data-encryption">4.10. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">4.11. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.12. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1200,56 +1201,93 @@ The <code>edithist</code> command obtains the data of the person that the user i
 <div class="sect3">
 <h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.8.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The find mechanism is facilitated by <code>VersionedAddressBook</code>.</p>
+<p>The find mechanism is facilitated by <code>ModelManager</code>. It extends <code>AddressBook</code> and finds the <code>internalList</code> of patients. Additionally,
+it implements <code>ModelManager#updateFilteredPersonList()</code> and <code>ModelManager#getFilteredPersonList()</code> operations with the the 2 input parameters (prefix and keyword) before finding the patients
+accordingly.</p>
 </div>
 <div class="paragraph">
-<p>Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Model#getFilteredPersonList()</code>&#8201;&#8212;&#8201;Obtains the entire current list of persons that is being displayed to the user</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This operation is exposed in the <code>Model</code> interface as <code>Model#updatePerson()</code>.</p>
+<p>This operation is exposed in the <code>Model</code> interface as <code>Model#updateFilteredPersonList()</code> and <code>Model#getFilteredPersonList</code>.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the find mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application. If it is the first time he/she is launching it, the <code>VersionedAddressBook</code> will be initialized with a sample address book data. If he/she has launched it and has made changes before, the <code>VersionedAddressBook</code> will be launched with the data he has previously saved in his previous launch.</p>
+<p>Step 1. A doctor launches the application for the first time. If it hs/her first time launching the Health Book, the <code>VersionedAddressBook</code> will be initialized with a sample address book data. If he/she has launched it and has made changes before, the <code>VersionedAddressBook</code> will be launched with the data he has previously saved in his previous launch.
+IMPORTANT: The list that the doctor will be implementing the <code>find</code> command on will the be full patient list and details stored in the database.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>find hsa/ alcohol nut</code> command to to filter patients who are allergic to alcohol and nut from the list that the address book is currently showing. The <code>find</code> command obtains the detail of the person that the user is trying to find based on the keywords that the user has input.</p>
+<p>Step 2. The doctor executes <code>find hsa/ alcohol nut</code> command to to filter patients who are allergic to alcohol and nut recorded in the whole Health Book. The <code>find</code> command obtains the detail of the patient and keywords of the user input.
+WARNING: If the command format is invalid, an error message will be shown to prompt the user of the correct format.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The <code>find</code> command will obtain the keywords of the patients and go into the specified patient detail predicate to find patients with such keywords in their details.</p>
+<p>Step 3. The <code>find</code> command parser will translate the input <code>hsa/</code> into allergy and find patients with "alcohol" and "nut" predicates in their allergy.
+NOTE: There must be more than one keyword and the prefix is case sensitive.</p>
 </div>
 <div class="paragraph">
-<p>Step 5. The <code>find</code> command will call <code>Model#updateFilteredPersonList()</code> to update the list that the user is shown.</p>
+<p>Step 4. The <code>find</code> command will call <code>Model#updateFilteredPersonList()</code> to generate a patients list containing patients with "alcohol" and "nut" predicates in their allergy detail.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the find operation works:</p>
+<p>Step 5. The <code>find</code> command will then call <code>Model#getFilteredPersonList</code> to show the filtered list in the interface.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram summarizes the activity when a user (doctor) executes a new <code>find</code> command:
+image::SortActivityDiagram.png[width="800"]</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
+<h3 id="sort-feature"><a class="link" href="#sort-feature">4.9. Sort feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.9.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The sort mechanism is facilitated by <code>ModelManager</code>. It extends <code>AddressBook</code> and sorts the <code>internalList</code> of patients. Additionally,
+it implements <code>ModelManager#updateSortedPersonList</code> operation with the the 2 input parameters (prefix and order) before sorting the patients
+accordingly.</p>
+</div>
+<div class="paragraph">
+<p>This operation is exposed in the <code>Model</code> interface as <code>Model#updateSortedPersonList()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the sort mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. A doctor launches the application for the first time. If it hs/her first time launching the Health Book, the <code>VersionedAddressBook</code> will be initialized with a sample address book data. If he/she has launched it and has made changes before, the <code>VersionedAddressBook</code> will be launched with the data he has previously saved in his previous launch.
+IMPORTANT: The list that the doctor will be implementing the sort command on will the be current patient list as shown in the interface.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The doctor executes <code>sort n/ 2</code> command to generate a sorted and reversed list of patients according to their names. The <code>sort</code> command obtains the doctor&#8217;s prefix and order input
+WARNING: If the command format is invalid, an error message will be shown to prompt the user of the correct format.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>sort</code> command will call <code>Model#updateSortedPersonList</code> to update the person list with the doctor&#8217;s input of prefix and order.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The patients list will then be sorted by <code>sortPersons()</code> in <code>UniquePersonList</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The final patient list result generated will be sorted accordingly to the doctor&#8217;s input.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram summarizes the activity when a user (doctor) executes a new <code>sort</code> command:
+image::SortActivityDiagram.png[width="800"]</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.10. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.11. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.12, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1280,7 +1318,7 @@ The <code>edithist</code> command obtains the data of the person that the user i
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.12. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2755,7 +2793,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to find a patient in the list by categories. (eg. name, age, blood type, marital status)</p>
+<p>User requests to find a patient in the list by a category. (eg. name, phone, blood type, medical information)</p>
 </li>
 <li>
 <p>System shows user a list of patients who are in requested category.</p>
@@ -2775,7 +2813,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of finding a patient.</p>
+<p>1a1. System shows error message that format is wrong and shows correct format of finding patients.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2788,11 +2826,45 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b. User provides an invalid category or keyword.</p>
+<p>1b. User provides an category where the prefix to the category is not available i.e. "z/"</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. System shows an error message that category or keyword is invalid.</p>
+<p>1b1. System shows an error message that category is invalid and shows correct format with available prefixes.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. User provides keyword that does not correspond to any patient.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System shows an error message that such patient does not exist.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d. User did not provide a category or a keyword.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d1. System shows an error message that the format is wrong and shows correct format of finding a patient.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3719,7 +3791,8 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect2">
 <h3 id="use-case-sort-patients-list-code-sort-code"><a class="link" href="#use-case-sort-patients-list-code-sort-code">D.16. Use case: Sort patients list: <code>sort</code></a></h3>
 <div class="paragraph">
-<p>Assume that user has already requested the System to display a list of patients.</p>
+<p>Assume that user has already requested the System to display a list of patients.
+NOTE: This list refers to the latest list displayed on the interface before the command execution.</p>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -3730,7 +3803,7 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User requests to sort the patients by a category and order.</p>
 </li>
 <li>
-<p>System displays a sorted list of the patients and displays a message that the list is successfully sorted.</p>
+<p>System displays a sorted list (by specified order) of the patients and displays a message that the list is successfully sorted.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3743,11 +3816,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. User chooses to sort by a category which the prefix of the category does not exist (for example: the prefix does not exist or correspond to any category ie “z/”).</p>
+<p>1a. User uses the wrong format to sort patient.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. System shows an error message that the category does not exist.</p>
+<p>1a1. System shows error message that format is wrong and shows correct format of sorting patients.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3760,11 +3833,28 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b. User inputs an invalid order_index.</p>
+<p>1b. User chooses to sort by a category which the prefix of the category does not exist (i.e. the prefix does not exist or correspond to any category ie “z/”).</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. System shows an error message that the order index does not exist.</p>
+<p>1b1. System shows error message that format is wrong and shows correct format of sorting patients with available prefixes.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. User inputs an invalid order index (i.e. values that are not 1 or 2).</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System shows an error message that the order index does not exist.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -4233,4 +4323,4 @@ edited with new date 05-05-2015, new allergy of grass and new previous country v
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 11:08:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 13:56:00 UTC</div></div></div></body></html>

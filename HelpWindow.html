@@ -17,7 +17,7 @@
 <li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
 <li><a href="#listing-all-patients-code-list-code">3.3. Listing all patients : <code>list</code></a></li>
 <li><a href="#editing-basic-information-of-patient-person-code-edit-code">3.4. Editing basic information of patient person : <code>edit</code></a></li>
-<li><a href="#finding-patients-by-categories-code-find-code">3.5. Finding patients by categories: <code>find</code></a></li>
+<li><a href="#finding-patients-by-specific-category-code-find-code">3.5. Finding patients by specific category: <code>find</code></a></li>
 <li><a href="#deleting-a-patient-code-delete-code">3.6. Deleting a patient : <code>delete</code></a></li>
 <li><a href="#adding-patient-s-medical-history-code-addhist-code">3.7. Adding patient&#8217;s medical history: <code>addhist</code></a></li>
 <li><a href="#editing-patient-s-medical-history-code-edithist-code">3.8. Editing patient&#8217;s medical history: <code>edithist</code></a></li>
@@ -27,7 +27,7 @@
 <li><a href="#adding-additional-information-of-patient-code-addinfo-code">3.12. Adding additional information of patient: <code>addinfo</code></a></li>
 <li><a href="#adding-of-medical-report-code-addreport-code">3.13. Adding of Medical Report: <code>addreport</code></a></li>
 <li><a href="#editing-of-medical-report-code-editreport-code">3.14. Editing of Medical Report: <code>editreport</code></a></li>
-<li><a href="#sort-patients-list-code-sort-code">3.15. Sort patients list: <code>sort</code></a></li>
+<li><a href="#sorting-patients-list-code-sort-code">3.15. Sorting patients list: <code>sort</code></a></li>
 <li><a href="#selecting-a-patient-code-select-code">3.16. Selecting a patient: <code>select</code></a></li>
 </ul>
 </li>
@@ -274,10 +274,23 @@ Edits the name of the 2nd patient to be <code>Betsy Crower</code> and clears all
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-patients-by-categories-code-find-code"><a class="link" href="#finding-patients-by-categories-code-find-code">3.5. Finding patients by categories: <code>find</code></a></h3>
+<h3 id="finding-patients-by-specific-category-code-find-code"><a class="link" href="#finding-patients-by-specific-category-code-find-code">3.5. Finding patients by specific category: <code>find</code></a></h3>
 <div class="paragraph">
-<p>Finds patients by their personal (name, phone, email, address, tags and NRIC) and medical (medical Information, blood type, last country of visit and allergy) details.
+<p>Finds patients by their personal (name, phone, email, address, tags and NRIC) or medical (medical Information, blood type, last country of visit and allergy) details.
 Format: <code>find PREFIX/ KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Patients can be found by any number of keywords (except 0)
+IMPORTANT: Don&#8217;t forget to include the space between <code>PREFIX/</code> and <code>KEYWORD</code>
+</td>
+</tr>
+</table>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -293,23 +306,42 @@ Format: <code>find PREFIX/ KEYWORD [MORE_KEYWORDS]</code></p>
 <p>Only the specified detail is searched.</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+<p>Only one category per find is allowed.</p>
 </li>
 <li>
-<p>Only above-mentioned details can be filtered e.g. Date of birth is not applicable.</p>
+<p>Only full words will be matched. e.g. <code>Han</code> will not match <code>Hans</code></p>
 </li>
 <li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Only above-mentioned details can be utilised. e.g. Date of Birth is not applicable.</p>
 </li>
 <li>
-<p>Personal prefixes: n/ (Name) p/ (Phone) e/ (Email) a/ (Address) t/ (tag) ic/ (NRIC)</p>
-</li>
-<li>
-<p>Medical prefixes: i/ (MedInfo) hsa/ (Allergy) hsb/ (BloodType) hsc/ (LastCountry)</p>
+<p>Patients matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<div class="title">Available Prefixes</div>
+<ul>
+<li>
+<p>Personal detail prefixes: n/ (Name) p/ (Phone) e/ (Email) a/ (Address) t/ (tag) ic/ (NRIC)</p>
+</li>
+<li>
+<p>Medical detail prefixes: i/ (MedInfo) hsa/ (Allergy) hsb/ (BloodType) hsc/ (LastCountry)</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -808,15 +840,70 @@ Edits title, date and information of existing medical report titled Asthma and d
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-patients-list-code-sort-code"><a class="link" href="#sort-patients-list-code-sort-code">3.15. Sort patients list: <code>sort</code></a></h3>
+<h3 id="sorting-patients-list-code-sort-code"><a class="link" href="#sorting-patients-list-code-sort-code">3.15. Sorting patients list: <code>sort</code></a></h3>
 <div class="paragraph">
-<p>Sort the list of patients according to a specific prefix category in ascending or descending order.<br>
+<p>Sorts the list of patients according to a specific prefix category in ascending or descending order.<br>
 Format: <code>sort PREFIX/ ORDER_INDEX</code></p>
 </div>
-<div class="paragraph">
-<p><code>PREFIX/</code> refers to certain pertinent categories of patient information and each of these categories will be defined by a corresponding prefix.
-<code>ORDER_INDEX</code> can be 1 or 2 where 1 means in alphabetical and 2 means in reverse order.
-Available prefixes: <code>n/</code> (Name) <code>p/</code> (Phone) <code>e/</code> (Email) <code>ic/</code> (Nric)</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Don&#8217;t forget to include the space between <code>PREFIX/</code> and <code>ORDER_INDEX</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Sorts the current patient list. e.g. Sorting a patient list after it is filtered (by find) will only return a sorted filtered list.</p>
+</li>
+<li>
+<p>Only one prefix is allowed per sort command.</p>
+</li>
+<li>
+<p><code>PREFIX/</code> refers to certain pertinent categories of patient information and each of these categories will be defined by a corresponding prefix.</p>
+</li>
+<li>
+<p><code>ORDER_INDEX</code> can be 1 or 2 where 1 means in alphabetical and 2 means in reverse order.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<div class="title">Available Prefixes</div>
+<ul>
+<li>
+<p><code>n/</code> (Name)</p>
+</li>
+<li>
+<p><code>p/</code> (Phone)</p>
+</li>
+<li>
+<p><code>e/</code> (Email)</p>
+</li>
+<li>
+<p><code>ic/</code> (Nric)</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -950,4 +1037,4 @@ e.g. select 1</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 11:08:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 13:56:00 UTC</div></div></div></body></html>

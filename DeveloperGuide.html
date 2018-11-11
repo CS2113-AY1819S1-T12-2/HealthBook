@@ -3161,11 +3161,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1d. User enters an appointment with the end time before or equal to the start time.</p>
+<p>1d. User enters an appointment with the end date and time before or equal to the start date and time.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1d1. System shows an error message that the end time for an appointment needs to be after the start time.</p>
+<p>1d1. System shows an error message that the end date and time for an appointment needs to be after the start date and time.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3271,11 +3271,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1e. User edits an appointment to have the end time before or equal to the start time.</p>
+<p>1e. User edits an appointment to have the end date and time before or equal to the start date and time.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1e1. System shows an error message that the end time for an appointment needs to be after the start time.</p>
+<p>1e1. System shows an error message that the end date and time for an appointment needs to be after the start date and time.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -4509,7 +4509,7 @@ Expected: No medical report is edited. Message of unable to edit existing report
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Prerequisites: List all patients using the <code>list</code> command. Multiple patients in the list. Ensure that the first patient does not have any appointments.</p>
 </li>
 <li>
 <p>Test case: <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br>
@@ -4520,7 +4520,7 @@ Expected: An appointment from 16-09-2018 15:00 to 16-09-2018 15:30 at Consultati
 Expected: No appointment is added to any patient. An error message is shown telling the user that he/she has used the invalid command format, along with the correct command format for <code>addappt</code>.</p>
 </li>
 <li>
-<p>Other incorrect <code>addappt</code> commands to try: <code>addappt</code>, <code>addappt x</code> (where x is smaller than the list size), <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30</code><br>
+<p>Other incorrect <code>addappt</code> commands to try: <code>addappt</code>, <code>addappt x</code> (where x is any integer), <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30</code><br>
 Expected: Similar to previous.</p>
 </li>
 <li>
@@ -4529,7 +4529,7 @@ Expected: No appointment is added to any patient. An error message is shown tell
 </li>
 <li>
 <p>Test case: <code>addappt 1 s/16/09/2018 18:00 e/16/09/2018 17:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br>
-Expected: No appointment is added to any patient. An error message is shown telling the user that the date and time must be dd/mm/yyyy hh:mm.</p>
+Expected: No appointment is added to any patient. An error message is shown telling the user that the date and time must be DD-MM-YYYY HH:MM.</p>
 </li>
 <li>
 <p>Test case: <code>addappt 1 s/16-09-2018 18:00 e/16-09-2018 17:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br>
@@ -4543,8 +4543,8 @@ Expected: No appointment is added to any patient. An error message is shown tell
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.<br>
-Add an appointment to the first person using the command <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code></p>
+<p>Prerequisites: List all patients using the <code>list</code> command. Multiple patients in the list. Ensure that the first patient does not have any appointments.<br>
+Add an appointment to the first patient using the command <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code></p>
 </li>
 <li>
 <p>Test case: <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br>
@@ -4569,7 +4569,7 @@ Expected: An appointment from 16-09-2018 15:30 to 16-09-2018 16:00 at Consultati
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.<br>
+<p>Prerequisites: List all patients using the <code>list</code> command. Multiple persons in the list. Ensure that the first patient does not have any appointments.<br>
 Add 2 appointments to the first person using the following 2 commands:<br></p>
 <div class="ulist">
 <ul>
@@ -4587,7 +4587,7 @@ Add 2 appointments to the first person using the following 2 commands:<br></p>
 Expected: No appointment is edited. An error message is shown telling the user that he/she has used the invalid command format, along with the correct command format for <code>editappt</code>.</p>
 </li>
 <li>
-<p>Other incorrect <code>editappt</code> commands to try: <code>editappt</code>, <code>editappt x</code> (where x is smaller than the list size), <code>editappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30</code><br>
+<p>Other incorrect <code>editappt</code> commands to try: <code>editappt</code>, <code>editappt x</code> (where x is any integer), <code>editappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30</code><br>
 Expected: Similar to previous.</p>
 </li>
 <li>
@@ -4625,15 +4625,15 @@ Expected: The appointment originally starting at 16-09-2018 15:00 is now edited 
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.<br>
-Add an appointment to the first person using the command <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code></p>
+<p>Prerequisites: List all patients using the <code>list</code> command. Multiple patients in the list. Ensure that the first patient does not have any appointments.<br>
+Add an appointment to the first patient using the command <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code></p>
 </li>
 <li>
 <p>Test case: <code>deleteappt 0 s/16-09-2018 15:00</code><br>
 Expected: No appointment is deleted. An error message is shown telling the user that he/she has used the invalid command format, along with the correct command format for <code>deleteappt</code>.</p>
 </li>
 <li>
-<p>Other incorrect <code>deleteappt</code> commands to try: <code>deleteappt</code>, <code>deleteappt x</code> (where x is smaller than the list size)<br>
+<p>Other incorrect <code>deleteappt</code> commands to try: <code>deleteappt</code>, <code>deleteappt x</code> (where x is any integer)<br>
 Expected: Similar to previous.</p>
 </li>
 <li>
@@ -4659,8 +4659,8 @@ Expected: The appointment starting at 16-09-2018 15:00 will be deleted. A messag
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.<br>
-Add 2 appointments each to the first 3 people using the following 6 commands:<br></p>
+<p>Prerequisites: List all patients using the <code>list</code> command. Multiple patients in the list. Ensure that the first 3 patients do not have any appointments.<br>
+Add 2 appointments each to the first 3 patients using the following 6 commands:<br></p>
 <div class="ulist">
 <ul>
 <li>
@@ -4805,4 +4805,4 @@ edited with new date 05-05-2015, new allergy of grass and new previous country v
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 19:10:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 19:15:17 UTC</div></div></div></body></html>

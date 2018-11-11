@@ -36,7 +36,7 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a></li>
-<li><a href="#additional-information-features">4.2. Additional Information features</a></li>
+<li><a href="#additional-information-feature">4.2. Additional Information feature</a></li>
 <li><a href="#add-medical-history-features">4.3. Add Medical History features</a></li>
 <li><a href="#edit-medical-history-features">4.4. Edit Medical History features</a></li>
 <li><a href="#addappointment-feature">4.5. AddAppointment feature</a></li>
@@ -44,7 +44,7 @@
 <li><a href="#editmedicalreport-feature">4.7. EditMedicalReport feature</a></li>
 <li><a href="#find-feature">4.8. Find feature</a></li>
 <li><a href="#sort-feature">4.9. Sort feature</a></li>
-<li><a href="#proposed-data-encryption">4.10. [Proposed] Data Encryption</a></li>
+<li><a href="#data-encryption">4.10. Data Encryption</a></li>
 <li><a href="#logging">4.11. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.12. Configuration</a></li>
 </ul>
@@ -96,13 +96,13 @@
 <li><a href="#use-case-editing-an-appointment-for-a-patient-code-editappt-code">D.8. Use case: Editing an appointment for a patient: <code>editappt</code></a></li>
 <li><a href="#use-case-deleting-an-appointment-for-a-patient-code-deleteappt-code">D.9. Use case: Deleting an appointment for a patient: <code>deleteappt</code></a></li>
 <li><a href="#use-case-adding-additional-information-of-patient-code-addinfo-code">D.10. Use case: Adding additional information of patient: <code>addinfo</code></a></li>
-<li><a href="#use-case-editing-additional-information-of-patient-code-editinfo-code">D.11. Use case: Editing additional information of patient: <code>editinfo</code></a></li>
-<li><a href="#use-case-adding-of-medical-report-code-addreport-code">D.12. Use case: Adding of Medical Report: <code>addreport</code></a></li>
-<li><a href="#use-case-editing-of-medical-report-code-editreport-code">D.13. Use case: Editing of Medical Report: <code>editreport</code></a></li>
-<li><a href="#use-case-adding-of-medical-history-code-addhist-code">D.14. Use case: Adding of Medical History: <code>addhist</code></a></li>
-<li><a href="#use-case-editing-of-medical-history-code-edithist-code">D.15. Use case: Editing of Medical History: <code>edithist</code></a></li>
-<li><a href="#use-case-sorting-patients-list-code-sort-code">D.16. Use case: Sorting patients list: <code>sort</code></a></li>
-<li><a href="#use-case-selecting-a-patient-code-select-code">D.17. Use case: Selecting a patient: <code>select</code></a></li>
+<li><a href="#use-case-adding-of-medical-report-code-addreport-code">D.11. Use case: Adding of Medical Report: <code>addreport</code></a></li>
+<li><a href="#use-case-editing-of-medical-report-code-editreport-code">D.12. Use case: Editing of Medical Report: <code>editreport</code></a></li>
+<li><a href="#use-case-adding-of-medical-history-code-addhist-code">D.13. Use case: Adding of Medical History: <code>addhist</code></a></li>
+<li><a href="#use-case-editing-of-medical-history-code-edithist-code">D.14. Use case: Editing of Medical History: <code>edithist</code></a></li>
+<li><a href="#use-case-sorting-patients-list-code-sort-code">D.15. Use case: Sorting patients list: <code>sort</code></a></li>
+<li><a href="#use-case-selecting-a-patient-code-select-code">D.16. Use case: Selecting a patient: <code>select</code></a></li>
+<li><a href="#use-case-data-encryption-code-encrypt-code">D.17. Use case: Data Encryption: <code>encrypt</code></a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
@@ -112,10 +112,11 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
-<li><a href="#adding-medical-report-to-a-person">H.3. Adding medical report to a person</a></li>
-<li><a href="#editing-an-existing-medical-report-of-a-person">H.4. Editing an existing medical report of a person</a></li>
-<li><a href="#saving-data">H.5. Saving data</a></li>
-<li><a href="#adding-medical-history-to-patient">H.6. Adding medical history to patient</a></li>
+<li><a href="#adding-additional-information-to-a-person">H.3. Adding additional information to a person</a></li>
+<li><a href="#adding-medical-report-to-a-person">H.4. Adding medical report to a person</a></li>
+<li><a href="#editing-an-existing-medical-report-of-a-person">H.5. Editing an existing medical report of a person</a></li>
+<li><a href="#saving-data">H.6. Saving data</a></li>
+<li><a href="#adding-medical-history-to-patient">H.7. Adding medical history to patient</a></li>
 </ul>
 </li>
 </ul>
@@ -848,7 +849,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="additional-information-features"><a class="link" href="#additional-information-features">4.2. Additional Information features</a></h3>
+<h3 id="additional-information-feature"><a class="link" href="#additional-information-feature">4.2. Additional Information feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -1339,9 +1340,48 @@ If the command format is invalid, an error message will be shown to prompt the u
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.10. [Proposed] Data Encryption</a></h3>
+<h3 id="data-encryption"><a class="link" href="#data-encryption">4.10. Data Encryption</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">4.10.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>The encryption library used is <a href="http://santuario.apache.org/">Apache Santuario</a>. Using AES 128-bit symmetric encryption, the encryption mechanism is facilitated by <code>XmlUtil</code>, <code>SecurityKey</code> and the file <code>preferences.json</code>.</p>
+</div>
+<div class="paragraph">
+<p>Upon running the program, <code>MainApp#initSecretKey</code> checks if encryption has been enabled using value of key <code>encryption</code> in <code>preferences.json</code> file. If it is <code>true</code>, encryption is enabled and the method then checks if <code>key</code> file exist. The method will attempt to read the <code>key</code> file using <code>SecretKeyUtil#ReadSecretKey</code> and save the key into a <code>SecretKey</code> object should there be an existing `key`file.</p>
+</div>
+<div class="paragraph">
+<p>However, if encryption is not enabled, or should there be an error reading the <code>key</code> file, or that the <code>key</code> file does not exist, <code>MainApp#initSecretKey</code> will then proceed to generate a new <code>SecretKey</code> object using <code>SecretKetUtil#getSecretKey</code>.</p>
+</div>
+<div class="paragraph">
+<p>Next, <code>MainApp#initModelManager</code> will be executed. This method will also check if encryption has been enabled using <code>preferences.json</code> file. If encryption is enabled, it will attempt to look for <code>healthbook_encrypted.xml</code> file. If <code>healthbook_encrypted.xml</code> file exist, the same method will first load the <code>.xml</code> file using <code>XmlUtil#loadEncryptedXmlFile</code>, before attempting to decrypt the encrypted <code>.xml</code> file using the <code>key</code> file with the method <code>XmlUtil#decryptDocument</code>. A temporary <code>healthbook.xml</code> will be generated to be consumed by the program.</p>
+</div>
+<div class="paragraph">
+<p>However, if <code>healthbook_encrypted.xml</code> does not exist, <code>MainApp#initModeManager</code> assumes that user runs the program for the first time, and proceed to load in sample data. If the <code>healthbook_encrypted.xml</code> does exist, but could not be decrypted successfully, Health Book will be launched without any patient data. An error pertaining to the failure to decrypt the <code>.xml</code> file will also be logged.</p>
+</div>
+<div class="paragraph">
+<p>Upon exiting the program, <code>MainApp#stop</code> checks if the encryption has been enabled. If the encryption has been enabled, it will call <code>XmlUtil#loadDecryptedXmlFile</code> which loads the temporary <code>healthbook.xml</code> file before encrypting the temporary <code>healthbook.xml</code> file with <code>XmlUtil#encryptDocument</code> method. It will then proceed to destroy the temporary <code>healthbook.xml</code> file and generate a <code>key</code> file based on the <code>SecretKey</code> that was generated when the application launched.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario on how <code>encrypt</code> works at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. A doctor launches the application for the the first time (by default encryption is disabled). A <code>SecretKey</code> is generated.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The doctor added in some new patient data.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The doctor executes <code>encrypt</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The doctor exits the program.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. Before the application fully exits, the <code>MainApp#stop</code> method asserts that encryption has been enabled. A temporary <code>healthbook.xml</code> file is generated. The same method will call <code>XmlUtil#loadDecryptedXmlFile</code> to load the temporary <code>healthbook.xml</code> before calling <code>XmlUtil#encryptDocument</code> to encrypt the file data. A <code>key</code> file is generated containing the <code>SecretKey</code> used for the encryption.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. <code>MainApp#stop</code> then deletes the temporary <code>healthbook.xml</code> file before fully exiting the application.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -3338,83 +3378,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-editing-additional-information-of-patient-code-editinfo-code"><a class="link" href="#use-case-editing-additional-information-of-patient-code-editinfo-code">D.11. Use case: Editing additional information of patient: <code>editinfo</code></a></h3>
-<div class="paragraph">
-<p>Assume that user has already requested the System to display a list of patients.</p>
-</div>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to edit optional information for patient.</p>
-</li>
-<li>
-<p>System edits optional information for the patient and displays a message that edit for optional information is successful.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. User uses the wrong format to edit optional information i.e. wrong command or invalid data for the fields.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. System shows error message that format is wrong and gives user an example on the correct format of adding optional information. System will ignore invalid commands or data and process only the valid commands and data.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b. User provides an invalid index for the list.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b1. System shows an error message that the index is invalid.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1c. User requests to edit information that does not exist.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1c1. System shows an error message that the information does not exist. System will ignore the edit request for that field and process the valid edit requests for other fields</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-adding-of-medical-report-code-addreport-code"><a class="link" href="#use-case-adding-of-medical-report-code-addreport-code">D.12. Use case: Adding of Medical Report: <code>addreport</code></a></h3>
+<h3 id="use-case-adding-of-medical-report-code-addreport-code"><a class="link" href="#use-case-adding-of-medical-report-code-addreport-code">D.11. Use case: Adding of Medical Report: <code>addreport</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of patients.</p>
 </div>
@@ -3524,7 +3488,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-editing-of-medical-report-code-editreport-code"><a class="link" href="#use-case-editing-of-medical-report-code-editreport-code">D.13. Use case: Editing of Medical Report: <code>editreport</code></a></h3>
+<h3 id="use-case-editing-of-medical-report-code-editreport-code"><a class="link" href="#use-case-editing-of-medical-report-code-editreport-code">D.12. Use case: Editing of Medical Report: <code>editreport</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of medical reports for a patient.</p>
 </div>
@@ -3634,7 +3598,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-adding-of-medical-history-code-addhist-code"><a class="link" href="#use-case-adding-of-medical-history-code-addhist-code">D.14. Use case: Adding of Medical History: <code>addhist</code></a></h3>
+<h3 id="use-case-adding-of-medical-history-code-addhist-code"><a class="link" href="#use-case-adding-of-medical-history-code-addhist-code">D.13. Use case: Adding of Medical History: <code>addhist</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of medical reports for a patient.</p>
 </div>
@@ -3727,7 +3691,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-editing-of-medical-history-code-edithist-code"><a class="link" href="#use-case-editing-of-medical-history-code-edithist-code">D.15. Use case: Editing of Medical History: <code>edithist</code></a></h3>
+<h3 id="use-case-editing-of-medical-history-code-edithist-code"><a class="link" href="#use-case-editing-of-medical-history-code-edithist-code">D.14. Use case: Editing of Medical History: <code>edithist</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of medical reports for a patient.</p>
 </div>
@@ -3854,7 +3818,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-sorting-patients-list-code-sort-code"><a class="link" href="#use-case-sorting-patients-list-code-sort-code">D.16. Use case: Sorting patients list: <code>sort</code></a></h3>
+<h3 id="use-case-sorting-patients-list-code-sort-code"><a class="link" href="#use-case-sorting-patients-list-code-sort-code">D.15. Use case: Sorting patients list: <code>sort</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of patients.</p>
 </div>
@@ -3942,7 +3906,7 @@ This list refers to the latest list displayed on the interface before the comman
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-selecting-a-patient-code-select-code"><a class="link" href="#use-case-selecting-a-patient-code-select-code">D.17. Use case: Selecting a patient: <code>select</code></a></h3>
+<h3 id="use-case-selecting-a-patient-code-select-code"><a class="link" href="#use-case-selecting-a-patient-code-select-code">D.16. Use case: Selecting a patient: <code>select</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of patients.</p>
 </div>
@@ -3973,6 +3937,60 @@ This list refers to the latest list displayed on the interface before the comman
 <ul class="none">
 <li>
 <p>1a1. System shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-data-encryption-code-encrypt-code"><a class="link" href="#use-case-data-encryption-code-encrypt-code">D.17. Use case: Data Encryption: <code>encrypt</code></a></h3>
+<div class="paragraph">
+<p>Assume that user has launched the application with the default settings (encryption toggled off).</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to toggle on encryption.</p>
+</li>
+<li>
+<p>User makes some changes to the patient data.</p>
+</li>
+<li>
+<p>User requests to exit the application.</p>
+</li>
+<li>
+<p>System encrypts patient data.</p>
+</li>
+<li>
+<p>System removes unencrypted patient data.</p>
+</li>
+<li>
+<p>System exits.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>4a. System unable to encrypt the data.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>4a1. System logs this anomaly and saves the unencrypted data.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -4022,7 +4040,7 @@ This list refers to the latest list displayed on the interface before the comman
 <p>The layout of the system will be simple and understandable by even doctors who are not proficient with computer systems.</p>
 </li>
 <li>
-<p>Might-have: all information will be encrypted.</p>
+<p>Data encryption can be toggled based on user&#8217;s preference.</p>
 </li>
 </ol>
 </div>
@@ -4057,36 +4075,45 @@ This list refers to the latest list displayed on the interface before the comman
 <h2 id="product-survey"><a class="link" href="#product-survey">Appendix G: Product Survey</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Product Name</strong></p>
+<p>The following survey was conducted on students from NUS Yong Loo Lin School of Medicine who are majoring in either Medicine, Nursing or Pharmacy.</p>
 </div>
 <div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
+<p><strong>Survey on Digital Patient Data System</strong></p>
 </div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>What are some of the issues that you think health care professionals face in day to day operations?</p>
+</li>
+<li>
+<p>Do you think that an application that is able to digitize patient data would be beneficial to healthcare professionals?</p>
+</li>
+<li>
+<p>We are intending to build an app that allows healthcare professionals to manage their patients more efficiently. What do you think of the following features?</p>
 <div class="ulist">
 <ul>
 <li>
-<p>&#8230;&#8203;</p>
+<p>Map that indicates patients' home address</p>
 </li>
 <li>
-<p>&#8230;&#8203;</p>
+<p>Medication history</p>
+</li>
+<li>
+<p>Medical history</p>
+</li>
+<li>
+<p>Appointment timetable</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
 </li>
 <li>
-<p>&#8230;&#8203;</p>
+<p>What would be your main concern for using such an application?</p>
 </li>
-</ul>
+<li>
+<p>What are some important patient information that you would want to be included in such an application?</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -4179,7 +4206,84 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-medical-report-to-a-person"><a class="link" href="#adding-medical-report-to-a-person">H.3. Adding medical report to a person</a></h3>
+<h3 id="adding-additional-information-to-a-person"><a class="link" href="#adding-additional-information-to-a-person">H.3. Adding additional information to a person</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a additional information (NRIC, Date of Birth, Height, Weight, Gender, Blood Type, Occupation and Marital Status) are listed.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 2 i/S9696531A d/01-01-1990 h/154 w/75.6 g/M b/A+ o/Teacher m/M</code><br>
+Expected: Additional information where NRIC is S9696531A, date of birth is 01-01-1990, height of 154 cm, weight of 75.6 kg, gender Male, blood type A+, occupation is Teacher and marital status is married is added to person at index 1. Message of additional info being successfully added is shown.</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 0 i/S9696531A d/01-01-1990 h/154 w/75.6 g/M b/A+ o/Teacher m/M</code><br>
+Expected: No additional information is added. Message of invalid command format is shown.</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 1 nric/S9696531A d/01-01-1996</code>+
+Expected: No additional information is added. Message of invalid command format is shown.</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 1 i/A0123456E</code><br>
+Expected: No additional information is added. Message of constraint of NRIC is shown.</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 1 i/S1234567A</code><br>
+Expected: No additional infomation is added. Message of incorrect NRIC is shown.</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 1 d/01/01/2010</code><br>
+Expected: No additional infomation is added. Message of correct date format is shown</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 1 d/DD-01-2010</code> where DD is more than the total number of days for that month and less than 1<br>
+Expected: No additional infomation is added. Message of invalid value for day is shown</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 1 d/01-MM-2010</code> where MM is more than 12 and less than 1<br>
+Expected: No additional infomation is added. Message of invalid value for month is shown</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 1 d/01-01-YYYY</code> where YYYY is less than 1900<br>
+Expected: No additional infomation is added. Message of year should be greater than 1900 is shown.</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 1 h/x</code> where x is any non floating or integer input<br>
+Expected: No additional infomation is added. Message of height should be numeric input only is shown.</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 1 w/x</code> where x is any non floating or integer input<br>
+Expected: No additional infomation is added. Message of weight should be numeric input only is shown.</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 1 g/x</code> where x is any input other than M or F<br>
+Expected: No additional infomation is added. Message of correct gender input is shown.</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 1 b/x</code> where x is any input other than the correct blood types<br>
+Expected: No additional infomation is added. Message of correct blood type is shown.</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 1 o/x</code> where x is a String with whitespace, special characters or numerals<br>
+Expected: No additional infomation is added. Message of correct blood type is shown.</p>
+</li>
+<li>
+<p>Test case: <code>addinfo 1 m/x</code> where x is any input other than S, M or D<br>
+Expected: No additional infomation is added. Message of correct marital status input is shown.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-medical-report-to-a-person"><a class="link" href="#adding-medical-report-to-a-person">H.4. Adding medical report to a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4224,7 +4328,7 @@ Expected: No medical report is added. Message of invalid information will be sho
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-existing-medical-report-of-a-person"><a class="link" href="#editing-an-existing-medical-report-of-a-person">H.4. Editing an existing medical report of a person</a></h3>
+<h3 id="editing-an-existing-medical-report-of-a-person"><a class="link" href="#editing-an-existing-medical-report-of-a-person">H.5. Editing an existing medical report of a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4277,7 +4381,7 @@ Expected: No medical report is edited. Message of unable to edit existing report
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">H.5. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">H.6. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4297,7 +4401,7 @@ Expected: No medical report is edited. Message of unable to edit existing report
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-medical-history-to-patient"><a class="link" href="#adding-medical-history-to-patient">H.6. Adding medical history to patient</a></h3>
+<h3 id="adding-medical-history-to-patient"><a class="link" href="#adding-medical-history-to-patient">H.7. Adding medical history to patient</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4399,4 +4503,4 @@ edited with new date 05-05-2015, new allergy of grass and new previous country v
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 16:01:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 16:36:17 UTC</div></div></div></body></html>

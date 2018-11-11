@@ -24,11 +24,12 @@
 <li><a href="#adding-an-appointment-for-a-patient-code-addappt-code">3.9. Adding an appointment for a patient: <code>addappt</code></a></li>
 <li><a href="#editing-an-appointment-for-a-patient-code-editappt-code">3.10. Editing an appointment for a patient: <code>editappt</code></a></li>
 <li><a href="#deleting-an-appointment-for-a-patient-code-deleteappt-code">3.11. Deleting an appointment for a patient: <code>deleteappt</code></a></li>
-<li><a href="#adding-additional-information-of-patient-code-addinfo-code">3.12. Adding additional information of patient: <code>addinfo</code></a></li>
+<li><a href="#adding-additional-information-of-patient-code-addinfo-code">3.12. Adding Additional Information of Patient: <code>addinfo</code></a></li>
 <li><a href="#adding-of-medical-report-code-addreport-code">3.13. Adding of Medical Report: <code>addreport</code></a></li>
 <li><a href="#editing-of-medical-report-code-editreport-code">3.14. Editing of Medical Report: <code>editreport</code></a></li>
 <li><a href="#sorting-patients-list-code-sort-code">3.15. Sorting patients list: <code>sort</code></a></li>
 <li><a href="#selecting-a-patient-code-select-code">3.16. Selecting a patient: <code>select</code></a></li>
+<li><a href="#encrypting-patient-data-code-encrypt-code">3.17. Encrypting Patient Data: <code>encrypt</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -165,9 +166,6 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </li>
 <li>
 <p>Marital Status</p>
-</li>
-<li>
-<p>Family Members</p>
 </li>
 </ol>
 </div>
@@ -648,13 +646,28 @@ Deletes the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-additional-information-of-patient-code-addinfo-code"><a class="link" href="#adding-additional-information-of-patient-code-addinfo-code">3.12. Adding additional information of patient: <code>addinfo</code></a></h3>
+<h3 id="adding-additional-information-of-patient-code-addinfo-code"><a class="link" href="#adding-additional-information-of-patient-code-addinfo-code">3.12. Adding Additional Information of Patient: <code>addinfo</code></a></h3>
 <div class="paragraph">
-<p>Add the following additional information: NRIC, DOB (in DDMMYYYY format), height (cm), weight (kg),
-gender, occupation, marital status, family member.<br>
-Note: age field will be auto-calculated once DOB is populated<br>
-Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [b/BLOOD TYPE] [o/OCCUPATION]</code></p>
+<p>Add/Edit the following additional information: NRIC, Date Of Birth (in DD-MMY-YYY format), height (cm), weight (kg),
+gender, occupation, and marital status.<br></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>age</code> field will be auto-calculated once Date Of Birth is populated. It will be displayed on the UI in parenthesis under Date of Birth field.+
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [b/BLOOD TYPE] [o/OCCUPATION] [m/MARITAL_STATUS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <div class="title">Constraints for <code>[i/NRIC]</code>:</div>
 <ul>
@@ -732,8 +745,27 @@ Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [b
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Work In Progress: <code>[m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code></p>
+<div class="ulist">
+<div class="title">Constraints for <code>[m/MARITAL_STATUS]</code></div>
+<ul>
+<li>
+<p>Must be either <code>M</code> for Married, <code>S</code> for Single or <code>D</code> for Divorced.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>addinfo</code> command not only adds, but also edits the additional information of each patient by overwriting existing information. For instance, if a patient already has the <code>NRIC</code> data, running <code>addinfo [PATIENT_INDEX] i/S9696531A</code> will overwrite the existing <code>NRIC</code> data with <code>S9696531A</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -742,8 +774,12 @@ Format: <code>addinfo INDEX [i/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [b
 <ul>
 <li>
 <p><code>addinfo 2 i/S9696531A d/01-01-1990 h/154 g/M</code><br>
-For patient in index 2, populate NRIC field with S91234567A, date of birth field
+For patient at index 2, populate NRIC field with S91234567A, date of birth field
 with 01-01-1990, height field with 154, gender field with Male.</p>
+</li>
+<li>
+<p><code>addinfo 1 d/31-12-2001 o/Doctor b/AB+ m/M</code><br>
+For patient at index 1 populate the date of birth field with 31-12-2001, occupation with doctor, blood type with AB+ and marital status as married.</p>
 </li>
 </ul>
 </div>
@@ -968,6 +1004,49 @@ Selects the 2nd person in the health book.</p>
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="encrypting-patient-data-code-encrypt-code"><a class="link" href="#encrypting-patient-data-code-encrypt-code">3.17. Encrypting Patient Data: <code>encrypt</code></a></h3>
+<div class="paragraph">
+<p>Toggles on and off the encryption feature for the saved data file.</p>
+</div>
+<div class="paragraph">
+<p>Toggling on the feature will cause the saved data file to be encrypted using AES 128-bit standard. Saved file will be named as <code>healthbook_encrypted.xml</code>.</p>
+</div>
+<div class="paragraph">
+<p>Toggling off the feature will cause the saved data file to be saved in plain-text <code>.xml</code> file. Saved file will be named as <code>healthbook.xml</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>encrypt</code></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you have toggled on the encryption, it is important that you keep the <code>key.file</code> secure. Losing the <code>key.file</code> will cause the permanent loss of the saved data. Also, unauthorized personnel with access to the <code>key.file</code> will have access to the saved data.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>encrypt</code><br>
+Depending on the current setting of encryption, this will toggle on or off the encryption. Refer message box to understand if encryption has been toggled on or off.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/encryption.png" alt="encryption" width="800">
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1027,11 +1106,7 @@ e.g. <code>deleteappt 2 s/16-09-2018 15:00</code></p>
 </li>
 <li>
 <p><strong>Add Information</strong> : <code>addinfo INDEX [n/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [o/OCCUPATION] [m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code><br>
-e.g. <code>addinfo 2 n/S9123456A d/01011990 h/154 g/M f/3</code></p>
-</li>
-<li>
-<p><strong>Edit Information</strong> : <code>editinfo INDEX [n/NRIC] [d/DOB] [h/HEIGHT] [w/WEIGHT] [g/GENDER] [o/OCCUPATION] [m/MARITAL_STATUS] [f/FAMILY_MEMBER_INDEX]</code><br>
-e.g. <code>editinfo 2 n/S9123456A d/01011990 h/154 g/M f/3</code></p>
+e.g. <code>addinfo 2 i/S9696531A d/01-01-1990 h/154 g/M`</code></p>
 </li>
 <li>
 <p><strong>Add Medical Report</strong> : <code>addreport INDEX [t/TITLE] [d/DATE] [i/INFORMATION]</code><br>
@@ -1053,4 +1128,4 @@ e.g. select 1</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 16:01:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 16:36:17 UTC</div></div></div></body></html>

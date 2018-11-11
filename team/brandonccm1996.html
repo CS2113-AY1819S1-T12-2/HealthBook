@@ -20,6 +20,9 @@
 </li>
 </ul></div></div><div id="content"><div id="preamble">
 <div class="sectionbody">
+<div class="paragraph">
+<p>This portfolio serves to document my technical and non-technical contributions for the Health Book project.</p>
+</div>
 <h2 id="project-health-book" class="discrete">Project: Health Book</h2>
 <hr>
 </div>
@@ -27,43 +30,85 @@
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">1. Overview</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Health Book is an address book application that is catered for healthcare professionals who seek to retrieve their patients’ personal information and health-related information all in one place. A Command Line Interface (CLI) is utilized mainly for the input, while a Graphical User Interface (GUI) is used to display the output. By combining these 2 interfaces, Health Book aims to provide healthcare professionals with the speed and efficiency obtained from a CLI while retaining the systematic view of information through the GUI. It is written in Java.</p>
-</div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/Ui.png" alt="Ui" width="790">
+<img src="../images/Ui.png" alt="Ui" width="600">
 </div>
-<div class="title">Figure 1. GUI of Health Book</div>
+<div class="title">Figure 1. User interface of Health Book</div>
 </div>
 <div class="paragraph">
-<p>My team comprised of a Project Manager, Development Lead, Quality Assurance Lead, Design Lead, and Subject Matter Expert for documentation and application workflow. For this project, I took up the role of Development Lead, and was in charge of setting the technical direction of the team.</p>
+<p>Health Book is an application that is catered for healthcare professionals who seek to retrieve their patients’ personal information and health-related information all in one place. A Command Line Interface (CLI) is utilized mainly for the input, while a Graphical User Interface (GUI) is used to display the output. By combining these 2 interfaces, Health Book aims to provide healthcare professionals with the speed and efficiency obtained from a CLI while retaining the systematic view of information through the GUI.</p>
+</div>
+<div class="paragraph">
+<p>Health Book includes a variety of features to make administrative tasks easier for healthcare professionals. These include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a <strong>finding and sorting feature</strong> to allow healthcare professionals to easily find patients by their personal and medical details</p>
+</li>
+<li>
+<p>an <strong>additional information feature</strong> to allow healthcare professionals to store and update patients' additional information like nric, blood type, height and weight for easy reference</p>
+</li>
+<li>
+<p>a <strong>medical history feature</strong> to allow healthcare professionals to store and update patients' medical history like allergies, previous country visited and discharge status</p>
+</li>
+<li>
+<p>an <strong>appointments feature</strong> to allow healthcare professionals to store and update patients' medical appointments to make it easy for them to track and schedule appointments for patients</p>
+</li>
+<li>
+<p>a <strong>medical reports feature</strong> to allow healthcare professionals to store and update patients' medical reports for easy reference, and to allow for detailed analysis of the patient&#8217;s condition</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Health Book is primarily written in Java. CSS is used to design the GUI for improved user experience, and all data is stored in an XML format.</p>
+</div>
+<div class="paragraph">
+<p>Our team developing Health Book comprised of a Project Manager, Development Lead, Quality Assurance Lead, Design Lead, and Subject Matter Expert for documentation and application workflow. For this project, I took up the role of Development Lead, and was in charge of setting the technical direction of the team.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary of contributions</a></h2>
 <div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This section documents my main contributions to the Health Book application. This showcases my ability to write functional and test code to enhance an application, manage a project and perform in a team setting.</em></p></td>
+</tr>
+</tbody>
+</table>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added the ability to <strong>add, view, edit and delete appointments for a patient</strong></p>
+<p><strong>Major enhancement</strong>: incorporated a feature to <strong>add, view, edit and delete appointments for a patient</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to manage appointments for a patient.</p>
+<p>Justification: This feature improves the product significantly because the user can manage, schedule and track his patients' appointments easily and make sure that there are no scheduling clashes.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because the user can track his patients' appointments easily and make sure that there are no scheduling clashes, and can also remind his patients in advance that they have appointments.</p>
-</li>
-<li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives with regards to how the user would input appointment information. The implementation too was challenging due to the incorporation of multiple checks to prevent the user from entering wrong information like appointments which have timing clashes.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p><strong>Minor enhancement</strong>: added an <strong>information panel for the displaying of patient information like medical histories and appointments</strong> on the right side of the main app</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Justification: This feature improves the product significantly because the user can now see all the information for a selected patient in one window without having to navigate through multiple screens, thus making the application more user-friendly.</p>
+</li>
+<li>
+<p>Highlights: The implementation of this enhancement was challenging as auto-refreshing the information panel when the patient&#8217;s information was updated was a difficult task. I eventually made use of the Java EventsCenter to raise an event when the patient&#8217;s information was updated, thus alerting the user interface to refresh the information panel with the updated information.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Code contributed</strong>: (<a href="https://nuscs2113-ay1819s1.github.io/dashboard/#=undefined&amp;search=brandonccm1996">Code Dashboard</a>)</p>
@@ -87,7 +132,7 @@
 <p>Managing releases <code>v1.1</code> - <code>v1.4</code> (4 releases) on GitHub</p>
 </li>
 <li>
-<p>Checking, reviewing and merging all team pull requests for code changes and enhancements to ensure conformity to the finalised user stories</p>
+<p>Checking and merging all team pull requests for code changes and enhancements to ensure conformity to the finalised user stories</p>
 </li>
 </ul>
 </div>
@@ -100,7 +145,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Designed cards for the displaying of patient appointments in the information panel</p>
+<p>Designed cards for the displaying of patient appointments in the information panel using CSS</p>
 </li>
 </ul>
 </div>
@@ -134,7 +179,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This section documents my contributions to the Health Book User Guide. This showcases my ability to write documentation targeting end-users.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -179,7 +224,7 @@ for a diabetes checkup by Dr Tan.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AddApptUGPic.png" alt="AddApptUGPic" width="790">
+<img src="../images/AddApptUGPic.png" alt="AddApptUGPic" width="600">
 </div>
 <div class="title">Figure 2. GUI after adding an appointment to a patient with no existing appointments</div>
 </div>
@@ -192,7 +237,7 @@ for a diabetes checkup by Dr Tan.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AddApptUGPic2.png" alt="AddApptUGPic2" width="790">
+<img src="../images/AddApptUGPic2.png" alt="AddApptUGPic2" width="600">
 </div>
 <div class="title">Figure 3. GUI after adding an appointment to a patient with existing appointments</div>
 </div>
@@ -234,6 +279,30 @@ Edits the appointment that starts on 16-09-2018 at 15:00, to now run from 16-09-
 and be at Consultation Room 13 for the 2nd person in the list.</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>addappt</code> and <code>editappt</code> commands will display an error message if the user adds in an appointment with the end date and time before the start date and time, or if the patient has multiple appointments that have timing clashes.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>addappt</code> and <code>editappt</code> commands will only check if there are appointment timing clashes for a patient. There is currently no check for appointment timing clashes for a venue or for a doctor in charge i.e. if the same venue or same doctor is booked for multiple appointments at the same time. These features will be coming in the v2.0 release of Health Book.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -279,7 +348,7 @@ Deletes the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This section documents my contributions to the Health Book Developer Guide. This showcases my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -288,41 +357,44 @@ Deletes the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The addappt mechanism is facilitated by <code>VersionedAddressBook</code>.</p>
-</div>
-<div class="paragraph">
-<p>Additionally, it implements the following operations:</p>
+<p>The addappt mechanism is facilitated by <code>AddressBook</code> and <code>VersionedAddressBook</code>. It implements the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Model#getFilteredPersonList()</code>&#8201;&#8212;&#8201;Obtains the entire current list of persons that is being displayed to the user</p>
+<p><code>AddressBook#getFilteredPersonList()</code>&#8201;&#8212;&#8201;Obtains the entire current list of patients that is being displayed to the user</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#updatePerson()</code>&#8201;&#8212;&#8201;Updates the specified person with the new data.</p>
+<p><code>AddressBook#updatePerson()</code>&#8201;&#8212;&#8201;Updates the specified person with the new data.</p>
 </li>
 <li>
-<p>indicateAddressBookChanged()&#8201;&#8212;&#8201;Raises an event to indicate the AddressBook in the model has changed</p>
+<p><code>AddressBook#updateFilteredPersonList()</code>&#8201;&#8212;&#8201;Shows a filtered list of patients.</p>
+</li>
+<li>
+<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Updates the specified patient with the new data.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#updatePerson()</code>, <code>Model#updateFilteredPersonList()</code> and <code>Model#commitAddressBook()</code> respectively.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#getFilteredPersonList()</code>, <code>Model#updatePerson()</code>, <code>Model#updateFilteredPersonList()</code> and <code>Model#commitAddressBook()</code> respectively.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the addappt mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application. If it is the first time he/she is launching it, the <code>VersionedAddressBook</code> will be initialized with a sample address book data. If he/she has launched it and has made changes before, the <code>VersionedAddressBook</code> will be launched with the data he has previously saved in his previous launch.</p>
+<p>Step 1. The user launches the application. If it is the first time he/she is launching it, the <code>AddressBook</code> will be initialized with a sample address book data. If he/she has launched it and has made changes before, the <code>AddressBook</code> will be launched with the data he has previously saved in his previous launch.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>addappt 1 s/16/09/2018 1500 e/16/09/2018 1530 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code> command to add an appointment to the 1st person in the list that the address book is currently showing. The <code>addappt</code> command obtains the data of the person that the user is trying to change based on the index that the user has input.</p>
+<p>Step 2. The user executes <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code> command to add an appointment to the 1st patient in the list that the address book is currently showing. The <code>addappt</code> command obtains the data of the patient that the user is trying to update by calling <code>Model#getFilteredPersonList()</code> and getting the patient&#8217;s data based on the index the user has provided.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The <code>addappt</code> command will obtain the set of appts that the person previously had, copy it to a new set of appts, and add the appt which the user wants to add into the new set.</p>
+<p>Step 3. The <code>addappt</code> command will first check if there is an invalid appointment given i.e. end date and time before start date and time, and also if there is an appointment timing clash between the appointment to be added and existing appointments for the patient. If there are such cases, a CommandException will be thrown with the appropriate message to be shown in the GUI.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The <code>addappt</code> command will call <code>Model#updatePerson()</code> to update the person with this new set of appts. The <code>addappt</code> command will also call <code>Model#updateFilteredPersonList()</code> to update the list that is being showed to the user. Lastly, the <code>addappt</code> command will call <code>Model#commitAddressBook()</code> to update the addressBookStateList and currentStatePointer.</p>
+<p>Step 4. The <code>addappt</code> command will obtain the patient&#8217;s existing set of appointments, copy it to a new set of appointments, and add the appointment which the user wants to add into the new set.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>addappt</code> command will call <code>Model#updatePerson()</code> to update the patient with this new set of appointments. The <code>addappt</code> command will also call <code>Model#updateFilteredPersonList()</code> to update the list that is being showed to the user to show all patients. Lastly, the <code>addappt</code> command will call <code>Model#commitAddressBook()</code> to update the addressBookStateList and currentStatePointer.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the addappt operation works:</p>
@@ -332,6 +404,42 @@ Deletes the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in
 <img src="../images/AddApptSequenceDiagram.png" alt="AddApptSequenceDiagram" width="800">
 </div>
 <div class="title">Figure 4. Sequence diagram for addappt operation</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-store-appointments"><a class="link" href="#aspect-data-structure-to-store-appointments">Aspect: Data structure to store appointments</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a Treeset with a comparator function to store appointments in order of start time</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to display through the information panel as appointments can be shown through a JavaFX VBox, which automatically resizes based on how many appointments the specified patient has</p>
+</li>
+<li>
+<p>Cons: The Treeset storing the appointments can be modified easily wherever it is passed, thus violating the observer pattern. Care must be taken not to modify the treeset inappropriately.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use an ObservableList to store appointments</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Makes use of the observer pattern to pass an unmodifiable ObservableList to wherever it is needed, thus preventing inappropriate modification.</p>
+</li>
+<li>
+<p>Cons: Must be displayed through a JavaFX ListView, which is difficult to resize based on how many appointments the specified patient has, thus hampering user experience.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -362,7 +470,7 @@ Deletes the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. User uses the wrong format to add appointment.</p>
+<p>1a. User uses the wrong format to add appointment i.e. missing fields or having invalid data for fields</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -455,7 +563,7 @@ Deletes the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. User uses the wrong format to edit appointment.</p>
+<p>1a. User uses the wrong format to edit appointment i.e. missing all fields or having invalid data for fields</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -565,7 +673,7 @@ Deletes the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. User uses the wrong format to delete appointment.</p>
+<p>1a. User uses the wrong format to delete appointment i.e. missing fields or having invalid data for fields.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -615,4 +723,4 @@ Deletes the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 18:28:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 18:31:56 UTC</div></div></div></body></html>

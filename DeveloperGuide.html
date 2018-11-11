@@ -95,14 +95,15 @@
 <li><a href="#use-case-adding-an-appointment-for-a-patient-code-addappt-code">D.7. Use case: Adding an appointment for a patient: <code>addappt</code></a></li>
 <li><a href="#use-case-editing-an-appointment-for-a-patient-code-editappt-code">D.8. Use case: Editing an appointment for a patient: <code>editappt</code></a></li>
 <li><a href="#use-case-deleting-an-appointment-for-a-patient-code-deleteappt-code">D.9. Use case: Deleting an appointment for a patient: <code>deleteappt</code></a></li>
-<li><a href="#use-case-adding-additional-information-of-patient-code-addinfo-code">D.10. Use case: Adding additional information of patient: <code>addinfo</code></a></li>
-<li><a href="#use-case-adding-of-medical-report-code-addreport-code">D.11. Use case: Adding of Medical Report: <code>addreport</code></a></li>
-<li><a href="#use-case-editing-of-medical-report-code-editreport-code">D.12. Use case: Editing of Medical Report: <code>editreport</code></a></li>
-<li><a href="#use-case-adding-of-medical-history-code-addhist-code">D.13. Use case: Adding of Medical History: <code>addhist</code></a></li>
-<li><a href="#use-case-editing-of-medical-history-code-edithist-code">D.14. Use case: Editing of Medical History: <code>edithist</code></a></li>
-<li><a href="#use-case-sorting-patients-list-code-sort-code">D.15. Use case: Sorting patients list: <code>sort</code></a></li>
-<li><a href="#use-case-selecting-a-patient-code-select-code">D.16. Use case: Selecting a patient: <code>select</code></a></li>
-<li><a href="#use-case-data-encryption-code-encrypt-code">D.17. Use case: Data Encryption: <code>encrypt</code></a></li>
+<li><a href="#use-case-clearing-appointments-for-all-patients-code-clearappts-code">D.10. Use case: Clearing appointments for all patients: <code>clearappts</code></a></li>
+<li><a href="#use-case-adding-additional-information-of-patient-code-addinfo-code">D.11. Use case: Adding additional information of patient: <code>addinfo</code></a></li>
+<li><a href="#use-case-adding-of-medical-report-code-addreport-code">D.12. Use case: Adding of Medical Report: <code>addreport</code></a></li>
+<li><a href="#use-case-editing-of-medical-report-code-editreport-code">D.13. Use case: Editing of Medical Report: <code>editreport</code></a></li>
+<li><a href="#use-case-adding-of-medical-history-code-addhist-code">D.14. Use case: Adding of Medical History: <code>addhist</code></a></li>
+<li><a href="#use-case-editing-of-medical-history-code-edithist-code">D.15. Use case: Editing of Medical History: <code>edithist</code></a></li>
+<li><a href="#use-case-sorting-patients-list-code-sort-code">D.16. Use case: Sorting patients list: <code>sort</code></a></li>
+<li><a href="#use-case-selecting-a-patient-code-select-code">D.17. Use case: Selecting a patient: <code>select</code></a></li>
+<li><a href="#use-case-data-encryption-code-encrypt-code">D.18. Use case: Data Encryption: <code>encrypt</code></a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
@@ -116,7 +117,11 @@
 <li><a href="#adding-medical-report-to-a-person">H.4. Adding medical report to a person</a></li>
 <li><a href="#editing-an-existing-medical-report-of-a-person">H.5. Editing an existing medical report of a person</a></li>
 <li><a href="#saving-data">H.6. Saving data</a></li>
-<li><a href="#adding-medical-history-to-patient">H.7. Adding medical history to patient</a></li>
+<li><a href="#adding-appointment-to-a-patient">H.7. Adding appointment to a patient</a></li>
+<li><a href="#editing-appointment-for-a-patient">H.8. Editing appointment for a patient</a></li>
+<li><a href="#deleting-appointment-for-a-patient">H.9. Deleting appointment for a patient</a></li>
+<li><a href="#clearing-appointments-for-all-patients">H.10. Clearing appointments for all patients</a></li>
+<li><a href="#adding-medical-history-to-patient">H.11. Adding medical history to patient</a></li>
 </ul>
 </li>
 </ul>
@@ -1046,41 +1051,44 @@ The <code>edithist</code> command obtains the data of the person that the user i
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The addappt mechanism is facilitated by <code>VersionedAddressBook</code>.</p>
-</div>
-<div class="paragraph">
-<p>Additionally, it implements the following operations:</p>
+<p>The addappt mechanism is facilitated by <code>AddressBook</code> and <code>VersionedAddressBook</code>. It implements the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Model#getFilteredPersonList()</code>&#8201;&#8212;&#8201;Obtains the entire current list of persons that is being displayed to the user</p>
+<p><code>AddressBook#getFilteredPersonList()</code>&#8201;&#8212;&#8201;Obtains the entire current list of patients that is being displayed to the user</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#updatePerson()</code>&#8201;&#8212;&#8201;Updates the specified person with the new data.</p>
+<p><code>AddressBook#updatePerson()</code>&#8201;&#8212;&#8201;Updates the specified person with the new data.</p>
 </li>
 <li>
-<p>indicateAddressBookChanged()&#8201;&#8212;&#8201;Raises an event to indicate the AddressBook in the model has changed</p>
+<p><code>AddressBook#updateFilteredPersonList()</code>&#8201;&#8212;&#8201;Shows a filtered list of patients.</p>
+</li>
+<li>
+<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Updates the specified patient with the new data.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#updatePerson()</code>, <code>Model#updateFilteredPersonList()</code> and <code>Model#commitAddressBook()</code> respectively.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#getFilteredPersonList()</code>, <code>Model#updatePerson()</code>, <code>Model#updateFilteredPersonList()</code> and <code>Model#commitAddressBook()</code> respectively.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the addappt mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application. If it is the first time he/she is launching it, the <code>VersionedAddressBook</code> will be initialized with a sample address book data. If he/she has launched it and has made changes before, the <code>VersionedAddressBook</code> will be launched with the data he has previously saved in his previous launch.</p>
+<p>Step 1. The user launches the application. If it is the first time he/she is launching it, the <code>AddressBook</code> will be initialized with a sample address book data. If he/she has launched it and has made changes before, the <code>AddressBook</code> will be launched with the data he has previously saved in his previous launch.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>addappt 1 s/16/09/2018 1500 e/16/09/2018 1530 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code> command to add an appointment to the 1st person in the list that the address book is currently showing. The <code>addappt</code> command obtains the data of the person that the user is trying to change based on the index that the user has input.</p>
+<p>Step 2. The user executes <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code> command to add an appointment to the 1st patient in the list that the address book is currently showing. The <code>addappt</code> command obtains the data of the patient that the user is trying to update by calling <code>Model#getFilteredPersonList()</code> and getting the patient&#8217;s data based on the index the user has provided.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The <code>addappt</code> command will obtain the set of appts that the person previously had, copy it to a new set of appts, and add the appt which the user wants to add into the new set.</p>
+<p>Step 3. The <code>addappt</code> command will first check if there is an invalid appointment given i.e. end date and time before start date and time, and also if there is an appointment timing clash between the appointment to be added and existing appointments for the patient. If there are such cases, a CommandException will be thrown with the appropriate message to be shown in the GUI.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The <code>addappt</code> command will call <code>Model#updatePerson()</code> to update the person with this new set of appts. The <code>addappt</code> command will also call <code>Model#updateFilteredPersonList()</code> to update the list that is being showed to the user. Lastly, the <code>addappt</code> command will call <code>Model#commitAddressBook()</code> to update the addressBookStateList and currentStatePointer.</p>
+<p>Step 4. The <code>addappt</code> command will obtain the patient&#8217;s existing set of appointments, copy it to a new set of appointments, and add the appointment which the user wants to add into the new set.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>addappt</code> command will call <code>Model#updatePerson()</code> to update the patient with this new set of appointments. The <code>addappt</code> command will also call <code>Model#updateFilteredPersonList()</code> to update the list that is being showed to the user to show all patients. Lastly, the <code>addappt</code> command will call <code>Model#commitAddressBook()</code> to update the addressBookStateList and currentStatePointer.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the addappt operation works:</p>
@@ -1090,6 +1098,42 @@ The <code>edithist</code> command obtains the data of the person that the user i
 <img src="images/AddApptSequenceDiagram.png" alt="AddApptSequenceDiagram" width="800">
 </div>
 <div class="title">Figure 12. Sequence diagram for addappt operation</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.5.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-store-appointments"><a class="link" href="#aspect-data-structure-to-store-appointments">Aspect: Data structure to store appointments</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a Treeset with a comparator function to store appointments in order of start time</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to display through the information panel as appointments can be shown through a JavaFX VBox, which automatically resizes based on how many appointments the specified patient has</p>
+</li>
+<li>
+<p>Cons: The Treeset storing the appointments can be modified easily wherever it is passed, thus violating the observer pattern. Care must be taken not to modify the treeset inappropriately.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use an ObservableList to store appointments</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Makes use of the observer pattern to pass an unmodifiable ObservableList to wherever it is needed, thus preventing inappropriate modification.</p>
+</li>
+<li>
+<p>Cons: Must be displayed through a JavaFX ListView, which is difficult to resize based on how many appointments the specified patient has, thus hampering user experience.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -2655,26 +2699,20 @@ for <code>RemarkCommandParser</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">import/export files to other computers</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">send patients’ data to other hospitals if the patient transfers there</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">see all my patient’s appointments if there is any</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">remind my patients to come for appointments days in advance</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a list of medical reports for every patient</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to them in the future for medicine prescription</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">manage my patient&#8217;s appointments and add, edit or delete appointments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track their appointments and ensure there are no scheduling clashes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">manage my patient&#8217;s appointments and add, edit or delete appointments</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">track their appointments and ensure there are no scheduling clashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a list of medical reports for every patient</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refer to them in the future for medicine prescription</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -2723,6 +2761,12 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">encrypt all my patients’ info</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">my patients’ data will be protected from hackers</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">doctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">import/export files to other computers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">send patients’ data to other hospitals if the patient transfers there</p></td>
 </tr>
 </tbody>
 </table>
@@ -3066,7 +3110,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. User uses the wrong format to add appointment.</p>
+<p>1a. User uses the wrong format to add appointment i.e. missing fields or having invalid data for fields</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -3159,7 +3203,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. User uses the wrong format to edit appointment.</p>
+<p>1a. User uses the wrong format to edit appointment i.e. missing all fields or having invalid data for fields</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -3269,7 +3313,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. User uses the wrong format to delete appointment.</p>
+<p>1a. User uses the wrong format to delete appointment i.e. missing fields or having invalid data for fields.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -3319,7 +3363,63 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-adding-additional-information-of-patient-code-addinfo-code"><a class="link" href="#use-case-adding-additional-information-of-patient-code-addinfo-code">D.10. Use case: Adding additional information of patient: <code>addinfo</code></a></h3>
+<h3 id="use-case-clearing-appointments-for-all-patients-code-clearappts-code"><a class="link" href="#use-case-clearing-appointments-for-all-patients-code-clearappts-code">D.10. Use case: Clearing appointments for all patients: <code>clearappts</code></a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to delete all appointments that end on or before a specific date for all patients in the health book.</p>
+</li>
+<li>
+<p>System deletes the respective appointments for all patients and displays a message that deletion is successful.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User uses the wrong format to clear appointments i.e. missing field or having invalid data for field.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows an error message that the format is wrong and gives user an example on the correct format of clearing appointments.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User requests to clear appointments that do not exist i.e. there are no appointments that end on or before the specified date.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows an error message that there are no appointments that end on or before the specified date to be deleted.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-adding-additional-information-of-patient-code-addinfo-code"><a class="link" href="#use-case-adding-additional-information-of-patient-code-addinfo-code">D.11. Use case: Adding additional information of patient: <code>addinfo</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of patients.</p>
 </div>
@@ -3378,7 +3478,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-adding-of-medical-report-code-addreport-code"><a class="link" href="#use-case-adding-of-medical-report-code-addreport-code">D.11. Use case: Adding of Medical Report: <code>addreport</code></a></h3>
+<h3 id="use-case-adding-of-medical-report-code-addreport-code"><a class="link" href="#use-case-adding-of-medical-report-code-addreport-code">D.12. Use case: Adding of Medical Report: <code>addreport</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of patients.</p>
 </div>
@@ -3488,7 +3588,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-editing-of-medical-report-code-editreport-code"><a class="link" href="#use-case-editing-of-medical-report-code-editreport-code">D.12. Use case: Editing of Medical Report: <code>editreport</code></a></h3>
+<h3 id="use-case-editing-of-medical-report-code-editreport-code"><a class="link" href="#use-case-editing-of-medical-report-code-editreport-code">D.13. Use case: Editing of Medical Report: <code>editreport</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of medical reports for a patient.</p>
 </div>
@@ -3598,7 +3698,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-adding-of-medical-history-code-addhist-code"><a class="link" href="#use-case-adding-of-medical-history-code-addhist-code">D.13. Use case: Adding of Medical History: <code>addhist</code></a></h3>
+<h3 id="use-case-adding-of-medical-history-code-addhist-code"><a class="link" href="#use-case-adding-of-medical-history-code-addhist-code">D.14. Use case: Adding of Medical History: <code>addhist</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of medical reports for a patient.</p>
 </div>
@@ -3691,7 +3791,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-editing-of-medical-history-code-edithist-code"><a class="link" href="#use-case-editing-of-medical-history-code-edithist-code">D.14. Use case: Editing of Medical History: <code>edithist</code></a></h3>
+<h3 id="use-case-editing-of-medical-history-code-edithist-code"><a class="link" href="#use-case-editing-of-medical-history-code-edithist-code">D.15. Use case: Editing of Medical History: <code>edithist</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of medical reports for a patient.</p>
 </div>
@@ -3818,7 +3918,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-sorting-patients-list-code-sort-code"><a class="link" href="#use-case-sorting-patients-list-code-sort-code">D.15. Use case: Sorting patients list: <code>sort</code></a></h3>
+<h3 id="use-case-sorting-patients-list-code-sort-code"><a class="link" href="#use-case-sorting-patients-list-code-sort-code">D.16. Use case: Sorting patients list: <code>sort</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of patients.</p>
 </div>
@@ -3906,7 +4006,7 @@ This list refers to the latest list displayed on the interface before the comman
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-selecting-a-patient-code-select-code"><a class="link" href="#use-case-selecting-a-patient-code-select-code">D.16. Use case: Selecting a patient: <code>select</code></a></h3>
+<h3 id="use-case-selecting-a-patient-code-select-code"><a class="link" href="#use-case-selecting-a-patient-code-select-code">D.17. Use case: Selecting a patient: <code>select</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has already requested the System to display a list of patients.</p>
 </div>
@@ -3948,7 +4048,7 @@ This list refers to the latest list displayed on the interface before the comman
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-data-encryption-code-encrypt-code"><a class="link" href="#use-case-data-encryption-code-encrypt-code">D.17. Use case: Data Encryption: <code>encrypt</code></a></h3>
+<h3 id="use-case-data-encryption-code-encrypt-code"><a class="link" href="#use-case-data-encryption-code-encrypt-code">D.18. Use case: Data Encryption: <code>encrypt</code></a></h3>
 <div class="paragraph">
 <p>Assume that user has launched the application with the default settings (encryption toggled off).</p>
 </div>
@@ -4401,7 +4501,209 @@ Expected: No medical report is edited. Message of unable to edit existing report
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-medical-history-to-patient"><a class="link" href="#adding-medical-history-to-patient">H.7. Adding medical history to patient</a></h3>
+<h3 id="adding-appointment-to-a-patient"><a class="link" href="#adding-appointment-to-a-patient">H.7. Adding appointment to a patient</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding an appointment to a patient while all patients are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br>
+Expected: An appointment from 16-09-2018 15:00 to 16-09-2018 15:30 at Consultation Room 12 for a Diabetes Checkup by Dr Tan is added to the patient at index 1 in the list. A message that the appointment is successfully added is shown.</p>
+</li>
+<li>
+<p>Test case: <code>addappt 0 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br>
+Expected: No appointment is added to any patient. An error message is shown telling the user that he/she has used the invalid command format, along with the correct command format for <code>addappt</code>.</p>
+</li>
+<li>
+<p>Other incorrect <code>addappt</code> commands to try: <code>addappt</code>, <code>addappt x</code> (where x is smaller than the list size), <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30</code><br>
+Expected: Similar to previous.</p>
+</li>
+<li>
+<p>Test case: <code>addappt x s/16-09-2018 17:00 e/16-09-2018 17:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code> (where x is larger than the list size)<br>
+Expected: No appointment is added to any patient. An error message is shown telling the user that the index provided is invalid.</p>
+</li>
+<li>
+<p>Test case: <code>addappt 1 s/16/09/2018 18:00 e/16/09/2018 17:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br>
+Expected: No appointment is added to any patient. An error message is shown telling the user that the date and time must be dd/mm/yyyy hh:mm.</p>
+</li>
+<li>
+<p>Test case: <code>addappt 1 s/16-09-2018 18:00 e/16-09-2018 17:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br>
+Expected: No appointment is added to any patient. An error message is shown telling the user that the end date and time of an appointment must be after the start date and time.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding an appointment to a patient with existing appointments</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.<br>
+Add an appointment to the first person using the command <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code></p>
+</li>
+<li>
+<p>Test case: <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br>
+Expected: No appointment is added to any patient. An error message is shown telling the user that the appointment he/she is adding clashes with the timing of another appointment for the patient.</p>
+</li>
+<li>
+<p>Test case: <code>addappt 1 s/16-09-2018 15:30 e/16-09-2018 16:00 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br>
+Expected: An appointment from 16-09-2018 15:30 to 16-09-2018 16:00 at Consultation Room 12 for a Diabetes Checkup by Dr Tan is added to the patient at index 1 in the list. A message that the appointment is successfully added is shown.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-appointment-for-a-patient"><a class="link" href="#editing-appointment-for-a-patient">H.8. Editing appointment for a patient</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing an appointment for a patient while all patients are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.<br>
+Add 2 appointments to the first person using the following 2 commands:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code> and<br></p>
+</li>
+<li>
+<p><code>addappt 1 s/16-09-2018 16:00 e/16-09-2018 16:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Test case: <code>editappt 0 os/16-09-2018 15:00 s/16-09-2018 14:00 e/16-09-2018 14:30 v/Consultation Room 13</code><br>
+Expected: No appointment is edited. An error message is shown telling the user that he/she has used the invalid command format, along with the correct command format for <code>editappt</code>.</p>
+</li>
+<li>
+<p>Other incorrect <code>editappt</code> commands to try: <code>editappt</code>, <code>editappt x</code> (where x is smaller than the list size), <code>editappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30</code><br>
+Expected: Similar to previous.</p>
+</li>
+<li>
+<p>Test case: <code>editappt 1 os/16-09-2018 15:00</code><br>
+Expected: No appointment is updated. An error message is shown telling the user that at least one field to edit must be provided.</p>
+</li>
+<li>
+<p>Test case: <code>editappt 1 os/16-09-2018 15:00 e/16-09-2018 14:30 v/Consultation Room 13</code><br>
+Expected: No appointment is updated. An error message is shown telling the user that the end date and time of an appointment must be after the start date and time.</p>
+</li>
+<li>
+<p>Test case: <code>editappt 1 os/16-09-2018 15:00 s/16-09-2018 15:30 e/16-09-2018 16:15 v/Consultation Room 13</code><br>
+Expected: No appointment is updated. An error message is shown telling the user that the appointment he/she is editing will clash with the timing of another appointment for the patient.</p>
+</li>
+<li>
+<p>Test case: <code>editappt 1 os/17-09-2018 15:00 s/16-09-2018 14:00 e/16-09-2018 14:30 v/Consultation Room 13</code><br>
+Expected: No appointment is updated. An error message is shown telling the user that the appointment he/she is trying to edit cannot be found for the patient.</p>
+</li>
+<li>
+<p>Test case: <code>editappt 1 os/16-09-2018 15:00 s/16-09-2018 14:00 e/16-09-2018 14:30 v/Consultation Room 13</code><br>
+Expected: The appointment originally starting at 16-09-2018 15:00 is now edited to start at 16-09-2018 14:00, end at 16-09-2018 14:30, and be held at Consultation Room 13 instead. A message that the appointment is successfully edited is shown.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-appointment-for-a-patient"><a class="link" href="#deleting-appointment-for-a-patient">H.9. Deleting appointment for a patient</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting an appointment for a patient while all patients are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.<br>
+Add an appointment to the first person using the command <code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code></p>
+</li>
+<li>
+<p>Test case: <code>deleteappt 0 s/16-09-2018 15:00</code><br>
+Expected: No appointment is deleted. An error message is shown telling the user that he/she has used the invalid command format, along with the correct command format for <code>deleteappt</code>.</p>
+</li>
+<li>
+<p>Other incorrect <code>deleteappt</code> commands to try: <code>deleteappt</code>, <code>deleteappt x</code> (where x is smaller than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+<li>
+<p>Test case: <code>deleteappt 1 s/17-09-2018 15:00</code><br>
+Expected: No appointment is deleted. An error message is shown telling the user that the appointment he/she is trying to delete cannot be found for the patient.</p>
+</li>
+<li>
+<p>Test case: <code>deleteappt 1 s/16-09-2018 15:00</code><br>
+Expected: The appointment starting at 16-09-2018 15:00 will be deleted. A message that the appointment is successfully deleted is shown.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-appointments-for-all-patients"><a class="link" href="#clearing-appointments-for-all-patients">H.10. Clearing appointments for all patients</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Clearing appointments for all patients while all patients are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.<br>
+Add 2 appointments each to the first 3 people using the following 6 commands:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addappt 1 s/15-09-2018 15:00 e/15-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br></p>
+</li>
+<li>
+<p><code>addappt 1 s/17-09-2018 15:00 e/17-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br></p>
+</li>
+<li>
+<p><code>addappt 2 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br></p>
+</li>
+<li>
+<p><code>addappt 2 s/17-09-2018 15:00 e/17-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br></p>
+</li>
+<li>
+<p><code>addappt 3 s/14-09-2018 15:00 e/14-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br></p>
+</li>
+<li>
+<p><code>addappt 3 s/17-09-2018 15:00 e/17-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Test case: <code>clearappts</code><br>
+Expected: No appointments are deleted. An error message is shown telling the user that he/she has used the invalid command format, along with the correct command format for <code>clearappts</code>.</p>
+</li>
+<li>
+<p>Test case: <code>clearappts d/16-09-2018</code><br>
+Expected: The appointments on 16-09-2018 and before are deleted. A message that all appointments ending before or on the specified date have been successfully deleted is shown.</p>
+</li>
+<li>
+<p>Test case: <code>clearappts d/16-08-2018</code><br>
+Expected: No appointments are deleted. An error message is shown telling the user that there are no appointments on or before the specified date to be deleted.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-medical-history-to-patient"><a class="link" href="#adding-medical-history-to-patient">H.11. Adding medical history to patient</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4503,4 +4805,4 @@ edited with new date 05-05-2015, new allergy of grass and new previous country v
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 18:28:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 18:31:56 UTC</div></div></div></body></html>

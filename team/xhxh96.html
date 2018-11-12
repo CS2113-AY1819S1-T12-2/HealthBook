@@ -481,6 +481,9 @@ While the file <code>preferences.json</code> file is not used during the actual 
 <p>When users execute the <code>encrypt</code> command, the <code>AddressBookParser</code> returns <code>EncryptCommand</code> object to the <code>LogicManager</code>, which in turn executes the <code>EncryptCommand#execute</code> method. This method in turn gets the <code>UserPref</code> via <code>Model#getUserPref</code> and executes the <code>toggleEncryption</code> method, which in turn sets the <code>encryption</code> attribute in <code>UserPref</code> to either <code>true</code> or <code>false</code>, thereby enabling or disabling encryption.</p>
 </div>
 <div class="paragraph">
+<p>The following sequence diagram shows how the encryption works when the application is launched:</p>
+</div>
+<div class="paragraph">
 <p>Given below is an example usage scenario on how <code>encrypt</code> works at each step:</p>
 </div>
 <div class="paragraph">
@@ -500,9 +503,6 @@ While the file <code>preferences.json</code> file is not used during the actual 
 </div>
 <div class="paragraph">
 <p>Step 6. <code>MainApp#stop</code> then deletes the temporary <code>healthbook.xml</code> file before fully exiting the application.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the encryption works when the application is launched:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -561,4 +561,4 @@ While the file <code>preferences.json</code> file is not used during the actual 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:27:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:30:40 UTC</div></div></div></body></html>

@@ -45,9 +45,6 @@
 <div class="ulist">
 <ul>
 <li>
-<p>a <strong>finding and sorting feature</strong> to allow healthcare professionals to easily find patients by their personal and medical details</p>
-</li>
-<li>
 <p>an <strong>additional information feature</strong> to allow healthcare professionals to store and update patients' additional information like nric, blood type, height and weight for easy reference</p>
 </li>
 <li>
@@ -58,6 +55,9 @@
 </li>
 <li>
 <p>a <strong>medical reports feature</strong> to allow healthcare professionals to store and update patients' medical reports for easy reference, and to allow for detailed analysis of the patient&#8217;s condition</p>
+</li>
+<li>
+<p>a <strong>finding and sorting feature</strong> to allow healthcare professionals to easily find patients by their personal and medical details</p>
 </li>
 </ul>
 </div>
@@ -231,15 +231,9 @@ for a diabetes checkup by Dr Tan.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>If the first patient previously had appointments, the new appointment will be added to his schedule and shown on the GUI together with his other appointments in order of start time (from earliest to latest). The GUI will look as follows:</p>
+<p>If the first patient previously had appointments, the new appointment will be added to his schedule and shown on the GUI together with his other appointments in order of start time (from earliest to latest).</p>
 </li>
 </ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/AddApptUGPic2.png" alt="AddApptUGPic2" width="600">
-</div>
-<div class="title">Figure 3. GUI after adding an appointment to a patient with existing appointments</div>
 </div>
 </div>
 <div class="sect2">
@@ -279,30 +273,6 @@ Edits the appointment that starts on 16-09-2018 at 15:00, to now run from 16-09-
 and be at Consultation Room 13 for the 2nd person in the list.</p>
 </li>
 </ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<code>addappt</code> and <code>editappt</code> commands will display an error message if the user adds in an appointment with the end date and time before the start date and time, or if the patient has multiple appointments that have timing clashes.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<code>addappt</code> and <code>editappt</code> commands will only check if there are appointment timing clashes for a patient. There is currently no check for appointment timing clashes for a venue or for a doctor in charge i.e. if the same venue or same doctor is booked for multiple appointments at the same time. These features will be coming in the v2.0 release of Health Book.
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -397,13 +367,22 @@ Deletes the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in
 <p>Step 5. The <code>addappt</code> command will call <code>Model#updatePerson()</code> to update the patient with this new set of appointments. The <code>addappt</code> command will also call <code>Model#updateFilteredPersonList()</code> to update the list that is being showed to the user to show all patients. Lastly, the <code>addappt</code> command will call <code>Model#commitAddressBook()</code> to update the addressBookStateList and currentStatePointer.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the addappt operation works:</p>
+<p>The following sequence diagram captures the interactions that goes on between multiple classes during the addappt operation :</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AddApptSequenceDiagram.png" alt="AddApptSequenceDiagram" width="800">
+<img src="../images/AddApptSequenceDiagram.png" alt="AddApptSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 4. Sequence diagram for addappt operation</div>
+<div class="title">Figure 3. Sequence diagram for addappt operation</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows the workflow for both the user and the system during the addappt operation:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddApptActivityDiagram.png" alt="AddApptActivityDiagram" width="700">
+</div>
+<div class="title">Figure 4. Activity diagram for add appt operation</div>
 </div>
 </div>
 <div class="sect3">
@@ -723,4 +702,4 @@ Deletes the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 09:51:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:06:27 UTC</div></div></div></body></html>

@@ -17,19 +17,19 @@
 <li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
 <li><a href="#listing-all-patients-code-list-code">3.3. Listing all patients : <code>list</code></a></li>
 <li><a href="#editing-basic-information-of-patient-person-code-edit-code">3.4. Editing basic information of patient person : <code>edit</code></a></li>
-<li><a href="#finding-patients-by-specific-category-code-find-code">3.5. Finding patients by specific category: <code>find</code></a></li>
-<li><a href="#deleting-a-patient-code-delete-code">3.6. Deleting a patient : <code>delete</code></a></li>
-<li><a href="#adding-patient-s-medical-history-code-addhist-code">3.7. Adding patient&#8217;s medical history: <code>addhist</code></a></li>
-<li><a href="#editing-patient-s-medical-history-code-edithist-code">3.8. Editing patient&#8217;s medical history: <code>edithist</code></a></li>
-<li><a href="#adding-an-appointment-for-a-patient-code-addappt-code">3.9. Adding an appointment for a patient: <code>addappt</code></a></li>
-<li><a href="#editing-an-appointment-for-a-patient-code-editappt-code">3.10. Editing an appointment for a patient: <code>editappt</code></a></li>
-<li><a href="#deleting-an-appointment-for-a-patient-code-deleteappt-code">3.11. Deleting an appointment for a patient: <code>deleteappt</code></a></li>
-<li><a href="#clearing-appointments-for-all-patients-code-clearappts-code">3.12. Clearing appointments for all patients: <code>clearappts</code></a></li>
-<li><a href="#adding-additional-information-of-patient-code-addinfo-code">3.13. Adding Additional Information of Patient: <code>addinfo</code></a></li>
+<li><a href="#deleting-a-patient-code-delete-code">3.5. Deleting a patient : <code>delete</code></a></li>
+<li><a href="#selecting-a-patient-code-select-code">3.6. Selecting a patient: <code>select</code></a></li>
+<li><a href="#adding-additional-information-of-patient-code-addinfo-code">3.7. Adding Additional Information of Patient: <code>addinfo</code></a></li>
+<li><a href="#adding-patient-s-medical-history-code-addhist-code">3.8. Adding patient&#8217;s medical history: <code>addhist</code></a></li>
+<li><a href="#editing-patient-s-medical-history-code-edithist-code">3.9. Editing patient&#8217;s medical history: <code>edithist</code></a></li>
+<li><a href="#adding-an-appointment-for-a-patient-code-addappt-code">3.10. Adding an appointment for a patient: <code>addappt</code></a></li>
+<li><a href="#editing-an-appointment-for-a-patient-code-editappt-code">3.11. Editing an appointment for a patient: <code>editappt</code></a></li>
+<li><a href="#deleting-an-appointment-for-a-patient-code-deleteappt-code">3.12. Deleting an appointment for a patient: <code>deleteappt</code></a></li>
+<li><a href="#clearing-appointments-for-all-patients-code-clearappts-code">3.13. Clearing appointments for all patients: <code>clearappts</code></a></li>
 <li><a href="#adding-of-medical-report-code-addreport-code">3.14. Adding of Medical Report: <code>addreport</code></a></li>
 <li><a href="#editing-of-medical-report-code-editreport-code">3.15. Editing of Medical Report: <code>editreport</code></a></li>
-<li><a href="#sorting-patients-list-code-sort-code">3.16. Sorting patients list: <code>sort</code></a></li>
-<li><a href="#selecting-a-patient-code-select-code">3.17. Selecting a patient: <code>select</code></a></li>
+<li><a href="#finding-patients-by-specific-category-code-find-code">3.16. Finding patients by specific category: <code>find</code></a></li>
+<li><a href="#sorting-patients-list-code-sort-code">3.17. Sorting patients list: <code>sort</code></a></li>
 <li><a href="#encrypting-patient-data-code-encrypt-code">3.18. Encrypting Patient Data: <code>encrypt</code></a></li>
 </ul>
 </li>
@@ -37,6 +37,7 @@
 <ul class="sectlevel2">
 <li><a href="#disease-injury-tags-can-have-spaces-commas-and-periods">4.1. Disease/Injury tags can have spaces, commas and periods</a></li>
 <li><a href="#restrict-adding-medical-history-after-patient-expires">4.2. Restrict adding medical history after patient expires</a></li>
+<li><a href="#further-checks-for-appointment-timing-clashes">4.3. Further checks for appointment timing clashes</a></li>
 </ul>
 </li>
 <li><a href="#command-summary">5. Command Summary</a></li>
@@ -278,112 +279,7 @@ Edits the name of the 2nd patient to be <code>Betsy Crower</code> and clears all
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-patients-by-specific-category-code-find-code"><a class="link" href="#finding-patients-by-specific-category-code-find-code">3.5. Finding patients by specific category: <code>find</code></a></h3>
-<div class="paragraph">
-<p>Filters patients by their personal (name, phone, email, address, tags and NRIC) or medical (medical Information, blood type, last country of visit and allergy) details.
-Format: <code>find PREFIX/ KEYWORD [MORE_KEYWORDS]</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Patients can be found by any number of keywords (except 0)
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Don&#8217;t forget to include the space between <code>PREFIX/</code> and <code>KEYWORD</code>
-</td>
-</tr>
-</table>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g. <code>hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</li>
-<li>
-<p>Only the specified detail is searched.</p>
-</li>
-<li>
-<p>Only one category per find is allowed.</p>
-</li>
-<li>
-<p>Only full words will be matched. e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Only above-mentioned details can be utilised. e.g. Date of Birth is not applicable.</p>
-</li>
-<li>
-<p>Patients matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<div class="title">Available Prefixes</div>
-<ul>
-<li>
-<p>Personal detail prefixes: n/ (Name) p/ (Phone) e/ (Email) a/ (Address) t/ (tag) ic/ (NRIC)</p>
-</li>
-<li>
-<p>Medical detail prefixes: i/ (MedInfo) hsa/ (Allergy) hsb/ (BloodType) hsc/ (LastCountry)</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find n/ John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
-</li>
-<li>
-<p><code>find n/ BeTsY Tim John</code><br>
-Returns any patient having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
-</li>
-<li>
-<p><code>find ic/ S9876543T</code>
-Returns any patient whose NRIC is S9876543T.</p>
-</li>
-<li>
-<p><code>find t/ asthma</code>
-Returns any patient who is tagged with asthma.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-patient-code-delete-code"><a class="link" href="#deleting-a-patient-code-delete-code">3.6. Deleting a patient : <code>delete</code></a></h3>
+<h3 id="deleting-a-patient-code-delete-code"><a class="link" href="#deleting-a-patient-code-delete-code">3.5. Deleting a patient : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified patient from the health book.<br>
 Format: <code>delete INDEX</code></p>
@@ -424,118 +320,23 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-patient-s-medical-history-code-addhist-code"><a class="link" href="#adding-patient-s-medical-history-code-addhist-code">3.7. Adding patient&#8217;s medical history: <code>addhist</code></a></h3>
+<h3 id="selecting-a-patient-code-select-code"><a class="link" href="#selecting-a-patient-code-select-code">3.6. Selecting a patient: <code>select</code></a></h3>
 <div class="paragraph">
-<p>Adds a medical history entry for a patient.<br>
-Format: <code>addhist INDEX hsd/MEDICAL_HISTORY_DATE hsa/ALLERGY hsc/PREVIOUS_COUNTRY_VISITED hsds/DISCHARGE_STATUS</code></p>
+<p>Selects the patient identified by the index number used in the displayed person list and displays the selected patient&#8217;s information.<br>
+Format: <code>select INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Adds an entry in the medical history of the patient for the patient at the specified INDEX.</p>
+<p>Selects the patient and displays the information for the patient at the specified <code>INDEX</code>.</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the displayed person list.</p>
 </li>
 <li>
-<p>Date entries must be after 01-01-1900.</p>
-</li>
-<li>
-<p>Note: Discharge Status  code only accepts <strong>d</strong>, <strong>a</strong>, <strong>e</strong> as inputs to represent discharged, admitted or expired.</p>
-</li>
-<li>
-<p>ALLERGY and PREVIOUS_COUNTRY inputs can be omitted if there are no changes since the last entry.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/addhist.png" alt="addhist" width="790">
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addhist 1 hsd/10-10-2010 hsa/Alcohol hsc/Kuwait hsds/d</code>
-Adds a medical history entry for the 1st person in the list on 10-10-2010 with an alcohol allergy and Kuwait as previous country visited.
-The patient is discharged and allowed to return home.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-patient-s-medical-history-code-edithist-code"><a class="link" href="#editing-patient-s-medical-history-code-edithist-code">3.8. Editing patient&#8217;s medical history: <code>edithist</code></a></h3>
-<div class="paragraph">
-<p>Edits an existing medical history entry of a patient.<br>
-Format: <code>edithist INDEX hsod/OLD_MEDICAL_HISTORY_DATE hsd/MEDICAL_HISTORY_DATE hsa/ALLERGY hsc/PREVIOUS_COUNTRY_VISITED hsds/DISCHARGE_STATUS</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits an existing entry in the medical history of the patient for the patient at the specified INDEX.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed person list.</p>
-</li>
-<li>
-<p>Date entries must be after 01-01-1900.</p>
-</li>
-<li>
-<p>OLD_MEDICAL_HISTORY_DATE specified must already exist for the patient for command to work.</p>
-</li>
-<li>
-<p>Note: Discharge Status  code only accepts <strong>d</strong>, <strong>a</strong>, <strong>e</strong> as inputs to represent discharged, admitted or expired.</p>
-</li>
-<li>
-<p>ALLERGY and PREVIOUS_COUNTRY inputs can be omitted if there are no changes since the last entry.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/edithist.png" alt="edithist" width="790">
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edithist 1 hsod/10-10-2010 hsd/10-10-2015 hsa/Chocolate hsc/Russia hsds/a</code>
-Edits a medical history entry for the 1st person in the list with existing date of 10-10-2010 to the correct date of
-10-10-2015 with a chocolate allergy and Russia as previous country visited.
-The patient has been admitted to a hospital.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-an-appointment-for-a-patient-code-addappt-code"><a class="link" href="#adding-an-appointment-for-a-patient-code-addappt-code">3.9. Adding an appointment for a patient: <code>addappt</code></a></h3>
-<div class="paragraph">
-<p>Adds an appointment into the specified patient&#8217;s schedule.<br>
-Format: <code>addappt INDEX s/START e/END v/VENUE i/INFO d/DOCTOR_NAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Adds an appointment for the patient at the specified INDEX.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
 </li>
 </ul>
 </div>
@@ -547,166 +348,15 @@ Format: <code>addappt INDEX s/START e/END v/VENUE i/INFO d/DOCTOR_NAME</code></p
 <div class="ulist">
 <ul>
 <li>
-<p><code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br>
-Adds an appointment for the 1st person in the list on 16-09-2018 from 15:00-15:30 at Consultation Room 12
-for a diabetes checkup by Dr Tan.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Entering the command above will add an appointment for the first patient in the displayed person list. If the first patient did not previously have any appointments, the GUI will look as follows:</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AddApptUGPic.png" alt="AddApptUGPic" width="600">
-</div>
-<div class="title">Figure 1. GUI after adding an appointment to a patient with no existing appointments</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>If the first patient previously had appointments, the new appointment will be added to his schedule and shown on the GUI together with his other appointments in order of start time (from earliest to latest). The GUI will look as follows:</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AddApptUGPic2.png" alt="AddApptUGPic2" width="600">
-</div>
-<div class="title">Figure 2. GUI after adding an appointment to a patient with existing appointments</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-an-appointment-for-a-patient-code-editappt-code"><a class="link" href="#editing-an-appointment-for-a-patient-code-editappt-code">3.10. Editing an appointment for a patient: <code>editappt</code></a></h3>
-<div class="paragraph">
-<p>Edits a specified appointment in the specified patient&#8217;s schedule.<br>
-Format: <code>editappt INDEX os/ORIGINAL_START [s/START] [e/END] [v/VENUE] [i/INFO] [d/DOCTOR_NAME]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits an appointment with the specified start time for the patient at the specified index.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed person list.</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>editappt 2 os/16-09-2018 15:00 s/16-09-2018 14:00 e/16-09-2018 14:30 v/Consultation Room 13</code><br>
-Edits the appointment that starts on 16-09-2018 at 15:00, to now run from 16-09-2018 14:00-14:30 instead
-and be at Consultation Room 13 for the 2nd person in the list.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<code>addappt</code> and <code>editappt</code> commands will display an error message if the user adds in an appointment with the end date and time before the start date and time, or if the patient has multiple appointments that have timing clashes.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<code>addappt</code> and <code>editappt</code> commands will only check if there are appointment timing clashes for a patient. There is currently no check for appointment timing clashes for a venue or for a doctor in charge i.e. if the same venue or same doctor is booked for multiple appointments at the same time. These features will be coming in the v2.0 release of Health Book.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-an-appointment-for-a-patient-code-deleteappt-code"><a class="link" href="#deleting-an-appointment-for-a-patient-code-deleteappt-code">3.11. Deleting an appointment for a patient: <code>deleteappt</code></a></h3>
-<div class="paragraph">
-<p>Deletes a specified appointment in the specified patient’s schedule.<br>
-Format: <code>deleteappt INDEX s/START</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes an appointment with the specified start time for the patient at the specified index.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed person list.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deleteappt 2 s/16-09-2018 15:00</code><br>
-Deletes the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in the list.</p>
+<p><code>list</code><br>
+<code>select 2</code><br>
+Selects the 2nd person in the health book.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-appointments-for-all-patients-code-clearappts-code"><a class="link" href="#clearing-appointments-for-all-patients-code-clearappts-code">3.12. Clearing appointments for all patients: <code>clearappts</code></a></h3>
-<div class="paragraph">
-<p>Deletes all appointments that end on or before the specified date for all patients in the health book.<br>
-Format: <code>clearappts d/DATE</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>clearappts d/16-09-2018</code><br>
-Clears all appointments that end on 16-09-2018 or earlier for all patients in the health book.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The <code>clearappts</code> command will delete appointments based on their end date, not their start date. Thus, the command <code>clearappts d/16-09-2018</code> will not delete an appointment that starts on 16-09-2018 and ends on 17-09-2018.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-additional-information-of-patient-code-addinfo-code"><a class="link" href="#adding-additional-information-of-patient-code-addinfo-code">3.13. Adding Additional Information of Patient: <code>addinfo</code></a></h3>
+<h3 id="adding-additional-information-of-patient-code-addinfo-code"><a class="link" href="#adding-additional-information-of-patient-code-addinfo-code">3.7. Adding Additional Information of Patient: <code>addinfo</code></a></h3>
 <div class="paragraph">
 <p>Add/Edit the following additional information: NRIC, Date Of Birth (in DD-MMY-YYY format), height (cm), weight (kg),
 gender, occupation, and marital status.<br></p>
@@ -845,6 +495,258 @@ For patient at index 1 populate the date of birth field with 31-12-2001, occupat
 </div>
 </div>
 <div class="sect2">
+<h3 id="adding-patient-s-medical-history-code-addhist-code"><a class="link" href="#adding-patient-s-medical-history-code-addhist-code">3.8. Adding patient&#8217;s medical history: <code>addhist</code></a></h3>
+<div class="paragraph">
+<p>Adds a medical history entry for a patient.<br>
+Format: <code>addhist INDEX hsd/MEDICAL_HISTORY_DATE hsa/ALLERGY hsc/PREVIOUS_COUNTRY_VISITED hsds/DISCHARGE_STATUS</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adds an entry in the medical history of the patient for the patient at the specified INDEX.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed person list.</p>
+</li>
+<li>
+<p>Date entries must be after 01-01-1900.</p>
+</li>
+<li>
+<p>Note: Discharge Status  code only accepts <strong>d</strong>, <strong>a</strong>, <strong>e</strong> as inputs to represent discharged, admitted or expired.</p>
+</li>
+<li>
+<p>ALLERGY and PREVIOUS_COUNTRY inputs can be omitted if there are no changes since the last entry.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/addhist.png" alt="addhist" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addhist 1 hsd/10-10-2010 hsa/Alcohol hsc/Kuwait hsds/d</code>
+Adds a medical history entry for the 1st person in the list on 10-10-2010 with an alcohol allergy and Kuwait as previous country visited.
+The patient is discharged and allowed to return home.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-patient-s-medical-history-code-edithist-code"><a class="link" href="#editing-patient-s-medical-history-code-edithist-code">3.9. Editing patient&#8217;s medical history: <code>edithist</code></a></h3>
+<div class="paragraph">
+<p>Edits an existing medical history entry of a patient.<br>
+Format: <code>edithist INDEX hsod/OLD_MEDICAL_HISTORY_DATE hsd/MEDICAL_HISTORY_DATE hsa/ALLERGY hsc/PREVIOUS_COUNTRY_VISITED hsds/DISCHARGE_STATUS</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits an existing entry in the medical history of the patient for the patient at the specified INDEX.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed person list.</p>
+</li>
+<li>
+<p>Date entries must be after 01-01-1900.</p>
+</li>
+<li>
+<p>OLD_MEDICAL_HISTORY_DATE specified must already exist for the patient for command to work.</p>
+</li>
+<li>
+<p>Note: Discharge Status  code only accepts <strong>d</strong>, <strong>a</strong>, <strong>e</strong> as inputs to represent discharged, admitted or expired.</p>
+</li>
+<li>
+<p>ALLERGY and PREVIOUS_COUNTRY inputs can be omitted if there are no changes since the last entry.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/edithist.png" alt="edithist" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edithist 1 hsod/10-10-2010 hsd/10-10-2015 hsa/Chocolate hsc/Russia hsds/a</code>
+Edits a medical history entry for the 1st person in the list with existing date of 10-10-2010 to the correct date of
+10-10-2015 with a chocolate allergy and Russia as previous country visited.
+The patient has been admitted to a hospital.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-appointment-for-a-patient-code-addappt-code"><a class="link" href="#adding-an-appointment-for-a-patient-code-addappt-code">3.10. Adding an appointment for a patient: <code>addappt</code></a></h3>
+<div class="paragraph">
+<p>Adds an appointment into the specified patient&#8217;s schedule.<br>
+Format: <code>addappt INDEX s/START e/END v/VENUE i/INFO d/DOCTOR_NAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adds an appointment for the patient at the specified INDEX.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed person list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addappt 1 s/16-09-2018 15:00 e/16-09-2018 15:30 v/Consultation Room 12 i/Diabetes Checkup d/Dr Tan</code><br>
+Adds an appointment for the 1st person in the list on 16-09-2018 from 15:00-15:30 at Consultation Room 12
+for a diabetes checkup by Dr Tan.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Entering the command above will add an appointment for the first patient in the displayed person list. If the first patient did not previously have any appointments, the GUI will look as follows:</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddApptUGPic.png" alt="AddApptUGPic" width="600">
+</div>
+<div class="title">Figure 1. GUI after adding an appointment to a patient with no existing appointments</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the first patient previously had appointments, the new appointment will be added to his schedule and shown on the GUI together with his other appointments in order of start time (from earliest to latest).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-an-appointment-for-a-patient-code-editappt-code"><a class="link" href="#editing-an-appointment-for-a-patient-code-editappt-code">3.11. Editing an appointment for a patient: <code>editappt</code></a></h3>
+<div class="paragraph">
+<p>Edits a specified appointment in the specified patient&#8217;s schedule.<br>
+Format: <code>editappt INDEX os/ORIGINAL_START [s/START] [e/END] [v/VENUE] [i/INFO] [d/DOCTOR_NAME]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits an appointment with the specified start time for the patient at the specified index.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed person list.</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editappt 2 os/16-09-2018 15:00 s/16-09-2018 14:00 e/16-09-2018 14:30 v/Consultation Room 13</code><br>
+Edits the appointment that starts on 16-09-2018 at 15:00, to now run from 16-09-2018 14:00-14:30 instead
+and be at Consultation Room 13 for the 2nd person in the list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-an-appointment-for-a-patient-code-deleteappt-code"><a class="link" href="#deleting-an-appointment-for-a-patient-code-deleteappt-code">3.12. Deleting an appointment for a patient: <code>deleteappt</code></a></h3>
+<div class="paragraph">
+<p>Deletes a specified appointment in the specified patient’s schedule.<br>
+Format: <code>deleteappt INDEX s/START</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes an appointment with the specified start time for the patient at the specified index.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed person list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteappt 2 s/16-09-2018 15:00</code><br>
+Deletes the appointment that starts on 16-09-2018 at 15:00 for the 2nd person in the list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-appointments-for-all-patients-code-clearappts-code"><a class="link" href="#clearing-appointments-for-all-patients-code-clearappts-code">3.13. Clearing appointments for all patients: <code>clearappts</code></a></h3>
+<div class="paragraph">
+<p>Deletes all appointments that end on or before the specified date for all patients in the health book.<br>
+Format: <code>clearappts d/DATE</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>clearappts d/16-09-2018</code><br>
+Clears all appointments that end on 16-09-2018 or earlier for all patients in the health book.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>clearappts</code> command will delete appointments based on their end date, not their start date. Thus, the command <code>clearappts d/16-09-2018</code> will not delete an appointment that starts on 16-09-2018 and ends on 17-09-2018.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="adding-of-medical-report-code-addreport-code"><a class="link" href="#adding-of-medical-report-code-addreport-code">3.14. Adding of Medical Report: <code>addreport</code></a></h3>
 <div class="paragraph">
 <p>Adds medical report to the patient.<br>
@@ -889,7 +791,7 @@ Adds a new medical report for patient at index 1 titled Asthma, dated 01-01-2018
 <div class="content">
 <img src="images/AddReport.png" alt="AddReport" width="790">
 </div>
-<div class="title">Figure 3. Adding a medical report for a patient.</div>
+<div class="title">Figure 2. Adding a medical report for a patient.</div>
 </div>
 </div>
 <div class="sect2">
@@ -943,11 +845,116 @@ Edits title, date and information of existing medical report titled Asthma and d
 <div class="content">
 <img src="images/EditReport.png" alt="EditReport" width="790">
 </div>
-<div class="title">Figure 4. Editing an existing medical report.</div>
+<div class="title">Figure 3. Editing an existing medical report.</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-patients-list-code-sort-code"><a class="link" href="#sorting-patients-list-code-sort-code">3.16. Sorting patients list: <code>sort</code></a></h3>
+<h3 id="finding-patients-by-specific-category-code-find-code"><a class="link" href="#finding-patients-by-specific-category-code-find-code">3.16. Finding patients by specific category: <code>find</code></a></h3>
+<div class="paragraph">
+<p>Finds patients by their personal (name, phone, email, address, tags and NRIC) or medical (medical Information, blood type, last country of visit and allergy) details.
+Format: <code>find PREFIX/ KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Patients can be found by any number of keywords (except 0)
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Don&#8217;t forget to include the space between <code>PREFIX/</code> and <code>KEYWORD</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g. <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>Only the specified detail is searched.</p>
+</li>
+<li>
+<p>Only one category per find is allowed.</p>
+</li>
+<li>
+<p>Only full words will be matched. e.g. <code>Han</code> will not match <code>Hans</code></p>
+</li>
+<li>
+<p>Only above-mentioned details can be utilised. e.g. Date of Birth is not applicable.</p>
+</li>
+<li>
+<p>Patients matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<div class="title">Available Prefixes</div>
+<ul>
+<li>
+<p>Personal detail prefixes: n/ (Name) p/ (Phone) e/ (Email) a/ (Address) t/ (tag) ic/ (NRIC)</p>
+</li>
+<li>
+<p>Medical detail prefixes: i/ (MedInfo) hsa/ (Allergy) hsb/ (BloodType) hsc/ (LastCountry)</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find n/ John</code><br>
+Returns <code>john</code> and <code>John Doe</code></p>
+</li>
+<li>
+<p><code>find n/ BeTsY Tim John</code><br>
+Returns any patient having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+</li>
+<li>
+<p><code>find ic/ S9876543T</code>
+Returns any patient whose NRIC is S9876543T.</p>
+</li>
+<li>
+<p><code>find t/ asthma</code>
+Returns any patient who is tagged with asthma.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-patients-list-code-sort-code"><a class="link" href="#sorting-patients-list-code-sort-code">3.17. Sorting patients list: <code>sort</code></a></h3>
 <div class="paragraph">
 <p>Sorts the list of patients according to a specific prefix category in ascending or descending order.<br>
 Format: <code>sort PREFIX/ ORDER_INDEX</code></p>
@@ -1024,42 +1031,6 @@ Sort the patient list by their names in reverse order (Z → A).</p>
 <li>
 <p><code>sort e/ 1</code><br>
 Sort the patient list by their emails in alphabetical order (A → Z).</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="selecting-a-patient-code-select-code"><a class="link" href="#selecting-a-patient-code-select-code">3.17. Selecting a patient: <code>select</code></a></h3>
-<div class="paragraph">
-<p>Selects the patient identified by the index number used in the displayed person list and displays the selected patient&#8217;s information.<br>
-Format: <code>select INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Selects the patient and displays the information for the patient at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed person list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>select 2</code><br>
-Selects the 2nd person in the health book.</p>
 </li>
 </ul>
 </div>
@@ -1144,7 +1115,13 @@ medical history entries to exist after the medical history entry which contains 
 <div class="content">
 <img src="images/medhistoryV2.png" alt="medhistoryV2" width="500">
 </div>
-<div class="title">Figure 5. Current Implementation which allows medical history entries after patient&#8217;s expiry</div>
+<div class="title">Figure 4. Current Implementation which allows medical history entries after patient&#8217;s expiry</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="further-checks-for-appointment-timing-clashes"><a class="link" href="#further-checks-for-appointment-timing-clashes">4.3. Further checks for appointment timing clashes</a></h3>
+<div class="paragraph">
+<p><code>addappt</code> and <code>editappt</code> commands currently will only check if there are appointment timing clashes for a patient. There is currently no check for appointment timing clashes for a venue or for a doctor in charge i.e. if the same venue or same doctor is booked for multiple appointments at the same time. These features will be coming in the v2.0 release of Health Book.</p>
 </div>
 </div>
 </div>
@@ -1220,4 +1197,4 @@ e.g. select 1</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 09:51:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:06:27 UTC</div></div></div></body></html>

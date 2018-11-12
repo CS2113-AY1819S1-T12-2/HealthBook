@@ -127,6 +127,7 @@
 <li><a href="#editing-an-existing-medical-report-of-a-person">H.12. Editing an existing medical report of a person</a></li>
 <li><a href="#filtering-patients-list-by-find">H.13. Filtering Patients list by find</a></li>
 <li><a href="#sorting-patients-list-by-sort">H.14. Sorting Patients list by sort</a></li>
+<li><a href="#encrypting">H.15. Encrypting</a></li>
 </ul>
 </li>
 </ul>
@@ -899,10 +900,10 @@ If any of the arguments contain invalid data, the program will not process any d
 <p>Step 2. The <code>AddressBookParser</code> makes a call to <code>AddInfoCommandParser</code> together with the <code>String</code> input.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The <code>AddInfoCommandParser</code> then looks out for the pre-determined set of arguments in the <code>String</code> input. If any of the arguments are found, a call will be made to the <code>ParserUtil</code> class which extracts the data meant for the particular argument.</p>
+<p>Step 3. The <code>AddInfoCommandParser</code> then looks out for the pre-determined set of arguments in the <code>String</code> input. If any of the arguments are found, data after the argument will be extracted.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The <code>ParserUtil</code> class then checks for the validity of the data being parsed. If the data is valid, the class for that data will be initialized and added into an <code>AddInfoPersonDescriptor</code> object. If the data is not valid, a <code>ParseException</code> will be thrown, which will be handled by the <code>UIManager</code> requesting user the correct the data.</p>
+<p>Step 4. The <code>ParserUtil</code> class then checks for the validity of the data being extracted and parsed. If the data is valid, the class for that data will be initialized and added into an <code>AddInfoPersonDescriptor</code> object. If the data is not valid, a <code>ParseException</code> will be thrown, which will be handled by the <code>UIManager</code> requesting user the correct the data.</p>
 </div>
 <div class="paragraph">
 <p>Step 5. A <code>Person</code> object will be retrieved from the <code>lastShownList</code> at the appropriate index. The retrieved <code>Person</code> object will then retrieve the updated information from the <code>AddInfoPersonDescriptor</code> object created previously.</p>
@@ -917,7 +918,7 @@ If any of the arguments contain invalid data, the program will not process any d
 <div class="content">
 <img src="images/AddInfoCommandSD.png" alt="AddInfoCommandSD" width="600">
 </div>
-<div class="title">Figure 10. Sequence Diagram for <code>addinfo</code> command. A full resolution of the diagram is available <a href="https://cs2113-ay1819s1-t12-2.github.io/main/images/AddInfoCommandSD.png">here</a>.</div>
+<div class="title">Figure 10. Sequence Diagram for addinfo command. A full resolution of the diagram is available <a href="https://cs2113-ay1819s1-t12-2.github.io/main/images/AddInfoCommandSD.png">here</a>.</div>
 </div>
 </div>
 </div>
@@ -1455,13 +1456,13 @@ While the file <code>preferences.json</code> file is not used during the actual 
 <p>However, if encryption is not enabled, or should there be an error reading the <code>key</code> file, or that the <code>key</code> file does not exist, <code>MainApp#initSecretKey</code> will then proceed to generate a new <code>SecretKey</code> object using <code>SecretKetUtil#getSecretKey</code>.</p>
 </div>
 <div class="paragraph">
-<p>Next, <code>MainApp#initModelManager</code> will be executed. This method will also check if encryption has been enabled using <code>preferences.json</code> file. If encryption is enabled, it will attempt to look for <code>healthbook_encrypted.xml</code> file. If <code>healthbook_encrypted.xml</code> file exist, the same method will first load the <code>.xml</code> file using <code>XmlUtil#loadEncryptedXmlFile</code>, before attempting to decrypt the encrypted <code>.xml</code> file using the <code>key</code> file with the method <code>XmlUtil#decryptDocument</code>. A temporary <code>healthbook.xml</code> will be generated to be consumed by the program.</p>
+<p>Next, <code>MainApp#initModelManager</code> will be executed. This method will also check if encryption has been enabled using <code>preferences.json</code> file. If encryption is enabled, it will attempt to look for <code>healthbook_encrypted.xml</code> file. If <code>healthbook_encrypted.xml</code> file exist, the same method will first load the <code>.xml</code> file using <code>XmlUtil#loadEncryptedXmlFile</code>, before attempting to decrypt the encrypted <code>.xml</code> file using the <code>SecretKey</code> object with the method <code>XmlUtil#decryptDocument</code>. A temporary <code>healthbook.xml</code> will be generated to be consumed by the program.</p>
 </div>
 <div class="paragraph">
 <p>However, if <code>healthbook_encrypted.xml</code> does not exist, <code>MainApp#initModeManager</code> assumes that user runs the program for the first time, and proceed to load in sample data. If the <code>healthbook_encrypted.xml</code> does exist, but could not be decrypted successfully, Health Book will be launched without any patient data. An error pertaining to the failure to decrypt the <code>.xml</code> file will also be logged.</p>
 </div>
 <div class="paragraph">
-<p>Upon exiting the program, <code>MainApp#stop</code> checks if the encryption has been enabled. If the encryption has been enabled, it will call <code>XmlUtil#loadDecryptedXmlFile</code> which loads the temporary <code>healthbook.xml</code> file before encrypting the temporary <code>healthbook.xml</code> file with <code>XmlUtil#encryptDocument</code> method. It will then proceed to destroy the temporary <code>healthbook.xml</code> file and generate a <code>key</code> file based on the <code>SecretKey</code> that was generated when the application launched.</p>
+<p>Upon exiting the program, <code>MainApp#stop</code> checks if the encryption has been enabled. If the encryption has been enabled, it will call <code>XmlUtil#loadDecryptedXmlFile</code> which loads the temporary <code>healthbook.xml</code> file before encrypting the temporary <code>healthbook.xml</code> file with <code>XmlUtil#encryptDocument</code> method. It will then proceed to destroy the temporary <code>healthbook.xml</code> file and generate a <code>key</code> file based on the <code>SecretKey</code> object and the encrypted <code>healthbook_encrypted.xml</code> file.</p>
 </div>
 <div class="paragraph">
 <p>When users execute the <code>encrypt</code> command, the <code>AddressBookParser</code> returns <code>EncryptCommand</code> object to the <code>LogicManager</code>, which in turn executes the <code>EncryptCommand#execute</code> method. This method in turn gets the <code>UserPref</code> via <code>Model#getUserPref</code> and executes the <code>toggleEncryption</code> method, which in turn sets the <code>encryption</code> attribute in <code>UserPref</code> to either <code>true</code> or <code>false</code>, thereby enabling or disabling encryption.</p>
@@ -5027,5 +5028,55 @@ Expected: Patients with empty NRIC field will be at the bottom of the list while
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="encrypting"><a class="link" href="#encrypting">H.15. Encrypting</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sorting patients through specific categories in specific order while all/some patients are listed.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:09:28 UTC</div></div></div></body></html>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Place the <code>.jar</code> file in a newly created directory before executing the following test case.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>encrypt</code>, followed by making some changes to address book, followed by <code>exit</code><br>
+Expected: <code>healthbook_encrypted.xml</code> and <code>key</code> should be generated in <code>/data</code> folder. Open up <code>healthbook_encrypted.xml</code> file to check that the file indeed contains cipher text.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only execute the following test case after the previous test case
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>encrypt</code>, followed by making some changes to address book, followed by <code>exit</code><br>
+Expected: <code>healthbook_encrypted.xml</code> and <code>key</code> should have been removed. <code>healthbook.xml</code> should be generated. Open up the <code>healthbook.xml</code> to check that the file contains patient data in plain text.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:23:10 UTC</div></div></div></body></html>

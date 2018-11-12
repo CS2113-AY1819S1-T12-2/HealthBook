@@ -123,6 +123,8 @@
 <li><a href="#editing-medical-history-of-patient">H.10. Editing medical history of patient</a></li>
 <li><a href="#adding-medical-report-to-a-person">H.11. Adding medical report to a person</a></li>
 <li><a href="#editing-an-existing-medical-report-of-a-person">H.12. Editing an existing medical report of a person</a></li>
+<li><a href="#filtering-patients-list-by-find">H.13. Filtering Patients list by find</a></li>
+<li><a href="#sorting-patients-list-by-sort">H.14. Sorting Patients list by sort</a></li>
 </ul>
 </li>
 </ul>
@@ -1258,7 +1260,7 @@ The <code>edithist</code> command obtains the data of the person that the user i
 <div class="sect3">
 <h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.8.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The find mechanism is facilitated by <code>ModelManager</code>. It extends <code>AddressBook</code> and filters the <code>internalList</code> of patients. Additionally,
+<p>The find mechanism is facilitated by <code>ModelManager</code>. It extends <code>AddressBook</code> and filters the <code>internalList</code> of patients in <code>UniquePersonList</code>. Additionally,
 it implements <code>ModelManager#updateFilteredPersonList()</code> and <code>ModelManager#getFilteredPersonList()</code> operations with the the 2 input parameters (prefix and keyword) before finding the patients
 accordingly.</p>
 </div>
@@ -1299,7 +1301,7 @@ If the command format is invalid, an error message will be shown to prompt the u
 </table>
 </div>
 <div class="paragraph">
-<p>Step 3. The <code>find</code> command parser will translate the input <code>hsa/</code> into allergy and find patients with "alcohol" and "nut" predicates in their allergy.</p>
+<p>Step 3. The <code>find</code> command parser will translate the input <code>hsa/</code> into method <code>AllergyContainsKeywordsPredicate</code> which find patients with "alcohol" and "nut" predicates in their allergy.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1335,8 +1337,8 @@ There must be more than one keyword and the prefix is case sensitive.
 <div class="sect3">
 <h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.9.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The sort mechanism is facilitated by <code>ModelManager</code>. It extends <code>AddressBook</code> and sorts the <code>internalList</code> of patients. Additionally,
-it implements <code>ModelManager#updateSortedPersonList</code> operation with the the 2 input parameters (prefix and order) before sorting the patients
+<p>The sort mechanism is facilitated by <code>ModelManager</code>. It extends <code>AddressBook</code> and sorts the <code>internalList</code> of patients in <code>UniquePersonList</code>. Additionally,
+it implements <code>ModelManager#updateSortedPersonList</code> operation with the 2 input parameters (prefix and order) before sorting the patients
 accordingly.</p>
 </div>
 <div class="paragraph">
@@ -1382,7 +1384,7 @@ If the command format is invalid, an error message will be shown to prompt the u
 <p>Step 4. The patients list will then be sorted by <code>sortPersons()</code> in <code>UniquePersonList</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 5. The final patient list result generated will be sorted accordingly to the doctor&#8217;s input.</p>
+<p>Step 5. The final patient list result generated will be sorted accordingly to the doctor&#8217;s input: Patient list sorted by their names in the reverse order.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram summarizes the activity when a user (doctor) executes a new <code>sort</code> command:</p>
@@ -3916,7 +3918,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to find a patient in the list by a category. (eg. name, phone, blood type, medical information)</p>
+<p>User requests to filter patients in the list by a category. (eg. name, phone, blood type, medical information)</p>
 </li>
 <li>
 <p>System shows user a list of patients who are in requested category.</p>
@@ -3932,7 +3934,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. User uses the wrong format to find patient.</p>
+<p>1a. User uses the wrong format to find patient (i.e. Keying in the wrong parameters after "find")".</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -4884,5 +4886,81 @@ Expected: No medical report is edited. Message of unable to edit existing report
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="filtering-patients-list-by-find"><a class="link" href="#filtering-patients-list-by-find">H.13. Filtering Patients list by find</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Finding patients through specific categories while all patients are listed.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>find n/</code><br>
+Expected: The patient list remains the same, message of invalid format will be shown.</p>
+</li>
+<li>
+<p>Test case: <code>find n/ alex</code><br>
+Expected: Patient list will display Alex Yeoh&#8217;s profile with success message.</p>
+</li>
+<li>
+<p>Test case: `find z/ `<br>
+Expected: The patient list remains the same, message of invalid format will be shown.</p>
+</li>
+<li>
+<p>Test case: <code>find z/ peanut</code><br>
+Expected: The patient list remains the same, message of invalid prefix will be shown.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:44:11 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-patients-list-by-sort"><a class="link" href="#sorting-patients-list-by-sort">H.14. Sorting Patients list by sort</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sorting patients through specific categories in specific order while all/some patients are listed.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>sort n/</code><br>
+Expected: The patient list remains the same, message of invalid format will be shown.</p>
+</li>
+<li>
+<p>Test case: <code>sort n/ 1</code><br>
+Expected: Patient list will display sorted patients by name in alphabetical order with success message.</p>
+</li>
+<li>
+<p>Test case: `sort z/ `<br>
+Expected: The patient list remains the same, message of invalid format will be shown.</p>
+</li>
+<li>
+<p>Test case: <code>sort z/ 1</code><br>
+Expected: The patient list remains the same, message of invalid prefix will be shown.</p>
+</li>
+<li>
+<p>Test case: <code>sort n/ 3</code><br>
+Expected: The patient list remains the same, message of invalid order will be shown.</p>
+</li>
+<li>
+<p>Test case: <code>sort z/ 3</code><br>
+Expected: The patient list remains the same, message of invalid prefix will be shown.</p>
+</li>
+<li>
+<p>Test case: <code>sort ic/ 1</code><br>
+Expected: Patients with empty NRIC field will be at the top of the list while rest will be sorted by alphabetical order.</p>
+</li>
+<li>
+<p>Test case: <code>sort ic/ 2</code><br>
+Expected: Patients with empty NRIC field will be at the bottom of the list while rest will be sorted by reverse order.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:12:34 UTC</div></div></div></body></html>

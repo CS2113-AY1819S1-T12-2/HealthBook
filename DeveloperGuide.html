@@ -4897,16 +4897,20 @@ Expected: Similar to previous.</p>
 Expected: No medical report is added. Message of invalid person index will be shown.</p>
 </li>
 <li>
-<p>Test case: <code>addreport 1 t/ d/01-01-2018 i/prescribed XXX medicine, next appointment on 02-02-2018.</code>
+<p>Test case: <code>addreport 1 t/ d/01-01-2018 i/prescribed XXX medicine, next appointment on 02-02-2018.</code><br>
 Expected: No medical report is added. Message of invalid title will be shown.</p>
 </li>
 <li>
-<p>Test case: <code>addreport 1 t/Asthma d/01012018 i/prescribed XXX medicine, next appointment on 02-02-2018.</code>
+<p>Test case: <code>addreport 1 t/Asthma d/01012018 i/prescribed XXX medicine, next appointment on 02-02-2018.</code><br>
 Expected: No medical report is added. Message of invalid date will be shown.</p>
 </li>
 <li>
-<p>Test case: `addreport 1 t/Asthma d/01-01-2018 i/ `
+<p>Test case: <code>addreport 1 t/Asthma d/01-01-2018 i/ .</code><br>
 Expected: No medical report is added. Message of invalid information will be shown.</p>
+</li>
+<li>
+<p>Test case: <code>addreport 1 t/Asthma d/01-01-2018 i/Prescribed XXX medicine, next appointment on 02-02-2018.</code> after adding the medical report in 1a.<br>
+Expected: No medical report is added. Message of unable to add report of same title and date is shown.</p>
 </li>
 </ol>
 </div>
@@ -4923,10 +4927,14 @@ Expected: No medical report is added. Message of invalid information will be sho
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: At least one person in the list must have a medical report added. Two medical reports titled Asthma, dated 01-01-2018 and titled Depression, dated 02-02-2018 with report information have been added to person at index 1.</p>
+<p>Prerequisites: At least one person in the list must have a medical report added. Two medical reports titled Asthma, dated 01-01-2018 with some report information and titled Depression, dated 02-02-2018 with some report information have been added to person at index 1.</p>
 </li>
 <li>
 <p>Test case: <code>editreport 1 ot/Asthma od/01-01-2018 t/Depression d/02-02-2018 i/Prescribed AAA medicine, next appointment is on 03-03-2018.</code><br>
+Expected: No medical report is edited. Message of unable to edit medical report as there already exists a medical report with the same title and date will be shown.</p>
+</li>
+<li>
+<p>Test case: <code>editreport 1 ot/Asthma od/01-01-2018 t/Cough d/03-03-2018 i/Prescribed AAA medicine, next appointment is on 04-04-2018.</code><br>
 Expected: Existing medical report titled Asthma and dated 01-01-2018 is edited for person at index 1. Message of medical report being successfully edited is shown.</p>
 </li>
 <li>
@@ -4950,16 +4958,8 @@ Expected: No medical report is edited. Message of invalid title will be shown.</
 Expected: No medical report is edited. Message of invalid date will be shown.</p>
 </li>
 <li>
-<p>Test case: `editreport 1 ot/Asthma od/01-01-2018 t/Depression d/02-02-2018 i/ `<br>
-Expected: No medical report is edited. Message of invalid information will be shown.</p>
-</li>
-<li>
 <p>Test case: <code>editreport 1 ot/Flu od/03-03-2018 t/Cough d/03-03-2018 i/Prescribed AAA medicine, next appointment is on 04-04-2018.</code><br>
 Expected: No medical report is edited. Message of medical report not found will be shown.</p>
-</li>
-<li>
-<p>Test case: <code>editreport 1 ot/Asthma od/01-01-2018 t/Depression d/02-02-2018 i/Prescribed AAA medicine, next appointment is on 03-03-2018.</code><br>
-Expected: No medical report is edited. Message of unable to edit existing report with the same title and date will be shown.</p>
 </li>
 </ol>
 </div>
@@ -5094,4 +5094,4 @@ Expected: <code>healthbook_encrypted.xml</code> and <code>key</code> should have
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:09:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:10:18 UTC</div></div></div></body></html>

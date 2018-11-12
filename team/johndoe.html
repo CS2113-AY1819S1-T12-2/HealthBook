@@ -157,7 +157,7 @@
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-If you have toggled on the encryption, it is important that you keep the <code>key.file</code> secure. Losing the <code>key.file</code> will cause the permanent loss of the saved data. Also, unauthorized personnel with access to the <code>key.file</code> will have access to the saved data.
+If you have toggled on encryption, it is important that you keep the <code>key</code> file secure. Losing the <code>key</code> file will cause the permanent loss of the saved data. Also, unauthorized personnel with access to the <code>key</code> file will have access to the saved data.
 </td>
 </tr>
 </table>
@@ -401,10 +401,25 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The encryption library used is <a href="http://santuario.apache.org/">Apache Santuario</a>. Using AES 128-bit symmetric encryption, the encryption mechanism is facilitated by <code>XmlUtil</code>, <code>SecurityKey</code> and the file <code>preferences.json</code>.</p>
+<p>The encryption library used is <a href="http://santuario.apache.org/">Apache Santuario</a>. It extends the existing <code>XmlUtil</code> with methods that encrypt and decrypt <code>.xml</code> files.</p>
 </div>
 <div class="paragraph">
-<p>Upon running the program, <code>MainApp#initSecretKey</code> checks if encryption has been enabled using value of key <code>encryption</code> in <code>preferences.json</code> file. If it is <code>true</code>, encryption is enabled and the method then checks if <code>key</code> file exist. The method will attempt to read the <code>key</code> file using <code>SecretKeyUtil#ReadSecretKey</code> and save the key into a <code>SecretKey</code> object should there be an existing `key`file.</p>
+<p>Using AES 128-bit symmetric encryption, the encryption mechanism is facilitated by <code>XmlUtil</code>, <code>SecurityKey</code> and the file <code>preferences.json</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+While the file <code>preferences.json</code> file is not used during the actual encryption process, the file is used to initialize the attributes of <code>UserPrefs</code> object which determines the encryption process.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Upon running the program, <code>MainApp#initSecretKey</code> checks if encryption has been enabled using value of the attribute <code>encryption</code> in <code>UserPrefs</code> object. If it is <code>true</code>, encryption is enabled and the method then checks if <code>key</code> file exist. The method will attempt to read the <code>key</code> file using <code>SecretKeyUtil#ReadSecretKey</code> and save the key into a <code>SecretKey</code> object should there be an existing <code>key</code> file.</p>
 </div>
 <div class="paragraph">
 <p>However, if encryption is not enabled, or should there be an error reading the <code>key</code> file, or that the <code>key</code> file does not exist, <code>MainApp#initSecretKey</code> will then proceed to generate a new <code>SecretKey</code> object using <code>SecretKetUtil#getSecretKey</code>.</p>
@@ -417,6 +432,18 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 <div class="paragraph">
 <p>Upon exiting the program, <code>MainApp#stop</code> checks if the encryption has been enabled. If the encryption has been enabled, it will call <code>XmlUtil#loadDecryptedXmlFile</code> which loads the temporary <code>healthbook.xml</code> file before encrypting the temporary <code>healthbook.xml</code> file with <code>XmlUtil#encryptDocument</code> method. It will then proceed to destroy the temporary <code>healthbook.xml</code> file and generate a <code>key</code> file based on the <code>SecretKey</code> that was generated when the application launched.</p>
+</div>
+<div class="paragraph">
+<p>When users execute the <code>encrypt</code> command, the <code>AddressBookParser</code> returns <code>EncryptCommand</code> object to the <code>LogicManager</code>, which in turn executes the <code>EncryptCommand#execute</code> method. This method in turn gets the <code>UserPref</code> via <code>Model#getUserPref</code> and executes the <code>toggleEncryption</code> method, which in turn sets the <code>encryption</code> attribute in <code>UserPref</code> to either <code>true</code> or <code>false</code>, thereby enabling or disabling encryption.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the encryption works when the application is launched:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EncryptCommandSD.png" alt="EncryptCommandSD" width="800">
+</div>
+<div class="title">Figure 1. Sequence diagram for Encryption</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario on how <code>encrypt</code> works at each step:</p>
@@ -451,4 +478,4 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 19:24:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:09:52 UTC</div></div></div></body></html>

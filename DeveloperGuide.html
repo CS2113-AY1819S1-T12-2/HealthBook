@@ -870,13 +870,10 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>Upon handling all the arguments, an <code>addInfoPersonDescriptor</code> object will be created. This is essentially a facade object that contains all the attributes of the <code>Person</code> to be edited, with its updated attributes. There will then be a mapping of the <code>addInfoPersonDescriptor</code> to a new <code>Person</code> object facilitated by the method <code>AddInfoCommand#createEditedPerson</code>.</p>
 </div>
 <div class="paragraph">
-<p>Finally, the <code>Model#updatePerson</code> copies attribute of the new <code>Person</code> object created above to the <code>Person</code> to be edited.</p>
+<p>Finally, the <code>Model#updatePerson</code> "copies" attribute of the new <code>Person</code> object created above to the <code>Person</code> to be edited by calling the <code>VersionedAddressBook#updatePerson</code> which sets the new <code>Person</code> object to the <code>Person</code> to be edited using <code>UniquePersonList#SetPerson</code>.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the <code>addinfo</code> command works at each step.</p>
-</div>
-<div class="paragraph">
-<p>TODO: Add in class diagrams for each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. User executes <code>addinfo 5 ic/S1234567Z g/M d/01-01-1970</code> to modify the <code>Nric</code>, <code>Gender</code>, and <code>DateOfBirth</code> attributes of the 5th person in the <code>PersonCardList</code> view.</p>
@@ -909,8 +906,13 @@ If any of the arguments contain invalid data, the program will not process any d
 <p>Step 6. The <code>Person</code> will now have an updated additional information.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when an user executes a new command:
-&lt;diagram here&gt;</p>
+<p>The following sequence diagram summarizes what happens when an user executes a new command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddInfoCommandSD.png" alt="AddInfoCommandSD" width="1000">
+</div>
+<div class="title">Figure 10. Sequence Diagram for <code>addinfo</code> command.</div>
 </div>
 </div>
 </div>
@@ -973,7 +975,7 @@ Execution ends when <code>CommandResult(generateSuccessMessage(editedPerson))</c
 <div class="content">
 <img src="images/AddHistSequenceDiagram.png" alt="AddHistSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 10. Sequence Diagram for <code>addhist</code> command</div>
+<div class="title">Figure 11. Sequence Diagram for <code>addhist</code> command</div>
 </div>
 </div>
 </div>
@@ -1042,7 +1044,7 @@ The <code>edithist</code> command obtains the data of the person that the user i
 <div class="content">
 <img src="images/EditHistSequenceDiagram.png" alt="EditHistSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 11. Sequence Diagram for <code>edithist</code> command</div>
+<div class="title">Figure 12. Sequence Diagram for <code>edithist</code> command</div>
 </div>
 </div>
 </div>
@@ -1097,7 +1099,7 @@ The <code>edithist</code> command obtains the data of the person that the user i
 <div class="content">
 <img src="images/AddApptSequenceDiagram.png" alt="AddApptSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 12. Sequence diagram for addappt operation</div>
+<div class="title">Figure 13. Sequence diagram for addappt operation</div>
 </div>
 </div>
 <div class="sect3">
@@ -1188,7 +1190,7 @@ The <code>edithist</code> command obtains the data of the person that the user i
 <div class="content">
 <img src="images/AddMedicalReportSequenceDiagram.png" alt="AddMedicalReportSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 13. Sequence Diagram of AddMedicalReport feature</div>
+<div class="title">Figure 14. Sequence Diagram of AddMedicalReport feature</div>
 </div>
 </div>
 </div>
@@ -1314,7 +1316,7 @@ There must be more than one keyword and the prefix is case sensitive.
 <div class="content">
 <img src="images/FindActivityDiagram.png" alt="FindActivityDiagram" width="800">
 </div>
-<div class="title">Figure 14. Sequence diagram for Find operation</div>
+<div class="title">Figure 15. Sequence diagram for Find operation</div>
 </div>
 </div>
 </div>
@@ -1379,7 +1381,7 @@ If the command format is invalid, an error message will be shown to prompt the u
 <div class="content">
 <img src="images/SortActivityDiagram.png" alt="SortActivityDiagram" width="800">
 </div>
-<div class="title">Figure 15. Sequence diagram for Sort operation</div>
+<div class="title">Figure 16. Sequence diagram for Sort operation</div>
 </div>
 </div>
 </div>
@@ -1388,10 +1390,25 @@ If the command format is invalid, an error message will be shown to prompt the u
 <div class="sect3">
 <h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">4.10.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The encryption library used is <a href="http://santuario.apache.org/">Apache Santuario</a>. Using AES 128-bit symmetric encryption, the encryption mechanism is facilitated by <code>XmlUtil</code>, <code>SecurityKey</code> and the file <code>preferences.json</code>.</p>
+<p>The encryption library used is <a href="http://santuario.apache.org/">Apache Santuario</a>. It extends the existing <code>XmlUtil</code> with methods that encrypt and decrypt <code>.xml</code> files.</p>
 </div>
 <div class="paragraph">
-<p>Upon running the program, <code>MainApp#initSecretKey</code> checks if encryption has been enabled using value of key <code>encryption</code> in <code>preferences.json</code> file. If it is <code>true</code>, encryption is enabled and the method then checks if <code>key</code> file exist. The method will attempt to read the <code>key</code> file using <code>SecretKeyUtil#ReadSecretKey</code> and save the key into a <code>SecretKey</code> object should there be an existing `key`file.</p>
+<p>Using AES 128-bit symmetric encryption, the encryption mechanism is facilitated by <code>XmlUtil</code>, <code>SecurityKey</code> and the file <code>preferences.json</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+While the file <code>preferences.json</code> file is not used during the actual encryption process, the file is used to initialize the attributes of <code>UserPrefs</code> object which determines the encryption process.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Upon running the program, <code>MainApp#initSecretKey</code> checks if encryption has been enabled using value of the attribute <code>encryption</code> in <code>UserPrefs</code> object. If it is <code>true</code>, encryption is enabled and the method then checks if <code>key</code> file exist. The method will attempt to read the <code>key</code> file using <code>SecretKeyUtil#ReadSecretKey</code> and save the key into a <code>SecretKey</code> object should there be an existing <code>key</code> file.</p>
 </div>
 <div class="paragraph">
 <p>However, if encryption is not enabled, or should there be an error reading the <code>key</code> file, or that the <code>key</code> file does not exist, <code>MainApp#initSecretKey</code> will then proceed to generate a new <code>SecretKey</code> object using <code>SecretKetUtil#getSecretKey</code>.</p>
@@ -1404,6 +1421,18 @@ If the command format is invalid, an error message will be shown to prompt the u
 </div>
 <div class="paragraph">
 <p>Upon exiting the program, <code>MainApp#stop</code> checks if the encryption has been enabled. If the encryption has been enabled, it will call <code>XmlUtil#loadDecryptedXmlFile</code> which loads the temporary <code>healthbook.xml</code> file before encrypting the temporary <code>healthbook.xml</code> file with <code>XmlUtil#encryptDocument</code> method. It will then proceed to destroy the temporary <code>healthbook.xml</code> file and generate a <code>key</code> file based on the <code>SecretKey</code> that was generated when the application launched.</p>
+</div>
+<div class="paragraph">
+<p>When users execute the <code>encrypt</code> command, the <code>AddressBookParser</code> returns <code>EncryptCommand</code> object to the <code>LogicManager</code>, which in turn executes the <code>EncryptCommand#execute</code> method. This method in turn gets the <code>UserPref</code> via <code>Model#getUserPref</code> and executes the <code>toggleEncryption</code> method, which in turn sets the <code>encryption</code> attribute in <code>UserPref</code> to either <code>true</code> or <code>false</code>, thereby enabling or disabling encryption.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the encryption works when the application is launched:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EncryptCommandSD.png" alt="EncryptCommandSD" width="800">
+</div>
+<div class="title">Figure 17. Sequence diagram for Encryption</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario on how <code>encrypt</code> works at each step:</p>
@@ -1533,7 +1562,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 16. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 18. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -4805,4 +4834,4 @@ edited with new date 05-05-2015, new allergy of grass and new previous country v
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 19:24:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:09:52 UTC</div></div></div></body></html>

@@ -39,34 +39,71 @@ The application is fully written in Java, allowing cross-platform compatibility.
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: Added <strong>the ability to add/edit additional information</strong></p>
+<p><strong>Major enhancement</strong>: Added <strong>the ability to add/edit additional information</strong>.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>What it does: Allows users to selectively add or edit additional information of patients that are not required for the creation of a patient profile in Health Book.</p>
 </li>
 <li>
-<p>Justification: Based on the team&#8217;s interview with health care professionals, the team understood that some of the information that health care professionals are interested in about their patients include blood type, occupation, height and weight which might not be available upon the creation of the patient&#8217;s profile. Giving the user the ability to add or edit such information after the creation of patient profile provides user with more flexibility on managing such information.</p>
+<p>Justification: Based on the team&#8217;s interview with health care professionals, the team understood that some of the information that health care professionals are interested about their patients include bio-data like NRIC, gender, blood type, occupation, height and weight which might not be available upon the creation of the patient&#8217;s profile. Giving the user the ability to add or edit such information after the creation of patient profile provides user with more flexibility on managing such information.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: To ensure that users input the correct type of data for the correct type of information, a dual-layer check system is implemented for most fields - the first layer is done by using Java Regular Expressions, while the second layer is done using checksum algorithms and exception handling. The different types of information to be added means that an iterative approach has to be taken. However, this would also mean that care needs to be taken to ensure that there are no regression.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: Presented the additional information in a table view format in the main window.</p>
+<p><strong>Minor enhancement</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Presented the additional information in a table view format in the main window.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Justification: Health care professionals interact with such information frequently. A table view format is best able to present these information in a systematic manner.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>Toggleable encryption with AES 128-bit symmetric encryption</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Justification: As the application is targeted at the health care industry where privacy is of major concern, encryption is the solution to ensure that the application remains socially responsible. However, to handle the project constraint of "human-editable-file", the encryption functionality is a toggled feature so that user can choose to disable encryption should they require the human-editable saved data.</p>
+</li>
+<li>
+<p>Credits: <a href="http://santuario.apache.org/">Apache Santuario</a>'s encryption library is used for this feature.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: <a href="https://nuscs2113-ay1819s1.github.io/dashboard/#=undefined&amp;search=xhxh96">CodeDashboard</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
+<li>
+<p>Role of Domain Expert:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In-charged of gathering user requirements</p>
+</li>
+<li>
+<p>In-charged of managing version control system workflow</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p>Project management:</p>
 <div class="ulist">
@@ -77,6 +114,9 @@ The application is fully written in Java, allowing cross-platform compatibility.
 <li>
 <p>Managed the use of Continuous Integration tools.</p>
 </li>
+<li>
+<p>Designed the workflow for using of GitHub</p>
+</li>
 </ul>
 </div>
 </li>
@@ -85,17 +125,7 @@ The application is fully written in Java, allowing cross-platform compatibility.
 <div class="ulist">
 <ul>
 <li>
-<p>Managed the presentation of basic information (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Documentation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Increased code coverage from 78% to 82% (Pull requests <a href="https://github.com/CS2113-AY1819S1-T12-2/main/pull/213">#213</a>)</p>
 </li>
 </ul>
 </div>
@@ -106,6 +136,19 @@ The application is fully written in Java, allowing cross-platform compatibility.
 <ul>
 <li>
 <p>Integrated AppVeyor and Coverall.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs review with non-trivial comments:</p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in class(Issue <a href="https://github.com/CS2113-AY1819S1-T16-2/main/issues/103">#103</a>, <a href="https://github.com/CS2113-AY1819S1-T16-2/main/issues/93">#93</a>, <a href="https://github.com/CS2113-AY1819S1-T16-2/main/issues/98">#98</a>)</p>
 </li>
 </ul>
 </div>
@@ -286,7 +329,7 @@ with 01-01-1990, height field with 154, gender field with Male.</p>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-If you have toggled on the encryption, it is important that you keep the <code>key.file</code> secure. Losing the <code>key.file</code> will cause the permanent loss of the saved data. Also, unauthorized personnel with access to the <code>key.file</code> will have access to the saved data.
+If you have toggled on encryption, it is important that you keep the <code>key</code> file secure. Losing the <code>key</code> file will cause the permanent loss of the saved data. Also, unauthorized personnel with access to the <code>key</code> file will have access to the saved data.
 </td>
 </tr>
 </table>
@@ -340,13 +383,10 @@ Depending on the current setting of encryption, this will toggle on or off the e
 <p>Upon handling all the arguments, an <code>addInfoPersonDescriptor</code> object will be created. This is essentially a facade object that contains all the attributes of the <code>Person</code> to be edited, with its updated attributes. There will then be a mapping of the <code>addInfoPersonDescriptor</code> to a new <code>Person</code> object facilitated by the method <code>AddInfoCommand#createEditedPerson</code>.</p>
 </div>
 <div class="paragraph">
-<p>Finally, the <code>Model#updatePerson</code> copies attribute of the new <code>Person</code> object created above to the <code>Person</code> to be edited.</p>
+<p>Finally, the <code>Model#updatePerson</code> "copies" attribute of the new <code>Person</code> object created above to the <code>Person</code> to be edited by calling the <code>VersionedAddressBook#updatePerson</code> which sets the new <code>Person</code> object to the <code>Person</code> to be edited using <code>UniquePersonList#SetPerson</code>.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the <code>addinfo</code> command works at each step.</p>
-</div>
-<div class="paragraph">
-<p>TODO: Add in class diagrams for each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. User executes <code>addinfo 5 ic/S1234567Z g/M d/01-01-1970</code> to modify the <code>Nric</code>, <code>Gender</code>, and <code>DateOfBirth</code> attributes of the 5th person in the <code>PersonCardList</code> view.</p>
@@ -379,8 +419,13 @@ If any of the arguments contain invalid data, the program will not process any d
 <p>Step 6. The <code>Person</code> will now have an updated additional information.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when an user executes a new command:
-&lt;diagram here&gt;</p>
+<p>The following sequence diagram summarizes what happens when an user executes a new command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddInfoCommandSD.png" alt="AddInfoCommandSD" width="1000">
+</div>
+<div class="title">Figure 1. Sequence Diagram for <code>addinfo</code> command.</div>
 </div>
 <div class="paragraph">
 <p>Unresolved directive in xhxh96.adoc - include::../DeveloperGUide.adoc[tag=dataencryption]</p>
@@ -501,4 +546,4 @@ If any of the arguments contain invalid data, the program will not process any d
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 19:24:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:09:52 UTC</div></div></div></body></html>
